@@ -13,7 +13,7 @@ Welcome to Introduction to Cryptography!
 
 Cryptographic primitives are applied almost everywhere on the network, for instance, encryption and authentication. In this course, we will start from the theoretic foundations that ensures our belief in cryptography, and then we will visit some essential protocols as well as recent advances in cryptography. A major theme of this course is "provable security, " that is, to define the desired security and then to rigorously prove the security is achieved. Hence, students are expected to be familiar with algorithms and mathematical proofs.
 
-Please send me an email if you have questions.
+Please send me an email if you have questions. $$f(x) = \alpha^2$$
 
 Classroom
 ---------
