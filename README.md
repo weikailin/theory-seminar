@@ -57,7 +57,7 @@ There may be additional rules for some homework questions.
 
 The final project is to read research papers in the area of cryptography, to write a 2-page summary, and then to present the topic in class. In addition to summary, you are encouraged to ask novel questions or to propose novel solutions.
 
-The project can be done individually or by a group of two. The two students in the group get the same grade, so find your partner wisely. Each group is required to submit the authors and the research topic in an 1-page proposal (20%) at mid-semester. The summary (40%) is due at the end of the semester, and the last two lectures will be the presentation (40%).
+The project can be done individually or by a group of two. Both students in the group get the same grade. Each group is required to submit the authors and the research topic in an 1-page proposal (20%) at mid-semester. The summary (40%) is due at the end of the semester, and the last two lectures will be the presentation (40%).
 
 See below for potential research topics.
 
