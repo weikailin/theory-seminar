@@ -73,3 +73,4 @@ compress_html:
   profile: false
 
 math: mathjax
+heading_anchors: false
