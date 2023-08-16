@@ -27,7 +27,7 @@ Instructor Contact Information
 
 **Name:** Wei-Kai Lin
 
-**Email:** see [https://engineering.virginia.edu/faculty/wei-kai-lin]
+**Email:** wklin-course (at virginia dot edu)
 
 Office Hours
 ------------
@@ -61,9 +61,18 @@ The project can be done individually or by a group of two. Both students in the 
 
 See below for potential research topics.
 
-### Academic Integrity
+### Honor System
 
-Everyone is required to follow the [Honor Codes of UVA](https://honor.virginia.edu/academic-fraud). Notice that using materials from generative AI (like ChatGPT) without citation is [plagiarism](https://honor.virginia.edu/plagiarism-supplement).
+The goal of this course is to define and prove security. Ideally, all your course works shall be based on the materials given in the classroom and references. You are encouraged to read other materials, but searching for ready-made solutions is discouraged because it hurts the goal. Similarly, please try not to ask for solution from people out of this class, and please try not to use generative AI.
+
+It is a violation if any of the following cases happens:
+ - You copied text directly (from any source).
+ - You used any material or discussion without acknowledgement or citation.
+ - You are unable to explain your work orally to me.
+
+Everyone is required to follow the [Honor Codes of UVA](https://honor.virginia.edu/academic-fraud) and avoid [plagiarism](https://honor.virginia.edu/plagiarism-supplement).
+
+Please also read [detailed policies](uva_support.md) on the use of AI, accommodations, and supports.
 
 Course Outline
 --------------

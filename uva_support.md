@@ -1,10 +1,17 @@
 ---
 layout: page
-title: Support and Honor Statements
+title: Detailed Policies Policies Policies Policies
 ---
+
+
+Policy on use of AI
+--------------------------------------------
+
+The ethical use of artificial intelligence (AI) technologies is strictly at the discretion of the course's professor and is otherwise prohibited without the professor's explicit written or verbal permission. AI tools may not be cited as authors, though the tools used must be fully disclosed as a source along with the capacity in which they were used. All outputs of artificial intelligence, both explicitly used and as inspiration in one's submission, must be properly cited to its appropriate source.
 
 Students with disabilities or learning needs
 --------------------------------------------
+
 It is my goal to create a learning experience that is as accessible as possible. If you anticipate any issues related to the format, materials, or requirements of this course, please meet with me outside of class so we can explore potential options. Students with disabilities may also wish to work with the Student Disability Access Center (SDAC) to discuss a range of options to removing barriers in this course, including official accommodations. For general questions please visit the [SDAC website](https://www.studenthealth.virginia.edu/SDAC). If you have already been approved for accommodations through SDAC, please send me your accommodation letter and meet with me so we can develop an implementation plan together.
 
 Religious accommodations
@@ -31,6 +38,11 @@ Support for your career development
 ------------------------
 
 Engaging in your career development is an important part of your student experience. For example, presenting at a research conference, attending an interview for a job or internship, or participating in an extern/shadowing experience are not only necessary steps on your path but are also invaluable lessons in and of themselves. I wish to encourage and support you in activities related to your career development. To that end, please notify me by email as far in advance as possible to arrange for appropriate accommodations.
+
+Illness and other absences
+------------------------
+
+If you are ill, you are encouraged to stay away from classes even on days when quizzes or exams are given. In this case, please email me for corresponding supports and accommondations.
 
 Student support team
 ------------------------
