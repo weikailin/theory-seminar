@@ -35,4 +35,4 @@ Engaging in your career development is an important part of your student experie
 Student support team
 ------------------------
 
-You have many resources available to you when you experience academic or personal stresses. In addition to your professor, the School of Engineering and Applied Science has staff members located in Thornton Hall who you can contact to help manage academic or personal challenges. Please do not wait until the end of the semester to ask for help! 
+You have many resources available to you when you experience academic or personal stresses. In addition to your professor, the School of Engineering and Applied Science has staff members located in Thornton Hall who you can [contact to help manage academic or personal challenges](https://engineering.virginia.edu/about/offices/office-graduate-programs/student-support-services). Please do not wait until the end of the semester to ask for help! 
