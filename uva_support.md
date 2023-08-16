@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Detailed Policies Policies Policies Policies
+title: Detailed Policies
 ---
 
 
