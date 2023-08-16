@@ -20,7 +20,9 @@ Classroom
 
 **Days and Times:** Monday/Wednesday 2:00-3:15 pm
 
-**Location:** Mechanical Engr Bldg 341
+**Location:** Mechanical Engr Bldg 341 (University of Virginia)
+
+![UVA Engineering](assets/images/uva-eng.png)
 
 Instructor Contact Information
 ------------------------------
