@@ -83,6 +83,6 @@ Course outline
 We will cover:
  - Essential primitives: OWF, PRG, PRF, encryption (SK, PK), authentication (MAC, sig)
  - Construction of the essentials (basic number theory and assumptions)
- - Modern crypto (cool stuff): ZKP, 2PC, MPC, FHE, my research
+ - Modern crypto (cool stuff): ZKP, 2PC, MPC, FHE, my research (ORAM, DEPIR, RAM-FHE)
 
 
