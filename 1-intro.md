@@ -5,6 +5,12 @@ nav_order: 1
 nav_exclude: true
 ---
 
+$$
+\newcommand{\Enc}{\mathsf{Enc}}
+\newcommand{\Dec}{\mathsf{Dec}}
+\newcommand{\Gen}{\mathsf{Gen}}
+$$
+
 Introduction
 ============
 
@@ -88,19 +94,13 @@ We will cover:
    - Construction of the essentials (basic number theory and assumptions)
  - Modern crypto (cool stuff): ZKP, 2PC, MPC, FHE, my research (ORAM, DEPIR, RAM-FHE)
 
-
-$$
-\newcommand{\Enc}{\mathsf{Enc}}
-\newcommand{\Dec}{\mathsf{Dec}}
-$$
-
-
 Classical cryptography: hidden writting
 --------------------------------------------
 Historically, human considered the scenario of *encryption* in communication.
  - Alice ~~~ $$m$$ ~~~> Bob
 Eavesdropper Eve, an adversary, may be listening on the channel. 
-Alice/Bob want to hide the message from Eve. They share two algorithms $$\Enc, \Dec$$ secretly and before the communication.
+
+Alice/Bob want to hide the message from Eve. To do so, they share two algorithms $$\Enc, \Dec$$ secretly and before the communication.
  - Alice ~~~ $$ct$$ ~~~>Bob
  - $$ct \gets \Enc(m)$$, ciphertext, where $$m$$ is the plaintext
  - Bob recovers plaintext by $$\Dec(ct)$$
@@ -111,7 +111,22 @@ Notice: it is important that which info is *public* (known to all A/B/E) and whi
 ### Kerchoff's priciple
 
 > The enemy knows the system.
->> Claude Shannon. Communication Theory of Secrecy Systems. 
+>
+> ~ Claude Shannon. Communication Theory of Secrecy Systems. The Bell System Technical Journal, 1949.
+
+Reason: the algorithms are eventually leaked to Eve. We shall be conservative.
+
+Consequence: let algos public, but keep a short secret key $k$.
+
+Generalize: sample key $$k \gets \Gen$$
+
+Note: $$(\Gen, \Enc, \Dec)$$ can not be all deterministic. What if only $$\Gen$$ is randomized?
+
+### Historical encryption
+Rotation, substitution, ...
+
+Modern cryptography: provable security
+--------------------------------------------
 
 
 
