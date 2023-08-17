@@ -121,7 +121,8 @@ A Course in Cryptography. Rafael Pass and abhi shelat.
 
 \[KL\]  
 Introduction to Modern Cryptography. Jonathan Katz and Yehuda Lindell.  
-[https://www.cs.umd.edu/~jkatz/imc.html](https://www.cs.umd.edu/~jkatz/imc.html) (online access in UVA library)
+[https://www.cs.umd.edu/~jkatz/imc.html](https://www.cs.umd.edu/~jkatz/imc.html).  
+[online access in UVA library](https://search.lib.virginia.edu/sources/uva_library/items/u10203454).
 
 \[Goldreich\]  
 The Foundations of Cryptography. Oded Goldreich.  

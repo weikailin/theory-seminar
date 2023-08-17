@@ -112,7 +112,7 @@ Notice: it is important that which info is *public* (known to all A/B/E) and whi
 
 > The enemy knows the system.
 >
-> ~ Claude Shannon. Communication Theory of Secrecy Systems. The Bell System Technical Journal, 1949.
+> ~ Claude Shannon. Communication Theory of Secrecy Systems. The Bell System Technical Journal, 1949. [https://ieeexplore.ieee.org/document/6769090]
 
 Reason: the algorithms are eventually leaked to Eve. We shall be conservative.
 
@@ -122,12 +122,39 @@ Generalize: sample key $$k \gets \Gen$$
 
 Note: $$(\Gen, \Enc, \Dec)$$ can not be all deterministic. What if only $$\Gen$$ is randomized?
 
-### Historical encryption
-Rotation, substitution, ...
+### Classical encryption
+Rotation, substitution, enigma, .... They are mostly broken now. DES? AES?
+
+[Breaking German Army Ciphers](https://cryptocellar.org/bgac/)
 
 Modern cryptography: provable security
 --------------------------------------------
+A principle driven *science* (instead of an art).
+Modern cryptography relies on the following paradigms:
 
+ - Providing mathematical definitions of security.
+ - Providing precise mathematical assumptions (e.g. “factoring is hard”, where hard is formally defined).
+ - Providing proofs of security, i.e., proving that, if some particular scheme can be broken, then it contradicts the assumption.
 
+Definition of secure encryption
+--------------------------------------------
+We want to accurately model the A-B communication.
 
+### Attempt 1
+> The adversary cannot learn (all or part of) the key from the ciphertext.
+
+It can leak the plaintext.
+
+### Attempt 2
+> The adversary cannot learn the plaintext from the ciphertext.
+
+Leaking some function of the plaintext can be fatal.
+
+### Attempt 3
+> The adversary cannot learn *any function of, or any part of* the plaintext from the ciphertext.
+
+The adversary may already learned something even not looking at ct.
+
+### Intuitive Definition
+> Given some a priori information, the adversary cannot learn any additional information about the plaintext by observing the ciphertext.
 
