@@ -84,7 +84,23 @@ Course outline
 --------------------------------------------
 We will cover:
  - Essential primitives: OWF, PRG, PRF, encryption (SK, PK), authentication (MAC, sig)
- - Construction of the essentials (basic number theory and assumptions)
+   - Are they different / related? Sure, they serve different purposes. How to study them systematically?
+   - Construction of the essentials (basic number theory and assumptions)
  - Modern crypto (cool stuff): ZKP, 2PC, MPC, FHE, my research (ORAM, DEPIR, RAM-FHE)
+
+Classical cryptography: hidden writting
+--------------------------------------------
+Historically, human considered the scenario of *encryption* in communication.
+ - Alice ~~~ $m$ ~~~> Bob
+Eavesdropper Eve, an adversary, may be listening on the channel. 
+$\newcommand{\Enc}{\mathsf{Enc}}$
+Alice/Bob want to hide the message from Eve. They share two algorithms $Enc, Dec$ secretly and before the communication.
+ - Alice ~~~ $ct$ ~~~>Bob
+ - $ct \gets Enc(m)$, ciphertext, where $m$ is the plaintext
+ - Bob recovers plaintext by $Dec(ct)$
+ - $y \gets A(x)$ denotes algo $A$ computes on input $x$ and gets output $y$.
+
+### Kerchoff's priciple
+
 
 
