@@ -88,21 +88,30 @@ We will cover:
    - Construction of the essentials (basic number theory and assumptions)
  - Modern crypto (cool stuff): ZKP, 2PC, MPC, FHE, my research (ORAM, DEPIR, RAM-FHE)
 
+
+$$
+\newcommand{\Enc}{\mathsf{Enc}}
+\newcommand{\Dec}{\mathsf{Dec}}
+$$
+
+
 Classical cryptography: hidden writting
 --------------------------------------------
 Historically, human considered the scenario of *encryption* in communication.
- - Alice ~~~ $m$ ~~~> Bob
+ - Alice ~~~ $$m$$ ~~~> Bob
 Eavesdropper Eve, an adversary, may be listening on the channel. 
-$\newcommand{\Enc}{\mathsf{Enc}}$
-Alice/Bob want to hide the message from Eve. They share two algorithms $Enc, Dec$ secretly and before the communication.
+Alice/Bob want to hide the message from Eve. They share two algorithms $$\Enc, \Dec$$ secretly and before the communication.
  - Alice ~~~ $$ct$$ ~~~>Bob
- - $ct \gets Enc(m)$, ciphertext, where $m$ is the plaintext
- - Bob recovers plaintext by $Dec(ct)$
- - $y \gets A(x)$ denotes algo $A$ computes on input $x$ and gets output $y$.
+ - $$ct \gets \Enc(m)$$, ciphertext, where $$m$$ is the plaintext
+ - Bob recovers plaintext by $$\Dec(ct)$$
+ - $$y \gets A(x)$$ denotes algo $$A$$ computes on input $$x$$ and gets output $$y$$.
 
-Notice: it is important that which info is *public* (known to all A/B/E) and which is *private*. What if Eve knows $\Enc$ or $\Dec$?
+Notice: it is important that which info is *public* (known to all A/B/E) and which is *private*. What if Eve knows $$\Enc$$ or $$\Dec$$?
 
 ### Kerchoff's priciple
+
+> The enemy knows the system.
+>> Claude Shannon. Communication Theory of Secrecy Systems. 
 
 
 
