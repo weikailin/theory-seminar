@@ -95,12 +95,15 @@ Historically, human considered the scenario of *encryption* in communication.
 Eavesdropper Eve, an adversary, may be listening on the channel. 
 $\newcommand{\Enc}{\mathsf{Enc}}$
 Alice/Bob want to hide the message from Eve. They share two algorithms $Enc, Dec$ secretly and before the communication.
- - Alice ~~~ $ct$ ~~~>Bob
+ - Alice ~~~ $$ct$$ ~~~>Bob
  - $ct \gets Enc(m)$, ciphertext, where $m$ is the plaintext
  - Bob recovers plaintext by $Dec(ct)$
  - $y \gets A(x)$ denotes algo $A$ computes on input $x$ and gets output $y$.
 
+Notice: it is important that which info is *public* (known to all A/B/E) and which is *private*. What if Eve knows $\Enc$ or $\Dec$?
+
 ### Kerchoff's priciple
+
 
 
 
