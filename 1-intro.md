@@ -290,9 +290,11 @@ Let $P := \{m : \Dec_k'(c) = m \text{ for any } k' \}$.
 We have $\card{P} \leg \card{\cK} \lt \card{\cM}$ as $\Dec$ is deterministic.
 So, there exists $m_2 \notin P$.
 Then, it follows that
+
 $$
 \Pr_k[\Enc_k(m_2) = c] = 0
 $$
+
 by correctness. However, we have $\Pr_k[\Enc_k(m) = c] \gt 0$, and it violates perfect secrecy.
 
 QED.
