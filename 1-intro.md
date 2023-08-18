@@ -274,7 +274,7 @@ One-Time Pad
 
 We need to prove correctness and privacy.
 
-QED
+QED.
 
 The cost of OTP is the long key $k$.
 
@@ -285,7 +285,16 @@ One-Time Pad is Optimal in Key Length
 > If scheme $(\cM, \cK, \Gen, \Enc, \Dec)$ is a perfectly secret private-key encryption scheme, then $\card{\cK} \geq \card{\cM}$.
 
 *Proof:*
-Let $c \gets \Enc_k(m)$ be a fixed ciphertext for some $k, m$.
+Let $c \gets \Enc_k(m)$ be a fixed ciphertext for some fixed $k, m$.
+Let $P := \{m : \Dec_k'(c) = m \text{ for any } k' \}$.
+We have $\card{P} \leg \card{\cK} \lt \card{\cM}$ as $\Dec$ is deterministic.
+So, there exists $m_2 \notin P$.
+Then, it follows that
+$$
+\Pr_k[\Enc_k(m_2) = c] = 0
+$$
+by correctness. However, we have $\Pr_k[\Enc_k(m) = c] \gt 0$, and it violates perfect secrecy.
 
+QED.
 
 
