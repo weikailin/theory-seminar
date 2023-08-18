@@ -180,7 +180,7 @@ We want to model the *information* as probability distributions.
 >
 > The private-key encryption scheme $$(\cM,\cK,\Gen,\Enc,\Dec)$$ is *Shannon-secret with respect to the distribution $$D$$* over $$\cM$$ 
 > if for all $$m' \in \cM$$ and for all $$c$$,  
-> $$\Pr[k \gets \Gen; m \gets D : \qquad\qquad m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m']$$.
+> $$\Pr[k \gets \Gen; m \gets D : \qquad m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m']$$.
 >
 > An encryption scheme is said to be *Shannon secret* if it is Shannon secret with respect to all distributions $$D$$ over $$\cM$$.
 
@@ -200,11 +200,15 @@ An alternative intuition is that the distribution of ciphertexts for any two mes
 
 
 
-
-
 TEST
 
 long math
 
 $$\Pr[k \gets \Gen; m \gets D : m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m']  \quad = \quad \Pr[m \gets D : m = m'] \quad = \quad \Pr[m \gets D : m = m']$$.
+
+display
+
+\[
+f(x) = \frac{1}{2}
+\]
 
