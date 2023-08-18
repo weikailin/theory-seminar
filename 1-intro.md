@@ -293,7 +293,7 @@ One-Time Pad is Optimal in Key Length
 *Proof:*
 Let $c \gets \Enc_k(m)$ be a fixed ciphertext for some fixed $k, m$.
 Let $P := \{m : \Dec_k'(c) = m \text{ for any } k' \}$.
-We have $\card{P} \leg \card{\cK} \lt \card{\cM}$ as $\Dec$ is deterministic.
+We have $\card{P} \leq \card{\cK} \lt \card{\cM}$ as $\Dec$ is deterministic.
 So, there exists $m_2 \notin P$.
 Then, it follows that
 
