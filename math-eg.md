@@ -27,7 +27,29 @@ quote display
 
 list display
 - it holds that
-
   $$
   \frac{1}{2}\cdot \sum_{i=0}^n x_i
   $$
+
+align
+
+$$
+\begin{align}
+3x-1 &= -10 \\
+  3x &= -9 \\
+   x &= -3
+\end{align}
+$$
+
+align*
+
+$$
+\begin{align*}
+3x-1 &= -10 \\
+  3x &= -9 \\
+\end{align*}
+$$
+
+unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
+
+ 
