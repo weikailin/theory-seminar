@@ -216,4 +216,8 @@ f(x) = \frac{1}{2}
 \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 ```
 
+$$
+\frac{1}{2}\cdot \sum_{i=0}^n x_i
+$$
+
 inline $f(x) = 0$
