@@ -5,13 +5,13 @@ nav_order: 1
 nav_exclude: true
 ---
 
-$$
+$
 \newcommand{\Enc}{\mathsf{Enc}}
 \newcommand{\Dec}{\mathsf{Dec}}
 \newcommand{\Gen}{\mathsf{Gen}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cK}{\mathcal{K}}
-$$
+$
 
 Introduction
 ============
@@ -99,16 +99,16 @@ We will cover:
 Classical cryptography: hidden writting
 --------------------------------------------
 Historically, human considered the scenario of *encryption* in communication.
- - Alice ~~~ $$m$$ ~~~> Bob
+ - Alice ~~~ $m$ ~~~> Bob
 Eavesdropper Eve, an adversary, may be listening on the channel. 
 
-Alice/Bob want to hide the message from Eve. To do so, they share two algorithms $$\Enc, \Dec$$ secretly and before the communication.
- - Alice ~~~ $$ct$$ ~~~>Bob
- - $$ct \gets \Enc(m)$$, ciphertext, where $$m$$ is the plaintext
- - Bob recovers plaintext by $$\Dec(ct)$$
- - $$y \gets A(x)$$ denotes algo $$A$$ computes on input $$x$$ and gets output $$y$$.
+Alice/Bob want to hide the message from Eve. To do so, they share two algorithms $\Enc, \Dec$ secretly and before the communication.
+ - Alice ~~~ $ct$ ~~~>Bob
+ - $ct \gets \Enc(m)$, ciphertext, where $m$ is the plaintext
+ - Bob recovers plaintext by $\Dec(ct)$
+ - $y \gets A(x)$ denotes algo $A$ computes on input $x$ and gets output $y$.
 
-Notice: it is important that which info is *public* (known to all A/B/E) and which is *private*. What if Eve knows $$\Enc$$ or $$\Dec$$?
+Notice: it is important that which info is *public* (known to all A/B/E) and which is *private*. What if Eve knows $\Enc$ or $\Dec$?
 
 ### Kerchoff's priciple
 
@@ -118,11 +118,11 @@ Notice: it is important that which info is *public* (known to all A/B/E) and whi
 
 Reason: the algorithms are eventually leaked to Eve. We shall be conservative.
 
-Consequence: let algos public, but keep a short secret key $$k$$.
+Consequence: let algos public, but keep a short secret key $k$.
 
-Generalize: sample key $$k \gets \Gen$$
+Generalize: sample key $k \gets \Gen$
 
-Note: $$(\Gen, \Enc, \Dec)$$ can not be all deterministic. What if only $$\Gen$$ is randomized?
+Note: $(\Gen, \Enc, \Dec)$ can not be all deterministic. What if only $\Gen$ is randomized?
 
 ### Classical encryption
 Rotation, substitution, enigma, .... They are mostly broken now. DES? AES?
@@ -162,37 +162,44 @@ The adversary may already learned something even not looking at ct.
 
 ### Formal definition
 
-Let $$\cK$$ be the space of keys, and let $$\cM$$ be the space of all messages.
+Let $\cK$ be the space of keys, and let $\cM$ be the space of all messages.
 We want to model the *information* as probability distributions.
 
 #### **Definition:** Shannon Secrecy.
-> $$(\Gen,\Enc,\Dec)$$ is said to be a *private-key encryption scheme* over the messages space $$\cM$$ and the keyspace $$\cK$$ 
+> $(\Gen,\Enc,\Dec)$ is said to be a *private-key encryption scheme* over the messages space $\cM$ and the keyspace $\cK$ 
 > if the following syntax holds.
 > 
-> 1. $$\Gen$$ is a randomized algorithm that returns a key $$k \in \cK$$. We denote by $$k \gets \Gen$$ the process of generating $$k$$.
-> 2. $$\Enc$$ is a potentially randomized algorithm that on input a key $$k\in\cK$$ and a message $$m \in \cM$$, outputs a ciphertext $$c$$.
->    We denote by $$c \gets \Enc_k(m)$$ the computation of $$\Enc$$ on $$k$$ and $$m$$.
-> 3. $$\Dec$$ is a deterministic algorithm that on input input a key $$k$$ and a ciphertext $$c$$ outputs a message $$m \in \cM$$.
->    We denote by $$m' \gets \Dec_k(c)$$ the computation of $$\Dec$$.
-> 4. (Correctness.) For all $$m \in \cM$$,  
->    $$\Pr[k \gets \Gen : \Dec_k(\Enc_k(m)) = m] = 1$$.  
->    (the probability is taken over the randomness of $$\Gen, \Enc$$.)
+> 1. $\Gen$ is a randomized algorithm that returns a key $k \in \cK$. We denote by $k \gets \Gen$ the process of generating $k$.
+> 2. $\Enc$ is a potentially randomized algorithm that on input a key $k\in\cK$ and a message $m \in \cM$, outputs a ciphertext $c$.
+>    We denote by $c \gets \Enc_k(m)$ the computation of $\Enc$ on $k$ and $m$.
+> 3. $\Dec$ is a deterministic algorithm that on input input a key $k$ and a ciphertext $c$ outputs a message $m \in \cM$.
+>    We denote by $m' \gets \Dec_k(c)$ the computation of $\Dec$.
+> 4. (Correctness.) For all $m \in \cM$,  
+>    $$
+>    \Pr[k \gets \Gen : \Dec_k(\Enc_k(m)) = m] = 1.
+>    $$  
+>    (the probability is taken over the randomness of $\Gen, \Enc$.)
 >
-> The private-key encryption scheme $$(\cM,\cK,\Gen,\Enc,\Dec)$$ is *Shannon-secret with respect to the distribution $$D$$* over $$\cM$$ 
-> if for all $$m' \in \cM$$ and for all $$c$$,  
-> $$\Pr[k \gets \Gen; m \gets D : \qquad m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m']$$.
+> The private-key encryption scheme $(\cM,\cK,\Gen,\Enc,\Dec)$ is *Shannon-secret with respect to the distribution $D$* over $\cM$ 
+> if for all $m' \in \cM$ and for all $c$, 
+> 
+> $$
+> \Pr[k \gets \Gen; m \gets D : \qquad m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m'].
+> $$
 >
-> An encryption scheme is said to be *Shannon secret* if it is Shannon secret with respect to all distributions $$D$$ over $$\cM$$.
+> An encryption scheme is said to be *Shannon secret* if it is Shannon secret with respect to all distributions $D$ over $\cM$.
 
-The RHS is the distribution of messages without $$c$$. The LHS is the distribution *conditioned on observing $$c$$*.
-Is the definition good if we skip the quantifier for "all distribution $$D$$"?
+The RHS is the distribution of messages without $c$. The LHS is the distribution *conditioned on observing $c$*.
+Is the definition good if we skip the quantifier for "all distribution $D$"?
 
 An alternative intuition is that the distribution of ciphertexts for any two messages are identical.
 
 #### **Definition:** Perfect Secrecy.
-> The private-key encryption scheme $$(\cM,\cK,\Gen,\Enc,\Dec)$$ is *perfectly secret* 
-> if for all $$m_1, m_2 \in \cM$$, and for all $$c$$,  
-> $$ \Pr[k \gets \Gen : \Enc_k(m_1) = c] \quad = \quad \Pr[k \gets \Gen : \Enc_k(m_2) = c].$$
+> The private-key encryption scheme $(\cM,\cK,\Gen,\Enc,\Dec)$ is *perfectly secret* 
+> if for all $m_1, m_2 \in \cM$, and for all $c$,  
+> $$
+> \Pr[k \gets \Gen : \Enc_k(m_1) = c] \quad = \quad \Pr[k \gets \Gen : \Enc_k(m_2) = c].
+> $$
 
 
 
@@ -200,24 +207,3 @@ An alternative intuition is that the distribution of ciphertexts for any two mes
 
 
 
-TEST
-
-long math
-
-$$\Pr[k \gets \Gen; m \gets D : m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m']  \quad = \quad \Pr[m \gets D : m = m'] \quad = \quad \Pr[m \gets D : m = m']$$.
-
-display
-
-\[
-f(x) = \frac{1}{2}
-\]
-
-```math
-\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-```
-
-$$
-\frac{1}{2}\cdot \sum_{i=0}^n x_i
-$$
-
-inline $f(x) = 0$
