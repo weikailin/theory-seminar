@@ -305,4 +305,5 @@ by correctness. However, we have $\Pr_k[\Enc_k(m) = c] \gt 0$, and it violates p
 
 QED.
 
+Notice that we can quantify the difference of probability (which yields a stronger theorem) by quantifying $\card{\cK}$.
 
