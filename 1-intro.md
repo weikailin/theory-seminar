@@ -174,10 +174,12 @@ We want to model the *information* as probability distributions.
 >    We denote by $c \gets \Enc_k(m)$ the computation of $\Enc$ on $k$ and $m$.
 > 3. $\Dec$ is a deterministic algorithm that on input input a key $k$ and a ciphertext $c$ outputs a message $m \in \cM$.
 >    We denote by $m' \gets \Dec_k(c)$ the computation of $\Dec$.
-> 4. (Correctness.) For all $m \in \cM$,  
+> 4. (Correctness.) For all $m \in \cM$,
+>
 >    $$
 >    \Pr[k \gets \Gen : \Dec_k(\Enc_k(m)) = m] = 1.
 >    $$  
+>
 >    (the probability is taken over the randomness of $\Gen, \Enc$.)
 >
 > The private-key encryption scheme $(\cM,\cK,\Gen,\Enc,\Dec)$ is *Shannon-secret with respect to the distribution $D$* over $\cM$ 
@@ -197,9 +199,54 @@ An alternative intuition is that the distribution of ciphertexts for any two mes
 #### **Definition:** Perfect Secrecy.
 > The private-key encryption scheme $(\cM,\cK,\Gen,\Enc,\Dec)$ is *perfectly secret* 
 > if for all $m_1, m_2 \in \cM$, and for all $c$,  
+>
 > $$
 > \Pr[k \gets \Gen : \Enc_k(m_1) = c] \quad = \quad \Pr[k \gets \Gen : \Enc_k(m_2) = c].
 > $$
+
+Note: this definition is simpler and easier to use.
+
+#### **Claim:**
+> Perfect secrecy implies Shannon secrecy.
+
+*Proof:*
+
+Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $m'$, we have
+
+$$
+\Pr_{k,m}[m = m' | \Enc_k(m) = c] = \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] / \Pr_{k,m}[\Enc_k(m) = c].
+$$
+
+Then, we condition on $m$:
+
+$$
+\begin{align*}
+& \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] \\
+= & \sum_{m'' \in \cM} \Pr_{m}[m = m''] \cdot \Pr_{k}[m'' = m' \cap \Enc_k(m'') = c] \\
+= & \Pr_{m}[m = m'] \cdot \Pr_{k}[m' = m' \cap \Enc_k(m') = c] \\
+= & \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] \\
+\end{align*}
+$$
+
+The second equality holds as $\Pr_{k}[m'' = m' \cap \Enc_k(m'') = c]=0$ for any $m'' \neq m'$.
+By perfect secrecy, we have $\Pr_{k}[\Enc_k(m') = c] = \Pr_{k}[\Enc_k(m'') = c]$ for any $m', m''$, and that implies
+
+$$
+\Pr_{k}[\Enc_k(m') = c] = \Pr_{k,m}[\Enc_k(m) = c].
+$$
+
+That givens Shannon secrecy:
+
+$$
+\begin{align*}
+& \Pr_{k,m}[m = m' | \Enc_k(m) = c] \\
+&  = \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] / \Pr_{k,m}[\Enc_k(m) = c] \\
+&  = \Pr_{m}[m = m'].
+\end{align*}
+$$
+
+
+
 
 
 
