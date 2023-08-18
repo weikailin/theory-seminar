@@ -165,7 +165,7 @@ The adversary may already learned something even not looking at ct.
 Let $$\cK$$ be the space of keys, and let $$\cM$$ be the space of all messages.
 We want to model the *information* as probability distributions.
 
-#### **Definition:** (Shannon secrecy)
+#### **Definition:** Shannon Secrecy.
 > $$(\Gen,\Enc,\Dec)$$ is said to be a *private-key encryption scheme* over the messages space $$\cM$$ and the keyspace $$\cK$$ 
 > if the following syntax holds.
 > 
@@ -180,11 +180,31 @@ We want to model the *information* as probability distributions.
 >
 > The private-key encryption scheme $$(\cM,\cK,\Gen,\Enc,\Dec)$$ is *Shannon-secret with respect to the distribution $$D$$* over $$\cM$$ 
 > if for all $$m' \in \cM$$ and for all $$c$$,  
-> $$\Pr[k \gets \Gen; m \gets D : m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m']$$.
+> $$\Pr[k \gets \Gen; m \gets D : \qquad\qquad m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m']$$.
 >
 > An encryption scheme is said to be *Shannon secret* if it is Shannon secret with respect to all distributions $$D$$ over $$\cM$$.
 
 The RHS is the distribution of messages without $$c$$. The LHS is the distribution *conditioned on observing $$c$$*.
+Is the definition good if we skip the quantifier for "all distribution $$D$$"?
 
-#### **Definition:** (Shannon secrecy)
+An alternative intuition is that the distribution of ciphertexts for any two messages are identical.
+
+#### **Definition:** Perfect Secrecy.
+> The private-key encryption scheme $$(\cM,\cK,\Gen,\Enc,\Dec)$$ is *perfectly secret* 
+> if for all $$m_1, m_2 \in \cM$$, and for all $$c$$,  
+> $$ \Pr[k \gets \Gen : \Enc_k(m_1) = c] \quad = \quad \Pr[k \gets \Gen : \Enc_k(m_2) = c].$$
+
+
+
+
+
+
+
+
+
+TEST
+
+long math
+
+$$\Pr[k \gets \Gen; m \gets D : m = m' \ | \  \Enc_k(m) = c] \quad = \quad \Pr[m \gets D : m = m']  \quad = \quad \Pr[m \gets D : m = m'] \quad = \quad \Pr[m \gets D : m = m']$$.
 
