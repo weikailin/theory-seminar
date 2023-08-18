@@ -9,6 +9,8 @@ $$
 \newcommand{\Enc}{\mathsf{Enc}}
 \newcommand{\Dec}{\mathsf{Dec}}
 \newcommand{\Gen}{\mathsf{Gen}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cK}{\mathcal{K}}
 $$
 
 Introduction
@@ -156,5 +158,30 @@ Leaking some function of the plaintext can be fatal.
 The adversary may already learned something even not looking at ct.
 
 ### Intuitive Definition
-> Given some a priori information, the adversary cannot learn any additional information about the plaintext by observing the ciphertext.
+> Given some *a priori* information, the adversary cannot learn any additional information about the plaintext by observing the ciphertext.
 
+### Formal definition
+
+Let $$\cK$$ be the space of keys, and let $$\cM$$ be the space of all messages.
+We want to model the *information* as probability distributions.
+
+> **Definition** (Shannon secrecy)
+>
+> $$(\Gen,\Enc,\Dec)$$ is said to be a *private-key encryption scheme* over the messages space $$\cM$$ and the keyspace $$\cK$$ 
+> if the following syntax holds.
+> 
+> 1. $$\Gen$$ is a randomized algorithm that returns a key $$k \in \cK$$. We denote by $$k \gets \Gen$$ the process of generating $$k$$.
+> 2. $$\Enc$$ is a potentially randomized algorithm that on input a key $$k\in\cK$$ and a message $$m \in \cM$$, outputs a ciphertext $$c$$.
+>    We denote by $$c \gets \Enc_k(m)$$ the computation of $$\Enc$$ on $$k$$ and $$m$$.
+> 3. $$\Dec$$ is a deterministic algorithm that on input input a key $$k$$ and a ciphertext $$c$$ outputs a message $$m \in \cM$$.
+>    We denote by $$m' \gets \Dec_k(c)$$ the computation of $$\Dec$$.
+> 4. (Correctness.) For all $$m \in \cM$$,  
+>    $$\Pr[k \gets \Gen : \Dec_k(\Enc_k(m)) = m] = 1$$.  
+>    (the probability is taken over the randomness of $$\Gen, \Enc$$.)
+>
+> The private-key encryption scheme $$(\cM,\cK,\Gen,\Enc,\Dec)$$ is *Shannon-secret with respect to the distribution $$D$$* over $$\cM$$ 
+> if for all $$m' \in \cM$$ and for all $$c$$,  
+> $$\Pr[k \gets \Gen; m \gets D : m = m' \| \Enc_k(m) = c] $$  
+> $$ ~~~ = \Pr[m \gets D : m = m']
+
+, and $$D$$ be the distribution of messages
