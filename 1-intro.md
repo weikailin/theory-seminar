@@ -222,7 +222,7 @@ Then, we condition on $m$:
 $$
 \begin{align*}
 & \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] \\
-= & \sum_{m'' \in \cM} \Pr_{m}[m = m''] \cdot \Pr_{k}[m'' = m' \cap \Enc_k(m'') = c] \\
+= & \sum_{m'' \in \cM} \Pr_{m}[m = m''] \cdot \Pr_{k,m}[m = m' \cap \Enc_k(m) = c | m = m''] \\
 = & \Pr_{m}[m = m'] \cdot \Pr_{k}[m' = m' \cap \Enc_k(m') = c] \\
 = & \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] \\
 \end{align*}
@@ -245,12 +245,42 @@ $$
 \end{align*}
 $$
 
+QED.
 
+#### **Claim:**
+> Shannon secrecy implies perfect secrecy.
 
+The proof is given in [Ps, Sec 1.3.2].
 
+One-Time Pad
+--------------------------------------------
 
+#### **Definition:** One-Time Pad.
+>The *One-Time Pad* encryption scheme is described by the following 5-tuple $(\cM, \cK, \Gen, \Enc, \Dec)$:
+>
+>- $\cM = \{0, 1\}^n$
+>- $\cK = \{0, 1\}^n$
+>- $\Gen$: $k := k_1 k_2 \dots k_n \gets \{0, 1\}^n$
+>- $\Enc_k(m_1m_2\dots m_n)$: $c_1 c_2 \dots c_n$ where $c_i = m_i \oplus k_i$
+>- $\Dec_k(c_1c_2\dots c_n)$: $m_1 m_2 \dots m_n$ where $m_i = c_i \oplus k_i$
+>
+> The $\oplus$ operator represents the binary XOR operation.
 
+#### **Theorem:** 
+>One-Time Pad is a perfectly secure private-key encryption scheme.
 
+*Proof:*
 
+We need to prove correctness and privacy.
+
+QED
+
+The cost of OTP is the long key $k$.
+
+One-Time Pad is Optimal in Key Length
+--------------------------------------------
+
+#### **Theorem:** (Shannon)
+> If scheme $(\cM, \cK, \Gen, \Enc, \Dec)$ is a perfectly secret private-key encryption scheme, then $|\cK| \geq |\cM|$.
 
 
