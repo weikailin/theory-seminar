@@ -97,6 +97,12 @@ We will cover:
    - Construction of the essentials (basic number theory and assumptions)
  - Modern crypto (cool stuff): ZKP, 2PC, MPC, FHE, my research (ORAM, DEPIR, RAM-FHE)
 
+Related but almost NOT cover:
+ - System security
+ - Blockchain
+ - (Really math) Number theory
+ - Quantum comp
+
 Classical cryptography: hidden writting
 --------------------------------------------
 Historically, human considered the scenario of *encryption* in communication.
