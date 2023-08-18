@@ -11,6 +11,7 @@ $
 \newcommand{\Gen}{\mathsf{Gen}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cK}{\mathcal{K}}
+\newcommand{\card}[1]{\vert{#1}\vert}
 $
 
 Introduction
@@ -281,6 +282,10 @@ One-Time Pad is Optimal in Key Length
 --------------------------------------------
 
 #### **Theorem:** (Shannon)
-> If scheme $(\cM, \cK, \Gen, \Enc, \Dec)$ is a perfectly secret private-key encryption scheme, then $|\cK| \geq |\cM|$.
+> If scheme $(\cM, \cK, \Gen, \Enc, \Dec)$ is a perfectly secret private-key encryption scheme, then $\card{\cK} \geq \card{\cM}$.
+
+*Proof:*
+Let $c \gets \Enc_k(m)$ be a fixed ciphertext for some $k, m$.
+
 
 
