@@ -173,7 +173,7 @@ The adversary may already learned something even not looking at ct.
 Let $\cK$ be the space of keys, and let $\cM$ be the space of all messages.
 We want to model the *information* as probability distributions.
 
-#### **Definition:** Shannon Secrecy.
+#### **Definition:** Private-key encryption.
 > $(\Gen,\Enc,\Dec)$ is said to be a *private-key encryption scheme* over the messages space $\cM$ and the keyspace $\cK$ 
 > if the following syntax holds.
 > 
@@ -190,6 +190,8 @@ We want to model the *information* as probability distributions.
 >
 >    (the probability is taken over the randomness of $\Gen, \Enc$.)
 >
+
+#### **Definition:** Shannon Secrecy.
 > The private-key encryption scheme $(\cM,\cK,\Gen,\Enc,\Dec)$ is *Shannon-secret with respect to the distribution $D$* over $\cM$ 
 > if for all $m' \in \cM$ and for all $c$, 
 > 
@@ -293,7 +295,7 @@ One-Time Pad is Optimal in Key Length
 
 *Proof:*
 Let $c \gets \Enc_k(m)$ be a fixed ciphertext for some fixed $k, m$.
-Let $P := \{m : \Dec_k'(c) = m \text{ for any } k' \}$.
+Let $P := \\{m : \Dec_k'(c) = m \text{ for any } k' \\}$.
 We have $\card{P} \leq \card{\cK} \lt \card{\cM}$ as $\Dec$ is deterministic.
 So, there exists $m_2 \notin P$.
 Then, it follows that
