@@ -49,6 +49,7 @@ Logistics
    Internalize your writeup. No direct copying. Must be explainable orally.
 
    See website for details.
+ - Survey (quiz) due on Aug 23
 
 A toy example: match-making
 --------------------------------------------
