@@ -260,7 +260,7 @@ QED.
 #### **Claim:**
 > Shannon secrecy implies perfect secrecy.
 
-The proof is given in [Ps, Sec 1.3.2].
+<!-- The proof is given in [Ps, Sec 1.3.2]. -->
 
 One-Time Pad
 --------------------------------------------
