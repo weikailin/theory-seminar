@@ -58,4 +58,7 @@ $$
 
 unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
 
+Note: table begins from a block so
+putting this on second line $| S |$ escapes.
+
 do we need to escape vertical pipes $| S |$?
