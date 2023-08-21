@@ -52,4 +52,4 @@ $$
 
 unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
 
- 
+unfortunately need to escape vertical pipes $| S |$ due to over sensitive table in kramdown.
