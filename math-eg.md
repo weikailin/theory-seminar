@@ -56,9 +56,12 @@ $$
 \end{align*}
 $$
 
-unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
-
-Note: table begins from a block so
-putting this on second line $| S |$ escapes.
+For "Kramdown" renderer:
 
 do we need to escape vertical pipes $| S |$?
+
+unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
+
+table begins from a block so
+putting this on second line $| S |$ escapes it.
+
