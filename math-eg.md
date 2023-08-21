@@ -6,6 +6,12 @@ nav_exclude: true
 
 Math tests
 
+$
+\newcommand{\Enc}{\mathsf{Enc}}
+\newcommand{\Dec}{\mathsf{Dec}}
+\newcommand{\Gen}{\mathsf{Gen}}
+$
+
 inline $f(x) = 0$
 
 Display
@@ -52,4 +58,4 @@ $$
 
 unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
 
-unfortunately need to escape vertical pipes $| S |$ due to over sensitive table in kramdown.
+do we need to escape vertical pipes $| S |$?
