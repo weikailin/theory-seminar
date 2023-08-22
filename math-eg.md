@@ -65,4 +65,4 @@ unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitiv
 table begins from a block so
 putting this on second line $| S |$ escapes it.
 
-[test pdf](../otherdocs/[SODA18]CacheOblivSort.pdf)
+[test pdf](../../otherdocs/[SODA18]CacheOblivSort.pdf)
