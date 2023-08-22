@@ -41,7 +41,7 @@ Administration
 
 We will use the [Canvas](https://canvas.its.virginia.edu) website to manage homework, exam, and grades. Please also use the discuss page on Canvas if you have course related questions.
 
-There will be 4 homeworks (16% each), 1 final project (20%), and 1 final exam (16%). There will be occasional in-class quizzes that give bonus points (10%).
+There will be 4 homeworks (16% each), 1 final project (20%), and 1 final exam (16%). There will be occasional in-class quizzes that give bonus points (10%). The final grade will follow the [CS Department guidelines](https://uvacsadvising.org/policies.html#cs-department-grading-guidelines).
 
 ### Homework Policy
 
