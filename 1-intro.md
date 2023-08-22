@@ -2,7 +2,7 @@
 layout: page
 title: Introduction
 nav_order: 1
-nav_exclude: true
+nav_exclude: false
 ---
 
 $
@@ -276,7 +276,7 @@ One-Time Pad
 >
 > The $\oplus$ operator represents the binary XOR operation.
 
-#### **Theorem:** 
+#### **Theorem:**
 >One-Time Pad is a perfectly secure private-key encryption scheme.
 
 *Proof:*
