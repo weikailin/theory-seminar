@@ -73,7 +73,7 @@ putting this on second line $| S |$ escapes it.
 [Link to section](1-intro.md#a-toy-example-match-making)
 
 
-#### **Definition:** Shannon Secrecy.
+#### **Definition:** Shannon Secrecy. {: .label}
 
 {: .defn}
 > The private-key encryption scheme $(\cM,\cK,\Gen,\Enc,\Dec)$ is ....
@@ -90,16 +90,6 @@ putting this on second line $| S |$ escapes it.
 {: .theorem}
 > Perfect secrecy implies Shannon secrecy.
 
-{: .proof-title}
-> Proof:
-> 
-> Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $m'$, we have
-> 
-> $$
-> \Pr_{k,m}[m = m' | \Enc_k(m) = c] = \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] / \Pr_{k,m}[\Enc_k(m) = c].
-> $$
-> 
-
 {: .proof}
 > Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $m'$, we have
 > 
@@ -107,3 +97,8 @@ putting this on second line $| S |$ escapes it.
 > \Pr_{k,m}[m = m' | \Enc_k(m) = c] = \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] / \Pr_{k,m}[\Enc_k(m) = c].
 > $$
 > 
+
+{: .proof-title}
+> Proof of Theorem:
+> 
+> (customized title)

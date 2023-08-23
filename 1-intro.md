@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction
+title: 1. Introduction
 nav_order: 1
 nav_exclude: false
 ---
