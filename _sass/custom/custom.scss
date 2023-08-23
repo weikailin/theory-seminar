@@ -71,6 +71,12 @@ summary {
     color: #49bf9d !important;
     text-decoration: none;
   }
+  a.anchor-heading{
+    border-bottom-color: transparent;
+  }
+  svg.anchor-heading{
+    color: #49bf9d !important;
+  }
 }
 a {
   transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -88,10 +94,3 @@ a:hover {
     color: #49bf9d;
   }
 }
-.site-button {
-  .icon {
-    color: #49bf9d;
-  }
-}
-
-$link-color: $blue-000;
