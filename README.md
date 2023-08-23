@@ -70,7 +70,7 @@ It is a violation if any of the following cases happens:
  - You used any material or discussion without acknowledgement or citation.
  - You are unable to explain your work orally to me.
 
-Everyone is required to follow the [Honor Codes of UVA](https://honor.virginia.edu/academic-fraud) and avoid [plagiarism](https://honor.virginia.edu/plagiarism-supplement).
+Everyone is required to follow the [Honor Codes of UVA](https://honor.virginia.edu/academic-fraud) and avoid [plagiarism](https://honor.virginia.edu/plagiarism-supplement). You are recommended to use a version control system, such as Overleaf or git, so that your thought process justifies the authenticity.
 
 Please also read [detailed policies](uva_support.md) on the use of AI, accommodations, and supports.
 

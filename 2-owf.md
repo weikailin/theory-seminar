@@ -1,7 +1,7 @@
 ---
 layout: page
 title: One-Way Functions
-nav_order: 1
+nav_order: 2
 nav_exclude: true
 ---
 

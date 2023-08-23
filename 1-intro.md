@@ -46,7 +46,7 @@ Logistics
    Eg, wrote your own, then google without edit. Good.
    Another eg, wrote your own, then google and edit. Shall cite or ack.
 
-   Internalize your writeup. No direct copying. Must be explainable orally.
+   Internalize your writeup. No direct copying. Must be explainable orally. Edit history (Overleaf) is recommended.
 
    See website for details.
  - Survey (quiz) due on Aug 23
