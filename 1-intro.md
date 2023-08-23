@@ -93,10 +93,10 @@ Unfortunately, these protocols do not compose when we want to compose gates.
 Course outline
 --------------------------------------------
 We will cover:
- - Essential primitives: OWF, PRG, PRF, encryption (SK, PK), authentication (MAC, sig)
+ - Essential primitives: one-way functions (OWF), pseudorandom generators (PRG), pseudorandom functions (PRF), encryption (symmetric key (SK), public key (PK)), authentication (message authentication codes (MAC), signatures)
    - Are they different / related? Sure, they serve different purposes. How to study them systematically?
    - Construction of the essentials (basic number theory and assumptions)
- - Modern crypto (cool stuff): ZKP, 2PC, MPC, FHE, my research (ORAM, DEPIR, RAM-FHE)
+ - Modern crypto (cool stuff): zero-knowledge proofs (ZKP), secure two-party computation (2PC), secure multiparty computation (MPC), fully homomorphic encryption (FHE), my research (oblivious RAM (ORAM), doubly efficient private information retrieval (DEPIR), RAM-FHE)
 
 Related but almost NOT cover:
  - System security
@@ -104,7 +104,7 @@ Related but almost NOT cover:
  - (Really math) Number theory
  - Quantum comp
 
-Classical cryptography: hidden writting
+Classical cryptography: hidden writing
 --------------------------------------------
 Historically, human considered the scenario of *encryption* in communication.
  - Alice ~~~ $m$ ~~~> Bob
@@ -118,7 +118,7 @@ Alice/Bob want to hide the message from Eve. To do so, they share two algorithms
 
 Notice: it is important that which info is *public* (known to all A/B/E) and which is *private*. What if Eve knows $\Enc$ or $\Dec$?
 
-### Kerchoff's priciple
+### Kerchoff's principle
 
 > The enemy knows the system.
 >
