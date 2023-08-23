@@ -173,7 +173,7 @@ The adversary may already learned something even not looking at ct.
 Let $\cK$ be the space of keys, and let $\cM$ be the space of all messages.
 We want to model the *information* as probability distributions.
 
-{: .theorem}
+{: .defn-title}
 > **Definition:** Private-key encryption.
 > 
 > $(\Gen,\Enc,\Dec)$ is said to be a *private-key encryption scheme* over the messages space $\cM$ and the keyspace $\cK$ 
@@ -218,9 +218,12 @@ An alternative intuition is that the distribution of ciphertexts for any two mes
 
 Note: this definition is simpler and easier to use.
 
-#### **Claim:**
+{: theorem-title}
+> **Claim:**
+> 
 > Perfect secrecy implies Shannon secrecy.
 
+{: proof}
 *Proof:*
 
 Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $m'$, we have
