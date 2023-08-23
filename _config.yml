@@ -84,4 +84,4 @@ callouts:
     color: blue
   proof:
     title: Proof
-    color: grey
+    color: grey-lt
