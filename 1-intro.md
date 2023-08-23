@@ -174,6 +174,7 @@ Let $\cK$ be the space of keys, and let $\cM$ be the space of all messages.
 We want to model the *information* as probability distributions.
 
 #### **Definition:** Private-key encryption.
+
 {: .defn}
 > $(\Gen,\Enc,\Dec)$ is said to be a *private-key encryption scheme* over the messages space $\cM$ and the keyspace $\cK$ 
 > if the following syntax holds.
