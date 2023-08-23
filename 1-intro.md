@@ -221,49 +221,47 @@ An alternative intuition is that the distribution of ciphertexts for any two mes
 
 Note: this definition is simpler and easier to use.
 
-{: .theorem-title}
-> **Claim:**
-> 
+#### **Claim:**
+
+{: .theorem}
 > Perfect secrecy implies Shannon secrecy.
 
-{: .proof}
-*Proof:*
-
-Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $m'$, we have
-
-$$
-\Pr_{k,m}[m = m' | \Enc_k(m) = c] = \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] / \Pr_{k,m}[\Enc_k(m) = c].
-$$
-
-Then, we condition on $m$:
-
-$$
-\begin{align*}
-& \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] \\
-= & \sum_{m'' \in \cM} \Pr_{m}[m = m''] \cdot \Pr_{k,m}[m = m' \cap \Enc_k(m) = c | m = m''] \\
-= & \Pr_{m}[m = m'] \cdot \Pr_{k}[m' = m' \cap \Enc_k(m') = c] \\
-= & \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] \\
-\end{align*}
-$$
-
-The second equality holds as $\Pr_{k}[m'' = m' \cap \Enc_k(m'') = c]=0$ for any $m'' \neq m'$.
-By perfect secrecy, we have $\Pr_{k}[\Enc_k(m') = c] = \Pr_{k}[\Enc_k(m'') = c]$ for any $m', m''$, and that implies
-
-$$
-\Pr_{k}[\Enc_k(m') = c] = \Pr_{k,m}[\Enc_k(m) = c].
-$$
-
-That givens Shannon secrecy:
-
-$$
-\begin{align*}
-& \Pr_{k,m}[m = m' | \Enc_k(m) = c] \\
-&  = \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] / \Pr_{k,m}[\Enc_k(m) = c] \\
-&  = \Pr_{m}[m = m'].
-\end{align*}
-$$
-
-QED.
+{: .proof-title}
+> Proof:
+> 
+> Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $m'$, we have
+> 
+> $$
+> \Pr_{k,m}[m = m' | \Enc_k(m) = c] = \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] / \Pr_{k,m}[\Enc_k(m) = c].
+> $$
+> 
+> Then, we condition on $m$:
+> 
+> $$
+> \begin{align*}
+> & \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] \\
+> = & \sum_{m'' \in \cM} \Pr_{m}[m = m''] \cdot \Pr_{k,m}[m = m' \cap \Enc_k(m) = c | m = m''] \\
+> = & \Pr_{m}[m = m'] \cdot \Pr_{k}[m' = m' \cap \Enc_k(m') = c] \\
+> = & \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] \\
+> \end{align*}
+> $$
+> 
+> The second equality holds as $\Pr_{k}[m'' = m' \cap \Enc_k(m'') = c]=0$ for any $m'' \neq m'$.
+> By perfect secrecy, we have $\Pr_{k}[\Enc_k(m') = c] = \Pr_{k}[\Enc_k(m'') = c]$ for any $m', m''$, and that implies
+> 
+> $$
+> \Pr_{k}[\Enc_k(m') = c] = \Pr_{k,m}[\Enc_k(m) = c].
+> $$
+> 
+> That givens Shannon secrecy:
+> 
+> $$
+> \begin{align*}
+> & \Pr_{k,m}[m = m' | \Enc_k(m) = c] \\
+> &  = \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] / \Pr_{k,m}[\Enc_k(m) = c] \\
+> &  = \Pr_{m}[m = m'].
+> \end{align*}
+> $$
 
 #### **Claim:**
 > Shannon secrecy implies perfect secrecy.
