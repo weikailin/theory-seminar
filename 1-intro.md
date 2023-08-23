@@ -173,7 +173,9 @@ The adversary may already learned something even not looking at ct.
 Let $\cK$ be the space of keys, and let $\cM$ be the space of all messages.
 We want to model the *information* as probability distributions.
 
-#### **Definition:** Private-key encryption.
+{: .theorem}
+> **Definition:** Private-key encryption.
+> 
 > $(\Gen,\Enc,\Dec)$ is said to be a *private-key encryption scheme* over the messages space $\cM$ and the keyspace $\cK$ 
 > if the following syntax holds.
 > 
