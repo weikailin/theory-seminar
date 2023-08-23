@@ -69,3 +69,5 @@ putting this on second line $| S |$ escapes it.
 
 **label-purple**{: .label .label-purple }
 **label-red**{: .label .label-red }
+
+[Link to section](1-intro.md#a-toy-example-match-making)
