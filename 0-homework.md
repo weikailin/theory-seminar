@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Homework
-nav_order: 0
+nav_order: -1
 nav_exclude: false
 ---
 
