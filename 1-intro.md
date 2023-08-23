@@ -173,9 +173,8 @@ The adversary may already learned something even not looking at ct.
 Let $\cK$ be the space of keys, and let $\cM$ be the space of all messages.
 We want to model the *information* as probability distributions.
 
-{: .defn-title}
-> **Definition:** Private-key encryption.
-> 
+#### **Definition:** Private-key encryption.
+{: .defn}
 > $(\Gen,\Enc,\Dec)$ is said to be a *private-key encryption scheme* over the messages space $\cM$ and the keyspace $\cK$ 
 > if the following syntax holds.
 > 
@@ -194,6 +193,7 @@ We want to model the *information* as probability distributions.
 >
 
 #### **Definition:** Shannon Secrecy.
+{: .defn}
 > The private-key encryption scheme $(\cM,\cK,\Gen,\Enc,\Dec)$ is *Shannon-secret with respect to the distribution $D$* over $\cM$ 
 > if for all $m' \in \cM$ and for all $c$, 
 > 
@@ -209,6 +209,7 @@ Is the definition good if we skip the quantifier for "all distribution $D$"?
 An alternative intuition is that the distribution of ciphertexts for any two messages are identical.
 
 #### **Definition:** Perfect Secrecy.
+{: .defn}
 > The private-key encryption scheme $(\cM,\cK,\Gen,\Enc,\Dec)$ is *perfectly secret* 
 > if for all $m_1, m_2 \in \cM$, and for all $c$,  
 >
