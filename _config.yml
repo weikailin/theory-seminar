@@ -80,11 +80,11 @@ math: mathjax
 heading_anchors: false
 callouts:
   defn:
-    # title: Definition
     color: green
+    # title: Definition
   theorem:
-    # title: Theorem
     color: blue
+    # title: Theorem
   proof:
-    # title: Proof
     color: grey-lt
+    # title: Proof
