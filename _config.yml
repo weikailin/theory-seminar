@@ -77,7 +77,7 @@ compress_html:
 
 # WK's customize
 math: mathjax
-heading_anchors: false
+heading_anchors: true
 callouts:
   defn:
     color: green
