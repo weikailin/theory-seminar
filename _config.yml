@@ -87,4 +87,4 @@ callouts:
     # title: Theorem
   proof:
     color: grey-dk
-    # title: Proof
+    title: 'Proof:'
