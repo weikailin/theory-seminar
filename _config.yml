@@ -79,6 +79,9 @@ compress_html:
 math: mathjax
 heading_anchors: false
 callouts:
+  defn:
+    title: Definition
+    color: green
   theorem:
     title: Theorem
     color: blue

@@ -218,12 +218,12 @@ An alternative intuition is that the distribution of ciphertexts for any two mes
 
 Note: this definition is simpler and easier to use.
 
-{: theorem-title}
+{: .theorem-title}
 > **Claim:**
 > 
 > Perfect secrecy implies Shannon secrecy.
 
-{: proof}
+{: .proof}
 *Proof:*
 
 Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $m'$, we have
