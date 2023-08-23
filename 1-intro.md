@@ -265,6 +265,8 @@ Note: this definition is simpler and easier to use.
 > $$
 
 #### **Claim:**
+
+{: .theorem}
 > Shannon secrecy implies perfect secrecy.
 
 <!-- The proof is given in [Ps, Sec 1.3.2]. -->
@@ -273,6 +275,8 @@ One-Time Pad
 --------------------------------------------
 
 #### **Definition:** One-Time Pad.
+
+{: .defn}
 >The *One-Time Pad* encryption scheme is described by the following 5-tuple $(\cM, \cK, \Gen, \Enc, \Dec)$:
 >
 >- $\cM = \{0, 1\}^n$
@@ -284,13 +288,15 @@ One-Time Pad
 > The $\oplus$ operator represents the binary XOR operation.
 
 #### **Theorem:**
+
+{: .theorem}
 >One-Time Pad is a perfectly secure private-key encryption scheme.
 
-*Proof:*
+{: .proof-title}
+> Proof:
+> 
+> We need to prove correctness and privacy.
 
-We need to prove correctness and privacy.
-
-QED.
 
 The cost of OTP is the long key $k$.
 
@@ -298,22 +304,24 @@ One-Time Pad is Optimal in Key Length
 --------------------------------------------
 
 #### **Theorem:** (Shannon)
+
+{: .theorem}
 > If scheme $(\cM, \cK, \Gen, \Enc, \Dec)$ is a perfectly secret private-key encryption scheme, then $\card{\cK} \geq \card{\cM}$.
 
-*Proof:*
-Let $c \gets \Enc_k(m)$ be a fixed ciphertext for some fixed $k, m$.
-Let $P := \\{m : \Dec_k'(c) = m \text{ for any } k' \\}$.
-We have $\card{P} \leq \card{\cK} \lt \card{\cM}$ as $\Dec$ is deterministic.
-So, there exists $m_2 \notin P$.
-Then, it follows that
-
-$$
-\Pr_k[\Enc_k(m_2) = c] = 0
-$$
-
-by correctness. However, we have $\Pr_k[\Enc_k(m) = c] \gt 0$, and it violates perfect secrecy.
-
-QED.
+{: .proof-title}
+> Proof:
+> 
+> Let $c \gets \Enc_k(m)$ be a fixed ciphertext for some fixed $k, m$.
+> Let $P := \\{m : \Dec_k'(c) = m \text{ for any } k' \\}$.
+> We have $\card{P} \leq \card{\cK} \lt \card{\cM}$ as $\Dec$ is deterministic.
+> So, there exists $m_2 \notin P$.
+> Then, it follows that
+> 
+> $$
+> \Pr_k[\Enc_k(m_2) = c] = 0
+> $$
+> 
+> by correctness. However, we have $\Pr_k[\Enc_k(m) = c] \gt 0$, and it violates perfect secrecy.
 
 Notice that we can quantify the difference of probability (which yields a stronger theorem) by quantifying $\card{\cK}$.
 
