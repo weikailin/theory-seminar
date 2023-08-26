@@ -27,6 +27,7 @@ Motivation:
 Given the impossibility of efficient but perfectly secure encryption, we want to relax our security definition.
 Intuitively, we want to
 
+{:start=0}
 0. encrypt long plaintext many times using a single short key, and
 1. perform "fast" encryption and decryption given the legitimate key, and
 2. ensure that the recovering of plaintext is "hard" without the key.
@@ -146,10 +147,10 @@ Randomize $x$:
 
 #### **Attempt:**
 
-> 2. Hard to Invert. For any nuPPT adversary $\cA$, for all $n\in\N$, and $x \in \bit^n$, 
+> 2\. Hard to Invert. For any nuPPT adversary $\cA$, for all $n\in\N$, and $x \in \bit^n$, 
 > 
 >    $$
->    \Pr[x \gets \bit^n; y \gets f(x) : \cA(1^n, y) \in f^{-1}( y)] \leq 2^{-n}.
+>    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) \in y] \leq 2^{-n}.
 >    $$
 
 Still too strong: $\cA$ can take poly time to slash some of the possible $x$.
@@ -161,7 +162,7 @@ We formalize "very small" as follows.
 
 {: .defn}
 > Func $\eps(n)$ is *negligible* if for every $c$, there exists some $n_0$ s.t.
-> $\forall n > n_0, \eps(n) \le 1/n^c$.
+-> $\forall n > n_0, \eps(n) \le 1/n^c$.
 
 Note: $\eps$ is smaller than any inverse poly for sufficiently large $n$.
 
@@ -174,12 +175,27 @@ Note: $\eps$ is smaller than any inverse poly for sufficiently large $n$.
 >    that for any $n\in\N$,
 > 
 >    $$
->    \Pr[x \gets \bit^n; y \gets f(x) : \cA(1^n, y) \in f^{-1}( y)] \leq \eps(n).
+>    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) \in y] \leq \eps(n).
 >    $$
 
-Note: each $\cA$ has an $\eps$. The definition is asymptotic.
+Note: each $\cA$ has a different $\eps$. The definition is asymptotic.
 
+The above definition is standard in literature, but it is still hard to construct:
+any adversary can only invert a tiny fraction.
+Many natural candidates, such as factoring, does not meet this.
+We relax it:
 
+#### **Definition:** Weakl One-Way Function
+
+{: .defn}
+> (... same as strong OWF.)
+> 
+> 2\. Hard to Invert. There exists a polynomial $q: \N \to \N$ such that for any nuPPT adversary $\cA$, 
+>    for sufficiently large $n\in \N$,
+> 
+>    $$
+>    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) \in y] \leq 1 - q(n).
+>    $$
 
 
 Attempt: worst-case OWF
