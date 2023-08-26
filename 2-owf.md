@@ -13,6 +13,7 @@ $
 \newcommand{\cK}{\mathcal{K}}
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\eps}{\epsilon}
 \newcommand{\card}[1]{\vert{#1}\vert}
 \newcommand{\set}[1]{\\{#1\\}}
 \newcommand{\bit}{\set{0,1}}
@@ -30,11 +31,16 @@ Intuitively, we want to
 1. perform "fast" encryption and decryption given the legitimate key, and
 2. ensure that the recovering of plaintext is "hard" without the key.
 
-One-time pads achieves 1 and 2 but not 0.
+One-time pads achieves 1 and 2 but not 0. However, OTP achieves 2 only bcs 0, the key space is large.
+Since we want 0, the key space is relatively small, and thus we better have $\Enc$ s.t 
+for any legitimate $c$ it is hard to find any $k,m$ that $\Enc_k(m) = c$.
+(Otherwise, the "impossibility attack" could work.)
+
 This suggests that we require functions that are 
 
 > "easy" to compute but "hard" to invert.
 
+That is called "one-wayness" in this lecture.
 We next define easy and hard computation in terms of efficiency and probability.
 
 Efficient Computation and Efficient Adversaries
@@ -86,10 +92,10 @@ As an example, we define efficient and correct encryption.
 
 {: .defn}
 > $(\Gen, \Enc, \Dec)$ is called an *efficient private-key encryption scheme* if:
-> 1. $k \gets \Gen(1^n)$ is PPT s.t.\ for every $n \in \N$, it samples $k$.
-> 2. $c \gets \Enc_k(m)$ is PPT s.t.\ $k, m \in \bit^n$, outputs $c$.
-> 3. $m \gets \Dec_k(c)$ is PPT s.t.\ $c, k$, outputs $m \in \bit^n \cup\bot$.
-> 4. For all $n \in \N$, $m \in \bit^n$,
+> 1. $k \gets \Gen(1^n)$ is PPT s.t. for every $n \in \N$, it samples $k$.
+> 2. $c \gets \Enc_k(m)$ is PPT s.t. $k, m \in \bit^n$, outputs $c$.
+> 3. $m \gets \Dec_k(c)$ is PPT s.t. $c, k$, outputs $m \in \bit^n \cup\bot$.
+> 4. Correctness: $\forall n \in \N$, $m \in \bit^n$,
 > 
 > $$
 > \Pr [k \gets Gen(1^n) : \Dec_k(\Enc_k(m)) = m]] = 1.
@@ -109,12 +115,69 @@ Next we want to model adversaries with a stronger capability than honest.
 > A *non-uniform* PPT machine (abbreviated nuPPT) $\cA$ is a sequence
 > of algos $\cA = \set{\cA_1, \cA_2, \dots}$ s.t.:
 > - $\cA_i$ computes on inputs of length $i$, and
-> - exists a polynomial $d$ s.t.\ the description size $|A_i| \lt d(i)$ 
+> - exists a polynomial $d$ s.t. the description size $|A_i| \lt d(i)$ 
 >   and the time $\cA_i$ is also less than $d(i)$. 
 > We write $\cA(x)$ to denote the computation $\cA_{|x|}(x)$.
 > 
 > Alternatively, an nuPPT algo can be defined as a *uniform* PPT $\cA$ that
 > takes an additional *advice* string for each input length $i$.
+
+Purpose: non-uniform gives adv extra power and models many real scenario, 
+e.g., Eve may have a list of known (plain, cipher) pairs.
+
+Definition of One-Way Functions
+------------------
+
+We try to define OWF using efficient computation and efficient adversary. 
+
+#### **Attempt:**
+> A function $f : \bits \to \bits$ is one-way if both of the following hold:
+> 1. Easy to compute. There is a PPT $C$ that computes $f (x)$ on all inputs $x \in \bits$.
+> 2. Hard to Invert. For all nuPPT adversary $\cA$, for all $n\in\N$ and $x \in \bit^n$, 
+> 
+>    $$
+>    \Pr[\cA(1^n, f (x)) \in f^{-1}( f (x))] \leq 2^{-n}.
+>    $$
+
+Impossible: too strong, $\cA$ is nu and could have many $(x, f(x))$ pairs. 
+Note: $\cA$ takes $1^n$ as the security parameter in case $|f(x)| \ll n$.
+
+Randomize $x$:
+
+#### **Attempt:**
+> 2. Hard to Invert. For any nuPPT adversary $\cA$, for all $n\in\N$, and $x \in \bit^n$, 
+> 
+>    $$
+>    \Pr[x \gets \bit^n; y \gets f(x) : \cA(1^n, y) \in f^{-1}( y)] \leq 2^{-n}.
+>    $$
+
+Still too strong: $\cA$ can take poly time to slash some of the possible $x$.
+
+We may relax by $poly(n) / 2^n$ or $2^{-0.1 n}$ on the RHS, but they still too strong to find a candidate.
+We formalize "very small" as follows.
+
+#### **Definition:** Negligible Function
+
+{: .defn}
+> Func $\eps(n)$ is *negligible* if for every $c$, there exists some $n_0$ s.t.
+> $\forall n > n_0, \eps(n) \le 1/n^c$.
+
+Note: $\eps$ is smaller than any inverse poly for sufficiently large $n$.
+
+#### **Definition:** (Strong) One-Way Function
+
+{: .defn}
+> A function $f : \bits \to \bits$ is one-way if both of the following hold:
+> 1. Easy to compute. There is a PPT $C$ that computes $f (x)$ on all inputs $x \in \bits$.
+> 2. Hard to Invert. For any nuPPT adversary $\cA$, there exists a negligible function $\eps$ 
+>    that for any $n\in\N$,
+> 
+>    $$
+>    \Pr[x \gets \bit^n; y \gets f(x) : \cA(1^n, y) \in f^{-1}( y)] \leq \eps(n).
+>    $$
+
+Note: each $\cA$ has an $\eps$.
+
 
 
 
