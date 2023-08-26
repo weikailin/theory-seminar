@@ -12,6 +12,7 @@ $
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cK}{\mathcal{K}}
 \newcommand{\cA}{\mathcal{K}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\card}[1]{\vert{#1}\vert}
 $
 
@@ -68,6 +69,7 @@ As discussed in perfect secrecy, we need randomized algo to construct encryption
 
 #### **Definition:** Randomized (or Probabilistic) Algorithm
 
+{: .defn}
 > A *randomized* algorithm $\cA$, also called a probabilistic polynomial-time Turing Machine
 > and abbreviated as PPT, is a deterministic algorithm equipped with an extra random tape. 
 > Each bit of the random tape is uniformly and independently chosen.
@@ -75,11 +77,26 @@ As discussed in perfect secrecy, we need randomized algo to construct encryption
 > We denote the computation by $y \gets \cA(x ; r)$ but sometimes omit $r$.
 > Note that the running-time is bounded by a poly for all $(x,r)$.
 
+As an example, we define efficient and correct encryption.
 
+#### **Definition:** Efficient Private-key Encryption.
 
+{: .defn}
+> $(\Gen, \Enc, \Dec)$ is called an *efficient private-key encryption scheme* if:
+> 1. $k \gets \Gen(1^n)$ is PPT s.t.\ for every $n \in \N$, it samples $k$.
+> 2. $c \gets \Enc_k(m)$ is PPT s.t.\ $k, m \in {0, 1}^n$, outputs $c$.
+> 3. $m \gets \Dec_k(c)$ is PPT s.t.\ $c, k$, outputs $m \in {0, 1}^n \cup\bot$.
+> 4. For all $n \in \N$, $m \in {0, 1}^n$,
+> 
+> $$
+> \Pr [k \gets Gen(1^n) : \Dec_k(\Enc_k(m)) = m]] = 1.
+> $$
 
+Note: the notation $1^n$ means the string of $n$ copies 1's, it is called the *security parameter*.
+The purpose is to instantiate the "security" of the scheme, e.g., $n$-bit key.
+We write unary $1^n$ (but not $n$ as binary) because "poly-time" is defined by the input length.
 
-We want to model adversaries with a stronger capability than honest.
+Next we want to model adversaries with a stronger capability than honest.
 
 
 
