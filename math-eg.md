@@ -65,6 +65,8 @@ unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitiv
 table begins from a block so
 putting this on second line $| S |$ escapes it.
 
+unfortunately need to escape curly braces $\\{0,1\\}$ due to markdown escapes.
+
 [test pdf](../../otherdocs/[SODA18]CacheOblivSort.pdf)
 
 **label-purple**{: .label .label-purple }

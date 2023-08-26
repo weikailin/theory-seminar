@@ -229,7 +229,7 @@ It is not strong OWF.
 
 Define $\pi(x)$ as the number of primes $\le x$.
 
-#### **Theorem:** (Chebyshev, 1848)
+#### **Theorem:** (Chebychev, 1848)
 
 {: .theorem}
 > For all $x>1$, $\pi(x) \gt \frac{x}{2 \log x}$.
@@ -241,8 +241,38 @@ The above $\log$ is base 2 since 2 is the smallest prime.
 
 {: .theorem}
 > If the factoring assumption is true, then $f_\mul$ is a weak OWF.
- 
-OWF and factoring assumption, PNT
+
+{: .proof} 
+> $f_\mul$ is easy to compute. Hard to invert?
+> 
+> Assume for contradiction (AC), for all poly $q$, exists nuPPT $A$, s.t. for infinitely many $n\in \N$,
+> 
+> $$
+> \Pr[(x,y)\gets \bit^n; z = xy : A(1^{2n}, z) \in \set{x,y}] \gt 1- 1/q(n).
+> $$
+> 
+> Note: the negation of weak OWF.
+> 
+> Then, we construct an adversary $B$ breaking factoring.
+> 
+> {: .defn-title}
+>> Algorithm $B(z)$:
+>> 
+>> 1. Sample $(x,y) \gets \bit^n$
+>> 2. If both $x,y$ prime, let $z' \gets z$; otherwise, let $z' \gets f_\mul{x,y}$.
+>> 3. Run $x' \gets A(1^{2n}, z')$
+>> 4. Output $x'$ if both $x,y$ are prime.
+> 
+> We intentionally make the input to $A$ uniform in $\bit^{2n}$.
+> 
+> By Chebychev, both $x,y$ prime w.p. $\gt 1/ (2 \log 2^n)^{2} = 1/(4n^2)$.
+> Hence, $B$ fails to pass $z$ to $A$ w.p. at most $1 - 1/(4n^2)$.
+> 
+> By eq (AC), $A$ fails to invert $z'$ w.p. at most $1/q(n)$. Choose $q(n) = 1/8n^2$ and $A$ correspondingly.
+> 
+> By union bound, the failure probability of $B$ is at most $1 - 1/(4n^2)+1/8n^2$, 
+> and thus $B$ breaks factoring w.p. at least $1/8n^2$, greater than negl, contradicting Factoring Assumption.
+
 
 Weak OWF?
 

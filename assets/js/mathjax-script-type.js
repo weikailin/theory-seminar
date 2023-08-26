@@ -16,8 +16,10 @@ MathJax = {
     }
   },
 //---- WK's customize
+  loader: {load: ['[tex]/cases']},
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    packages: {'[+]': ['cases']},
   },
 //----
 };
