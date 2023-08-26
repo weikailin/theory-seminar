@@ -145,6 +145,7 @@ Note: $\cA$ takes $1^n$ as the security parameter in case $|f(x)| \ll n$.
 Randomize $x$:
 
 #### **Attempt:**
+
 > 2. Hard to Invert. For any nuPPT adversary $\cA$, for all $n\in\N$, and $x \in \bit^n$, 
 > 
 >    $$
@@ -167,7 +168,7 @@ Note: $\eps$ is smaller than any inverse poly for sufficiently large $n$.
 #### **Definition:** (Strong) One-Way Function
 
 {: .defn}
-> A function $f : \bits \to \bits$ is one-way if both of the following hold:
+> A function $f : \bits \to \bits$ is *one-way* if both of the following hold:
 > 1. Easy to compute. There is a PPT $C$ that computes $f (x)$ on all inputs $x \in \bits$.
 > 2. Hard to Invert. For any nuPPT adversary $\cA$, there exists a negligible function $\eps$ 
 >    that for any $n\in\N$,
@@ -176,7 +177,7 @@ Note: $\eps$ is smaller than any inverse poly for sufficiently large $n$.
 >    \Pr[x \gets \bit^n; y \gets f(x) : \cA(1^n, y) \in f^{-1}( y)] \leq \eps(n).
 >    $$
 
-Note: each $\cA$ has an $\eps$.
+Note: each $\cA$ has an $\eps$. The definition is asymptotic.
 
 
 
