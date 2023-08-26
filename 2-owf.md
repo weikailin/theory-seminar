@@ -11,9 +11,11 @@ $
 \newcommand{\Gen}{\mathsf{Gen}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cK}{\mathcal{K}}
-\newcommand{\cA}{\mathcal{K}}
+\newcommand{\cA}{\mathcal{A}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\card}[1]{\vert{#1}\vert}
+\newcommand{\set}[1]{\\{#1\\}}
+\newcommand{\bit}{\set{0,1}}
 $
 
 One-Way Functions
@@ -42,14 +44,14 @@ We want to provide "efficient computation" to the honest users.
 #### **Definition:** Deterministic Algorithm
 
 {: .defn}
-> An algo $\cA$ is a deterministic Turing Machine with input and output as bit strings ($\{0,1\}^*$).
+> An algo $\cA$ is a deterministic Turing Machine with input and output as bit strings ($\bit^*$).
 
 Note: TM is by definition *uniform*, that is, its description size is constant for all unbounded long inputs.
 
 #### **Definition:** Polynomial Running-Time
 
 {: .defn}
-> $\cA$ runs in time $T(n)$ if $\forall x \in \{0, 1\}^*$, 
+> $\cA$ runs in time $T(n)$ if $\forall x \in \bit^*$, 
 > $\cA(x)$ halts within $T(|x|)$ steps. 
 > $\cA$ runs in *polynomial time* if there exists a constant $c$ such that $\cA$ runs
 > in time $T(n) = n^c$.
@@ -84,9 +86,9 @@ As an example, we define efficient and correct encryption.
 {: .defn}
 > $(\Gen, \Enc, \Dec)$ is called an *efficient private-key encryption scheme* if:
 > 1. $k \gets \Gen(1^n)$ is PPT s.t.\ for every $n \in \N$, it samples $k$.
-> 2. $c \gets \Enc_k(m)$ is PPT s.t.\ $k, m \in {0, 1}^n$, outputs $c$.
-> 3. $m \gets \Dec_k(c)$ is PPT s.t.\ $c, k$, outputs $m \in {0, 1}^n \cup\bot$.
-> 4. For all $n \in \N$, $m \in {0, 1}^n$,
+> 2. $c \gets \Enc_k(m)$ is PPT s.t.\ $k, m \in \bit^n$, outputs $c$.
+> 3. $m \gets \Dec_k(c)$ is PPT s.t.\ $c, k$, outputs $m \in \bit^n \cup\bot$.
+> 4. For all $n \in \N$, $m \in \bit^n$,
 > 
 > $$
 > \Pr [k \gets Gen(1^n) : \Dec_k(\Enc_k(m)) = m]] = 1.
