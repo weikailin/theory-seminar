@@ -16,6 +16,7 @@ $
 \newcommand{\card}[1]{\vert{#1}\vert}
 \newcommand{\set}[1]{\\{#1\\}}
 \newcommand{\bit}{\set{0,1}}
+\newcommand{\bits}{\bit^\*}
 $
 
 One-Way Functions
@@ -44,14 +45,14 @@ We want to provide "efficient computation" to the honest users.
 #### **Definition:** Deterministic Algorithm
 
 {: .defn}
-> An algo $\cA$ is a deterministic Turing Machine with input and output as bit strings ($\bit^*$).
+> An algo $\cA$ is a deterministic Turing Machine with input and output as bit strings, $\bit^*$.
 
 Note: TM is by definition *uniform*, that is, its description size is constant for all unbounded long inputs.
 
 #### **Definition:** Polynomial Running-Time
 
 {: .defn}
-> $\cA$ runs in time $T(n)$ if $\forall x \in \bit^*$, 
+> $\cA$ runs in time $T(n)$ if $\forall x \in \bits$, 
 > $\cA(x)$ halts within $T(|x|)$ steps. 
 > $\cA$ runs in *polynomial time* if there exists a constant $c$ such that $\cA$ runs
 > in time $T(n) = n^c$.
@@ -98,11 +99,24 @@ Note: the notation $1^n$ means the string of $n$ copies 1's, it is called the *s
 The purpose is to instantiate the "security" of the scheme, e.g., $n$-bit key.
 We write unary $1^n$ (but not $n$ as binary) because "poly-time" is defined by the input length.
 
+### Adversaries: Non-Uniform
+
 Next we want to model adversaries with a stronger capability than honest.
 
+#### **Definition:** Non-Uniform PPT
+
+{: .defn}
+> A *non-uniform* PPT machine (abbreviated nuPPT) $\cA$ is a sequence
+> of algos $\cA = \set{\cA_1, \cA_2, \dots}$ s.t.:
+> - $\cA_i$ computes on inputs of length $i$, and
+> - exists a polynomial $d$ s.t.\ the description size $|A_i| \lt d(i)$ 
+>   and the time $\cA_i$ is also less than $d(i)$. 
+> We write $\cA(x)$ to denote the computation $\cA_{|x|}(x)$.
+> 
+> Alternatively, an nuPPT algo can be defined as a *uniform* PPT $\cA$ that
+> takes an additional *advice* string for each input length $i$.
 
 
-Randomized algo, running time, easy is poly-time, adversary is non-uniform ppt
 
 Attempt: worst-case OWF
 
