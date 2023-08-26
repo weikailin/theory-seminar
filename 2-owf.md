@@ -18,6 +18,7 @@ $
 \newcommand{\set}[1]{\\{#1\\}}
 \newcommand{\bit}{\set{0,1}}
 \newcommand{\bits}{\bit^\*}
+\newcommand{\mul}{\mathrm{mul}}
 $
 
 One-Way Functions
@@ -185,10 +186,10 @@ any adversary can only invert a tiny fraction.
 Many natural candidates, such as factoring, does not meet this.
 We relax it:
 
-#### **Definition:** Weakl One-Way Function
+#### **Definition:** Weak One-Way Function
 
 {: .defn}
-> (... same as strong OWF.)
+> A function $f : \bits \to \bits$ is *weakly one-way* if (... same as strong OWF.)
 > 
 > 2\. Hard to Invert. There exists a polynomial $q: \N \to \N$ such that for any nuPPT adversary $\cA$, 
 >    for sufficiently large $n\in \N$,
@@ -198,8 +199,49 @@ We relax it:
 >    $$
 
 
-Attempt: worst-case OWF
+Primes and Factoring
+--------------------
 
+Define $f_\mul: \N^2 \to \N$ by
+
+$$
+f_\mul(x,y) = \begin{cases}
+1  & \text{if } x = 1 \text{ or } y = 1 \text{( to eliminate trivial inversion)\\
+x \cdot y & o.w.
+\end{cases}
+$$
+
+Easy to compute. For many $(x,y)$ are "easy" to invert: w.p. at least 3/4 when $xy$ even.
+It is not strong OWF.
+
+#### **Assumption:** Factoring
+
+{: .defn}
+> For any adv $\cA$, there exists a negligible function $\eps$ s.t.
+> 
+> $$
+> \Pr[(p,q) \gets \Pi_n^2; N \gets pq : \cA(N) \in \set{p,q}] \lt \eps(n),
+> $$
+> 
+> where $\Pi_n := \set{p \lt 2^n : p \text{ prime}}$ is the set of primes less than $2^n$.
+
+### The Prime Number Theorem
+
+Define $\pi(x)$ as the number of primes $\le x$.
+
+#### **Theorem:** (Chebyshev, 1848)
+
+{: .theorem}
+> For all $x>1$, $\pi(x) \gt \frac{x}{2 \log x}$.
+
+Note: the above is easier to prove, but the famous *Prime Number Theorem* is $\pi(x) \approx x / \ln x$ when $x \to \infty$.
+The above $\log$ is base 2 since 2 is the smallest prime.
+
+#### **Theorem:**
+
+{: .theorem}
+> If the factoring assumption is true, then $f_\mul$ is a weak OWF.
+ 
 OWF and factoring assumption, PNT
 
 Weak OWF?
