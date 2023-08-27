@@ -25,7 +25,7 @@ Classroom
 Instructor Contact Information
 ------------------------------
 
-**Name:** Wei-Kai Lin
+**Name:** Wei-Kai Lin [(audio)](https://www.name-coach.com/wei-kai-lin-4568fe92-7831-4780-a68c-361f76dee197)
 
 **Email:** wklin-course (at virginia dot edu)
 
