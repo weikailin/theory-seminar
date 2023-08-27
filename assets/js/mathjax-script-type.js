@@ -1,4 +1,5 @@
 // Copied from https://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api
+// "In version 2, the mathematics that is located by MathJax is ..."
 MathJax = {
   options: {
     renderActions: {

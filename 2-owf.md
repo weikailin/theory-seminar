@@ -124,8 +124,12 @@ Next we want to model adversaries with a stronger capability than honest.
 > Alternatively, an nuPPT algo can be defined as a *uniform* PPT $\cA$ that
 > takes an additional *advice* string for each input length $i$.
 
-Purpose: non-uniform gives adv extra power and models many real scenario, 
+Purpose: 
+non-uniform gives adv extra power and models many real scenario, 
 e.g., Eve may have a list of known (plain, cipher) pairs.
+
+Discuss: the advice may not be computable in poly time 
+(if poly-time, then no need to take advice as input)
 
 Definition of One-Way Functions
 ------------------
@@ -163,7 +167,7 @@ We formalize "very small" as follows.
 
 {: .defn}
 > Func $\eps(n)$ is *negligible* if for every $c$, there exists some $n_0$ s.t.
--> $\forall n > n_0, \eps(n) \le 1/n^c$.
+> $\forall n > n_0, \eps(n) \le 1/n^c$.
 
 Note: $\eps$ is smaller than any inverse poly for sufficiently large $n$.
 
@@ -206,8 +210,8 @@ Define $f_\mul: \N^2 \to \N$ by
 
 $$
 f_\mul(x,y) = \begin{cases}
-1  & \text{if } x = 1 \text{ or } y = 1 \text{( to eliminate trivial inversion)\\
-x \cdot y & o.w.
+1  & \text{if } x = 1 \text{ or } y = 1 \text{( to eliminate trivial inversion)}\\
+x \cdot y & \text{o.w.}
 \end{cases}
 $$
 
