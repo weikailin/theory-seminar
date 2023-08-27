@@ -129,7 +129,7 @@ non-uniform gives adv extra power and models many real scenario,
 e.g., Eve may have a list of known (plain, cipher) pairs.
 
 Discuss: the advice may not be computable in poly time 
-(if poly-time, then no need to take advice as input)
+(if poly-time, then no need to take advice as input). NU is closed under reduction.
 
 Definition of One-Way Functions
 ------------------
@@ -252,30 +252,35 @@ The above $\log$ is base 2 since 2 is the smallest prime.
 > Assume for contradiction (AC), for all poly $q$, exists nuPPT $A$, s.t. for infinitely many $n\in \N$,
 > 
 > $$
-> \Pr[(x,y)\gets \bit^n; z = xy : A(1^{2n}, z) \in \set{x,y}] \gt 1- 1/q(n).
+> \Pr[(x,y)\gets \bit^n; z = xy : A(1^{2n}, z) \in \set{x,y}] \gt 1- \frac{1}{q(n)}.
 > $$
 > 
 > Note: the negation of weak OWF.
 > 
-> Then, we construct an adversary $B$ breaking factoring.
+> Then, we construct an adversary $B$ breaks factoring.
 > 
 > {: .defn-title}
 >> Algorithm $B(z)$:
 >> 
 >> 1. Sample $(x,y) \gets \bit^n$
->> 2. If both $x,y$ prime, let $z' \gets z$; otherwise, let $z' \gets f_\mul{x,y}$.
->> 3. Run $x' \gets A(1^{2n}, z')$
->> 4. Output $x'$ if both $x,y$ are prime.
+>> 2. If both $x,y$ prime, let $\bar z \gets z$; otherwise, let $\bar z \gets f_\mul{x,y}$.
+>> 3. Run $\bar x \gets A(1^{2n}, \bar z)$
+>> 4. Output $\bar x$ if both $x,y$ are prime.
 > 
 > We intentionally make the input to $A$ uniform in $\bit^{2n}$.
 > 
 > By Chebychev, both $x,y$ prime w.p. $\gt 1/ (2 \log 2^n)^{2} = 1/(4n^2)$.
 > Hence, $B$ fails to pass $z$ to $A$ w.p. at most $1 - 1/(4n^2)$.
 > 
-> By eq (AC), $A$ fails to invert $z'$ w.p. at most $1/q(n)$. Choose $q(n) = 1/8n^2$ and $A$ correspondingly.
+> By eq (AC), $A$ fails to invert $\bar z$ w.p. at most $1/q(n)$. Choose $q(n) = 1/8n^2$ and $A$ correspondingly.
 > 
 > By union bound, the failure probability of $B$ is at most $1 - 1/(4n^2)+1/8n^2$, 
 > and thus $B$ breaks factoring w.p. at least $1/8n^2$, greater than negl, contradicting Factoring Assumption.
+
+Note: the above reduction assumes efficient primality testing. That is not necessary, left as exercise.
+
+Note: the pattern is common in crypto.
+Reduction *from* Assumption (factoring) *to* Construction (OWF) is bread and butter in this course.
 
 
 Weak OWF?
