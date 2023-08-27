@@ -263,7 +263,7 @@ The above $\log$ is base 2 since 2 is the smallest prime.
 >> Algorithm $B(z)$:
 >> 
 >> 1. Sample $(x,y) \gets \bit^n$
->> 2. If both $x,y$ prime, let $\bar z \gets z$; otherwise, let $\bar z \gets f_\mul{x,y}$.
+>> 2. If both $x,y$ prime, let $\bar z \gets z$; otherwise, let $\bar z \gets f_\mul(x,y)$.
 >> 3. Run $\bar x \gets A(1^{2n}, \bar z)$
 >> 4. Output $\bar x$ if both $x,y$ are prime.
 > 
