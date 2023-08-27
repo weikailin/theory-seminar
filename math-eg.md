@@ -56,6 +56,20 @@ $$
 \end{align*}
 $$
 
+
+$$
+f_\mul(x,y) = \begin{cases}
+1  & \text{if } x = 1 \text{ or } y = 1 \text{( to eliminate trivial inversion)}\\
+x \cdot y & o.w.
+\end{cases}
+$$
+
+$$
+f_\mul(x,y) = 
+1  \text{if } x = 1 \text{ or } y = 1 \text{( to eliminate trivial inversion)}\\
+$$
+
+
 For "Kramdown" renderer:
 
 do we need to escape vertical pipes $| S |$?
