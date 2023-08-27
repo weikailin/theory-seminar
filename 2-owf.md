@@ -155,7 +155,7 @@ Randomize $x$:
 > 2\. Hard to Invert. For any nuPPT adversary $\cA$, for all $n\in\N$, and $x \in \bit^n$, 
 > 
 >    $$
->    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) \in y] \leq 2^{-n}.
+>    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) = y] \leq 2^{-n}.
 >    $$
 
 Still too strong: $\cA$ can take poly time to slash some of the possible $x$.
@@ -180,7 +180,7 @@ Note: $\eps$ is smaller than any inverse poly for sufficiently large $n$.
 >    that for any $n\in\N$,
 > 
 >    $$
->    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) \in y] \leq \eps(n).
+>    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) = y] \leq \eps(n).
 >    $$
 
 Note: each $\cA$ has a different $\eps$. The definition is asymptotic.
@@ -193,13 +193,13 @@ We relax it:
 #### **Definition:** Weak One-Way Function
 
 {: .defn}
-> A function $f : \bits \to \bits$ is *weakly one-way* if (... same as strong OWF.)
+> A function $f : \bits \to \bits$ is *weak one-way* if (... same as strong OWF.)
 > 
 > 2\. Hard to Invert. There exists a polynomial $q: \N \to \N$ such that for any nuPPT adversary $\cA$, 
 >    for sufficiently large $n\in \N$,
 > 
 >    $$
->    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) \in y] \leq 1 - q(n).
+>    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) = y] \leq 1 - q(n).
 >    $$
 
 
