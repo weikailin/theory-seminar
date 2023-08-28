@@ -147,7 +147,7 @@ The first may come from NP-hardness.
 >    \Pr[\cA(1^n, f (x)) \in f^{-1}( f (x))] = 1.
 >    $$
 
-Equivalent to the long-open complexity problem: $NP \notin BPP$ and thus $NP \not= P$.
+Equivalent to the long-open complexity problem: $NP \notin BPP$ and thus $NP \neq P$.
 Majority of $x$ are easy (even we set prob > 1/2), open if it is useful for encryption.
 
 Note: nuPPT can store any poly, so more than poly are hard.
