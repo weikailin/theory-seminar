@@ -304,6 +304,123 @@ Idea: repeat independently weak poly many times.
 
 Let $f$ be weak OWF s.t. no adv can invert w.p. $1-1/q$ where $q$ is a function of $n$.
 
+#### Theorem
+Let $g: \bit^{mn} \to \bit^{ml}$ be $g(x_1, ..., x_m) := (f(x_1), ..., f(x_m))$.
+Then, $g$ is a strong OWF for some poly $m(n)$.
+
+Proof:
+
+Assume for contra (AC), there exists nuPPT adv $A$ and poly $p(n)$ s.t. invert $g$ w.p. $\gt 1/p$ for inf many $n\in\N$.
+
+We want to construct a nuPPT $B$ to invert $y=f(x)$. 
+We want to transform $y$ into an output of $g$.
+
+We constrcut $B_0$ as below that inverts $f(x)$ w.p. $\gt 1-1/q$.
+
+> Algorithm $B_0(y):
+> 
+> 1. $j \gets [m]$
+> 2. $x_1, ..., x_m \gets \bit^{n}$
+> 3. let $y_i \gets f(x_i)$ for all $i$
+> 4. let $y_j \gets y$
+> 5. run $x'_1, .., x'_m \gets A(1^{mn}, (y_1,..., y_m))$
+> 6. if $f(x_j) = y$, output $x_j$, otherwise output $\bot$.
+
+We let $B(y)$ repeatedly run $B_0(y)$ poly many times using fresh rand, and let $B$ output the first non $\bot$ output of $B_0$.
+
+Repeating $B_0$ is necessary: $A$ only inverts w.p. $1/p$, but we want $B$ to invert w.p. $1-1/q$, that is higher.
+
+By (AC), inverting $g$ is easy, intuitively there are many $(x,y=f(x))$ that can be inverted by $B_0(y)$.
+(Clearly there are many for $A$.)
+The trick is the key.
+
+#### Claim
+There exists a "large" set $G$ of "easy" instances, $G := \set{x \in \bit^n : \Pr_{x, y=f(x)}[f(B_0(y)) = y] \geq 1/poly}$ for some poly,
+and $|G| \geq (1 - 1/2q)\cdot 2^n$.
+
+If the claim holds, then $B$ can invert by repeating $B_0$:
+
+$$
+\begin{align*}
+\Pr_{x,y=f(x)}[B \neg inv] 
+ & = \Pr_x[B \neg inv \cap x \in G] + \Pr_x[B \neg inv \cap x \notin G] \\
+ & \le (1-1/poly)^{poly} + \Pr_x[x \notin G] \\
+ & \le e^{-n} + 1/2q \le 1/q
+\end{align*}
+$$
+
+That is, $B$ inverts w.p. $\gt 1-1/q$ and contra $f$ is weak OWF.
+
+Proof of claim:
+
+Intuition: essentially $G$ is $B$, 
+if $G$ is small, then $A$ should not invert w.p. $\ge 1/p$, and thus contra (AC).
+
+Assume for contra (AC2), $|G| \lt (1-1/2q)2^n$. 
+
+We have 
+
+$$
+\begin{align*}
+\Pr[A inv] & = \Pr[A inv \cap all x_i \in G] + \Pr[A inv \cap some x_i \notin G]
+\end{align*}
+$$
+
+Since $G$ is small,
+
+$$
+\begin{align*}
+\Pr[A inv \cap all x_i \in G] \le \Pr[all x_i \in G] \le (1-1/2q)^m \le e^{-n}.
+\end{align*}
+$$
+
+Also, by union bound,
+
+$$
+\begin{align*}
+\Pr[A inv \cap some x_i \notin G]
+\le \sum_i \Pr[A inv \cap x_i \notin G]
+\le \sum_i \Pr[A inv | x_i \notin G]
+\end{align*}
+$$
+
+Observe that $\Pr[A inv | x_i \notin G]$ is very close to $\Pr[B_0 inv | x \notin G]$, 
+and the difference is $B_0$ plant $y$ in random position.
+Indeed, for all $i$
+
+$$
+\begin{align*}
+\Pr[A inv | x_i \notin G]
+= \Pr[B_0 inv | x \notin G \cap j = i]
+\end{align*}
+$$
+
+and thus
+
+$$
+\begin{align*}
+\Pr[B_0 inv | x \notin G]
+= \sum_i \Pr[B_0 inv \cap j = i | x \notin G]
+= \sum_i \Pr[B_0 inv \cap j = i \cap x \notin G] / \Pr[x \notin G] \\
+= \sum_i \Pr[B_0 inv | j = i \cap x \notin G] \cdot \left(\Pr[j = i \cap x \notin G] / \Pr[x \notin G]\right)\\
+= \sum_i \Pr[A inv | x_i \notin G] \Pr[j=i] = (1/m) \sum_i \Pr[A inv | x_i \notin G]
+\end{align*}
+$$
+
+We thus conclude
+
+$$
+\begin{align*}
+\Pr[A inv \cap some x_i \notin G]
+\le m \cdot \Pr[B_0 inv | x \notin G]
+\end{align*}
+$$
+
+and thus
+
+$$
+\Pr[A inv] \lt e^{-n} + m \cdot 1/poly
+$$
 
 
 Weak OWF?
