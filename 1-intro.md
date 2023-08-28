@@ -230,37 +230,50 @@ Note: this definition is simpler and easier to use.
 {: .proof-title}
 > Proof:
 > 
-> Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $m'$, we have
+> Suppose that $(\cM,\cK,\Gen,\Enc,\Dec)$ is perfectly secret. For any $D$, any $c$, and any $\bar m$, we have
 > 
 > $$
-> \Pr_{k,m}[m = m' | \Enc_k(m) = c] = \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] / \Pr_{k,m}[\Enc_k(m) = c].
+> \Pr_{k,m}[m = \bar m | \Enc_k(m) = c] = \Pr_{k,m}[m = \bar m \cap \Enc_k(m) = c] / \Pr_{k,m}[\Enc_k(m) = c].
 > $$
 > 
-> Then, we condition on $m$:
+> Then, we want to split the joint prob. so that we can cancel it with the denominator.
+> They are not independent, so we rearrange
 > 
 > $$
 > \begin{align*}
-> & \Pr_{k,m}[m = m' \cap \Enc_k(m) = c] \\
-> = & \sum_{m'' \in \cM} \Pr_{m}[m = m''] \cdot \Pr_{k,m}[m = m' \cap \Enc_k(m) = c | m = m''] \\
-> = & \Pr_{m}[m = m'] \cdot \Pr_{k}[m' = m' \cap \Enc_k(m') = c] \\
-> = & \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] \\
+> & \Pr_{k,m}[m = \bar m \cap \Enc_k(m) = c] \\
+> = & \Pr_{k,m}[\Enc_k(m) = c | m = \bar m] \Pr_m[m = \bar m]\\
 > \end{align*}
 > $$
 > 
-> The second equality holds as $\Pr_{k}[m'' = m' \cap \Enc_k(m'') = c]=0$ for any $m'' \neq m'$.
-> By perfect secrecy, we have $\Pr_{k}[\Enc_k(m') = c] = \Pr_{k}[\Enc_k(m'') = c]$ for any $m', m''$, and that implies
+> We will write $\Pr_{k}[\Enc_k(\bar m)]$ instead of $\Pr_{k,m}[\Enc_k(m) = c | m = \bar m]$, 
+> and we want to show it equals to $\Pr_{k,m}[\Enc_k(m)]$ (note $\bar m$ is not r.v. but $m$ is).
 > 
 > $$
-> \Pr_{k}[\Enc_k(m') = c] = \Pr_{k,m}[\Enc_k(m) = c].
+> \begin{align*}
+> & \Pr_{k}[\Enc_k(\bar m) = c] \\
+> = & \sum_{m' \in \cm} \Pr_{m}[m = m'] \Pr_{k}[\Enc_k(m') = c] \\
+> = & \Pr_{k}[\Enc_k(\bar m) = c] \sum_{m' \in \cm} \Pr_{m}[m = m'] \\
+> = & \Pr_{k}[\Enc_k(\bar m) = c] \cdot 1
+> \end{align*}
+> $$
+> 
+> The first eq is just sum of prob.
+> The second use *perfect secrecy*: $\Pr_{k}[\Enc_k(\bar m) = c] = \Pr_{k}[\Enc_k(m') = c]$ for any $\bar m$ and $m'$.
+> The third is also sum of prob.
+> That implies
+> 
+> $$
+> \Pr_{k}[\Enc_k(\bar m) = c] = \Pr_{k,m}[\Enc_k(m) = c].
 > $$
 > 
 > That givens Shannon secrecy:
 > 
 > $$
 > \begin{align*}
-> & \Pr_{k,m}[m = m' | \Enc_k(m) = c] \\
-> &  = \Pr_{m}[m = m'] \cdot \Pr_{k}[\Enc_k(m') = c] / \Pr_{k,m}[\Enc_k(m) = c] \\
-> &  = \Pr_{m}[m = m'].
+> & \Pr_{k,m}[m = \bar m | \Enc_k(m) = c] \\
+> &  = \Pr_{m}[m = \bar m] \cdot \Pr_{k}[\Enc_k(\bar m) = c] / \Pr_{k,m}[\Enc_k(m) = c] \\
+> &  = \Pr_{m}[m = \bar m].
 > \end{align*}
 > $$
 
