@@ -28,13 +28,15 @@ Motivation:
 Given the impossibility of efficient but perfectly secure encryption, we want to relax our security definition.
 Intuitively, we want to
 
-{:start=0}
+{: start=0}
 0. encrypt long plaintext many times using a single short key, and
 1. perform "fast" encryption and decryption given the legitimate key, and
 2. ensure that the recovering of plaintext is "hard" without the key.
 
-One-time pads achieves 1 and 2 but not 0. However, OTP achieves 2 only bcs 0, the key space is large.
-Since we want 0, the key space is relatively small, and thus we better have $\Enc$ s.t 
+One-time pads achieves 1 and 2 but not 0. However, OTP achieves 2 only bcs the key space is as large as message.
+Since we want 0, the key space is relatively small: 
+if we find any (key, message) pair that maps to the legitimate cipher, then it is an attack.
+We better have $\Enc$ s.t. 
 for any legitimate $c$ it is hard to find any $k,m$ that $\Enc_k(m) = c$.
 (Otherwise, the "impossibility attack" could work.)
 
