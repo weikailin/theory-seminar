@@ -2,7 +2,7 @@
 layout: page
 title: One-Way Functions
 nav_order: 2
-nav_exclude: true
+nav_exclude: false
 ---
 
 $
@@ -28,17 +28,14 @@ Motivation:
 Given the impossibility of efficient but perfectly secure encryption, we want to relax our security definition.
 Intuitively, we want to
 
-{: start=0}
-0. encrypt long plaintext many times using a single short key, and
-1. perform "fast" encryption and decryption given the legitimate key, and
-2. ensure that the recovering of plaintext is "hard" without the key.
+1. encrypt long plaintext many times using a single short key, and
+2. perform "fast" encryption and decryption given the legitimate key, and
+3. ensure that the recovering of plaintext is "hard" without the key.
 
-One-time pads achieves 1 and 2 but not 0. However, OTP achieves 2 only bcs the key space is as large as message.
-Since we want 0, the key space is relatively small: 
-if we find any (key, message) pair that maps to the legitimate cipher, then it is an attack.
-We better have $\Enc$ s.t. 
-for any legitimate $c$ it is hard to find any $k,m$ that $\Enc_k(m) = c$.
-(Otherwise, the "impossibility attack" could work.)
+One-time pads achieves 2 and 3 but not 1. However, OTP achieves 3 only bcs the key space is as large as message.
+Since we want 1, the key space is relatively small.
+Very vague, we want a encryption that is easy to compute (to achieve 1) but hard to find any $k,m$ that $\Enc_k(m) = c$.
+(This is vague bcs we can still try any $k'$ to decrypt $c$.)
 
 This suggests that we require functions that are 
 
