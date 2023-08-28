@@ -283,6 +283,14 @@ Note: the pattern is common in crypto.
 Reduction *from* Assumption (factoring) *to* Construction (OWF) is bread and butter in this course.
 
 
+Reduction from weak to strong OWF
+
+Idea: repeat independently weak poly many times.
+
+Let $f$ be weak OWF s.t. no adv can invert w.p. $1-1/q$ where $q$ is a function of $n$.
+
+
+
 Weak OWF?
 
 Basic number theory, DL assumption
