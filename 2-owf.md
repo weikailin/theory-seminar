@@ -134,7 +134,23 @@ Discuss: the advice may not be computable in poly time
 Definition of One-Way Functions
 ------------------
 
-We try to define OWF using efficient computation and efficient adversary. 
+We try to define OWF using efficient computation and efficient adversary.
+
+The first may come from NP-hardness.
+
+#### **Attempt:** (Worst-Case)
+> A function $f : \bits \to \bits$ is one-way if both of the following hold:
+> 1. Easy to compute. There is a PPT $C$ that computes $f (x)$ on all inputs $x \in \bits$.
+> 2. Hard to Invert. No nuPPT adversary $\cA$, for all $n\in\N$ and $x \in \bit^n$, 
+> 
+>    $$
+>    \Pr[\cA(1^n, f (x)) \in f^{-1}( f (x))] = 1.
+>    $$
+
+Equivalent to the long-open complexity problem: $NP \notin BPP$ and thus $NP \not= P$.
+Majority of $x$ are easy (even we set prob > 1/2), open if it is useful for encryption.
+
+Note: nuPPT can store any poly, so more than poly are hard.
 
 #### **Attempt:**
 > A function $f : \bits \to \bits$ is one-way if both of the following hold:
