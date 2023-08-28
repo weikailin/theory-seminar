@@ -251,9 +251,9 @@ Note: this definition is simpler and easier to use.
 > 
 > $$
 > \begin{align*}
-> & \Pr_{k}[\Enc_k(\bar m) = c] \\
-> = & \sum_{m' \in \cm} \Pr_{m}[m = m'] \Pr_{k}[\Enc_k(m') = c] \\
-> = & \Pr_{k}[\Enc_k(\bar m) = c] \sum_{m' \in \cm} \Pr_{m}[m = m'] \\
+> & \Pr_{k,m}[\Enc_k(m) = c] \\
+> = & \sum_{m' \in \cM} \Pr_{k}[\Enc_k(m') = c] \Pr_{m}[m = m'] \\
+> = & \Pr_{k}[\Enc_k(\bar m) = c] \sum_{m' \in \cM} \Pr_{m}[m = m'] \\
 > = & \Pr_{k}[\Enc_k(\bar m) = c] \cdot 1
 > \end{align*}
 > $$
