@@ -216,7 +216,7 @@ We relax it:
 >    for sufficiently large $n\in \N$,
 > 
 >    $$
->    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) = y] \leq 1 - q(n).
+>    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) = y] \leq 1 - 1/q(n).
 >    $$
 
 
@@ -299,12 +299,31 @@ Note: the above reduction assumes efficient primality testing. That is not neces
 Note: the pattern is common in crypto.
 Reduction *from* Assumption (factoring) *to* Construction (OWF) is bread and butter in this course.
 
-
 ## From Weak OWF to Strong OWF
 
 The existence of OWF is long-open.
 We will show that strong and weak OWFs are existentially equivalent.
 Clearly, any strong OWF satisfies weak. The challenge is from weak to strong.
+
+#### **Claim:**
+
+> If $\set{f_n: \bit^n \to \bit^l}_{n\in\N}$ is a strong OWF, 
+> then $g(x_1,x_2) := (f(x_1), f(x_2))$ is also a strong OWF.
+
+{: .proof}
+> Assume for contradiction (AC), there exist poly $p(n)$ and a nuPPT adv $A$ such that 
+> for infinitely many $n\in\N$, 
+> 
+> $$
+> \Pr[x_1,x_2 \gets \bit^n; y = g(x_1,x_2) : g(A(1^{2n}, y)) = y] \gt 1/p(n).
+> $$
+> 
+> We construct nuPPT $B$ that inverts $f$.
+> 
+>> Algorithm $B(1^n, z)$:
+>> 1. $x_1, x_2 \gets \bit^n$ and $y_1 = f(x_1), y_2 = f(x_2)$.
+>> 2. Sample $j \gets [2]$, let $y_j \gets z$.
+>> 3. 
 
 Observation: the definition of weak states that *exist* poly $q(n)$ *for all* nuPPT;
 that is, even weak, there is a good fraction, $1/q$, of instances that are hard for all.
@@ -316,7 +335,7 @@ so that Adv fails with high prob.
 #### **Theorem:**
 
 {: .theorem}
-> For any weak OWF $f: \bit^n \to \bit^l$, there exists a poly $m(n)$ such that 
+> For any weak OWF $f_n: \bit^n \to \bit^l$, there exists a poly $m(n)$ such that 
 > 
 > $$
 > g(x_1, ..., x_m) := (f(x_1), ..., f(x_m))
@@ -442,8 +461,10 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 > Indeed, for all $i \in [m]$,
 > 
 > $$
-> \Pr[x_1,...,x_m\gets\bit^n, y_1\gets f(x_1), ..., y_m\gets f(x_m): A(y_1,...,y_m) \tinv | x_i \notin G]
+> \begin{align*}
+> \Pr[x_1,...,x_m\gets\bit^n, y_1\gets f(x_1), ..., y_m\gets f(x_m): A(y_1,...,y_m) \tinv | x_i \notin G]\\
 > = \Pr[j\gets[m] \text{ in } B : B_0(y) \tinv | x \notin G \cap j = i]
+> \end{align*}
 > $$
 > 
 > and thus
@@ -451,7 +472,7 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 > $$
 > \begin{align*}
 > &\Pr[B_0 \tinv | x \notin G] \\
-> &= \sum_i \Pr[B_0 \tinv \cap j = i | x \notin G]
+> &= \sum_i \Pr[B_0 \tinv \cap j = i | x \notin G] \\
 > &= \sum_i \Pr[B_0 \tinv \cap j = i \cap x \notin G] / \Pr[x \notin G] \\
 > &= \sum_i \Pr[B_0 \tinv | j = i \cap x \notin G] \cdot \left(\Pr[j = i \cap x \notin G] / \Pr[x \notin G]\right)\\
 > &= \sum_i \Pr[A \tinv | x_i \notin G] \Pr[j=i] = (1/m) \sum_i \Pr[A \tinv | x_i \notin G]
