@@ -300,7 +300,7 @@ Note: the pattern is common in crypto.
 Reduction *from* Assumption (factoring) *to* Construction (OWF) is bread and butter in this course.
 
 
-### From Weak OWF to Strong OWF
+## From Weak OWF to Strong OWF
 
 The existence of OWF is long-open.
 We will show that strong and weak OWFs are existentially equivalent.
@@ -341,6 +341,7 @@ How? $(y,y, ..., y)$? $(y,y_2, ..., y_m)$?
 
 We construct $B_0$ as below to run $A$.
 
+{: .defn}
 > Algorithm $B_0(1^n, y)$:
 > 
 > 1. $j \gets [m]$
@@ -353,6 +354,7 @@ We construct $B_0$ as below to run $A$.
 Note: $B_0$ inverts $y$ w.p. roughly $1/p$ by (AC), but our goal is to invert w.p. $1-1/q \gg 1/p$.
 Hence, repeating $B_0(y)$ is necessary.
 
+{: .defn}
 > Algorithm $B(1^n, y)$:
 > 
 > 1. repeatedly run $B_0(y)$ poly $r_1(n)$ many times using fresh randomness
@@ -474,8 +476,6 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 > 
 > We choose $r_2(n) = 2m \cdot p(n)$ so that $\Pr[A \tinv] \lt 1/p$, contradicting (AC).
 
-
-Weak OWF?
 
 Basic number theory, DL assumption
 
