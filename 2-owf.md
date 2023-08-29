@@ -398,78 +398,81 @@ We will choose $r_1(n) := n \cdot r_2(n)$ to get $(1-1/r_2^{r_1} \le e^{-n}$.
 
 Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF.
 
-Proof of claim:
-
-Intuition: $G_n$ is $B_0$, but essentially $B_0$ is running $A$.
-If $G_0$ is small, then $A$ should not invert w.p. $\ge 1/p$, and thus contra (AC).
-
-Assume for contra (AC2), 
-$|G_0| \lt (1-1/2q) \cdot 2^n$. 
-We have 
-
-$$
-\Pr[ A \tinv] = \Pr[A \tinv \cap \tall x_i \in G_n] + \Pr[A \tinv \cap \tsome x_i \notin G_n]
-$$
-
-Since the "easy" set $G_n$ is small, it is unlikely all $x_i$ are easy.
-Formally,
-
-$$
-\begin{align*}
-\Pr[A \tinv \cap \tall x_i \in G] \le \Pr[\tall x_i \in G] \le (1-1/2q)^m \le e^{-n}.
-\end{align*}
-$$
-
-Note: this is where the repetition $m$ kicks in (in the construction of $g$), 
-and we choose $m(n) := n \cdot 2q(n)$ to get the ineq.
-
-Also, by union bound,
-
-$$
-\begin{align*}
-\Pr[A \tinv \cap some x_i \notin G]
-\le \sum_i \Pr[A \tinv \cap x_i \notin G]
-\le \sum_i \Pr[A \tinv | x_i \notin G]
-\end{align*}
-$$
-
-Observe that $\Pr[A \tinv | x_i \notin G]$ is very close to $\Pr[B_0 \tinv | x \notin G]$ as the claim. 
-The difference is $B_0$ plant $y$ in random position.
-Indeed, for all $i$
-
-$$
-\begin{align*}
-\Pr[A \tinv | x_i \notin G]
-= \Pr[B_0 \tinv | x \notin G \cap j = i]
-\end{align*}
-$$
-
-and thus
-
-$$
-\begin{align*}
-\Pr[B_0 inv | x \notin G]
-= \sum_i \Pr[B_0 inv \cap j = i | x \notin G]
-= \sum_i \Pr[B_0 inv \cap j = i \cap x \notin G] / \Pr[x \notin G] \\
-= \sum_i \Pr[B_0 inv | j = i \cap x \notin G] \cdot \left(\Pr[j = i \cap x \notin G] / \Pr[x \notin G]\right)\\
-= \sum_i \Pr[A inv | x_i \notin G] \Pr[j=i] = (1/m) \sum_i \Pr[A inv | x_i \notin G]
-\end{align*}
-$$
-
-We thus conclude
-
-$$
-\begin{align*}
-\Pr[A inv \cap some x_i \notin G]
-\le m \cdot \Pr[B_0 inv | x \notin G]
-\end{align*}
-$$
-
-and thus
-
-$$
-\Pr[A inv] \lt e^{-n} + m \cdot 1/poly
-$$
+{: .proof-title}
+> Proof of Claim:
+> 
+> Intuition: $G_n$ is $B_0$, but essentially $B_0$ is running $A$.
+> If $G_0$ is small, then $A$ should not invert w.p. $\ge 1/p$, and thus contra (AC).
+> 
+> Assume for contra (AC2), 
+> $|G_0| \lt (1-1/2q) \cdot 2^n$. 
+> We have 
+> 
+> $$
+> \Pr[ A \tinv] = \Pr[A \tinv \cap \tall x_i \in G_n] + \Pr[A \tinv \cap \tsome x_i \notin G_n]
+> $$
+> 
+> Since the "easy" set $G_n$ is small, it is unlikely all $x_i$ are easy.
+> Formally,
+> 
+> $$
+> \begin{align*}
+> \Pr[A \tinv \cap \tall x_i \in G] \le \Pr[\tall x_i \in G] \le (1-1/2q)^m \le e^{-n}.
+> \end{align*}
+> $$
+> 
+> Note: this is where the repetition $m$ kicks in (in the construction of $g$), 
+> and we choose $m(n) := n \cdot 2q(n)$ to get the ineq.
+> 
+> Also, by union bound,
+> 
+> $$
+> \begin{align*}
+> \Pr[A \tinv \cap some x_i \notin G]
+> \le \sum_i \Pr[A \tinv \cap x_i \notin G]
+> \le \sum_i \Pr[A \tinv | x_i \notin G]
+> \end{align*}
+> $$
+> 
+> Observe that 
+> $\Pr[A \tinv | x_i \notin G]$ is very close to $\Pr[B_0(y) \tinv | x \notin G]$ as that of the claim. 
+> The difference is $B_0$ plant $y$ in random position.
+> Indeed, for all $i \in [m]$,
+> 
+> $$
+> \Pr[x_1,...,x_m\gets\bit^n, y_1\gets f(x_1), ..., y_m\gets f(x_m): A(y_1,...,y_m) \tinv | x_i \notin G]
+> = \Pr[j\gets[m] \text{ in } B : B_0(y) \tinv | x \notin G \cap j = i]
+> $$
+> 
+> and thus
+> 
+> $$
+> \begin{align*}
+> &\Pr[B_0 \tinv | x \notin G] \\
+> &= \sum_i \Pr[B_0 \tinv \cap j = i | x \notin G]
+> &= \sum_i \Pr[B_0 \tinv \cap j = i \cap x \notin G] / \Pr[x \notin G] \\
+> &= \sum_i \Pr[B_0 \tinv | j = i \cap x \notin G] \cdot \left(\Pr[j = i \cap x \notin G] / \Pr[x \notin G]\right)\\
+> &= \sum_i \Pr[A \tinv | x_i \notin G] \Pr[j=i] = (1/m) \sum_i \Pr[A \tinv | x_i \notin G]
+> \end{align*}
+> $$
+> 
+> We thus conclude
+> 
+> $$
+> \begin{align*}
+> \Pr[A \tinv \cap \tsome x_i \notin G]
+> \le m \cdot \Pr[B_0 \tinv | x \notin G]
+> \lt m \cdot 1 / r_2.
+> \end{align*}
+> $$
+> 
+> and thus
+> 
+> $$
+> \Pr[A \tinv] \lt e^{-n} + m \cdot 1/ r_2.
+> $$
+> 
+> We choose $r_2(n) = 2m \cdot p(n)$ so that $\Pr[A \tinv] \lt 1/p$, contradicting (AC).
 
 
 Weak OWF?
