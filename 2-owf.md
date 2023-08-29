@@ -341,7 +341,7 @@ How? $(y,y, ..., y)$? $(y,y_2, ..., y_m)$?
 
 We construct $B_0$ as below to run $A$.
 
-> Algorithm $B_0(1^n, y):
+> Algorithm $B_0(1^n, y)$:
 > 
 > 1. $j \gets [m]$
 > 2. $x_1, ..., x_m \gets \bit^{n}$
@@ -353,7 +353,7 @@ We construct $B_0$ as below to run $A$.
 Note: $B_0$ inverts $y$ w.p. roughly $1/p$ by (AC), but our goal is to invert w.p. $1-1/q \gg 1/p$.
 Hence, repeating $B_0(y)$ is necessary.
 
-> Algorithm $B(1^n, y):
+> Algorithm $B(1^n, y)$:
 > 
 > 1. repeatedly run $B_0(y)$ poly $r_1(n)$ many times using fresh randomness
 > 2. output the first non $\bot$ output of $B_0$.
@@ -376,66 +376,71 @@ The following claim is the key.
 > G_n := \set{x \in \bit^n : \Pr_{x, y=f(x)}[f(B_0(y)) = y] \geq 1/r_2(n)}
 > $$
 > 
-> for some poly $r_2(n)$, and $|G| \geq (1 - 1/2q)\cdot 2^n$.
+> for some poly $r_2(n)$, 
+> and $|G| \geq (1 - 1/2q)\cdot 2^n$.
 
 If the claim holds, then $B$ can invert by repeating $B_0$:
 
 $$
-\newcommand{\inv}{\text{ inv}}
-\newcommand{\notinv}{\text{ not}\inv}
+\newcommand{\tinv}{\text{ inv}}
+\newcommand{\tnotinv}{\text{ not}\tinv}
+\newcommand{\tall}{\text{all }}
+\newcommand{\tsome}{\text{some }}
 \begin{align*}
-\Pr_{x,y}[B \notinv] 
- & = \Pr[B \notinv \cap x \in G] + \Pr[B \notinv \cap x \notin G] \\
- & \le (1-1/r_2(n))^{r_1(n)} + \Pr[x \notin G] \\
+\Pr_{x,y}[B \tnotinv] 
+ & = \Pr[B \tnotinv \cap x \in G] + \Pr[B \tnotinv \cap x \notin G] \\
+ & \le (1-1/r_2^{r_1} + \Pr[x \notin G] \\
  & \le e^{-n} + 1/2q \le 1/q
 \end{align*}
 $$
 
-We will choose $r_1(n) := n \cdot r_2(n)$ to get $(1-1/r_2(n))^{r_1(n)} \le e^{-n}$.
+We will choose $r_1(n) := n \cdot r_2(n)$ to get $(1-1/r_2^{r_1} \le e^{-n}$.
 
 Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF.
 
 Proof of claim:
 
-Intuition: essentially $G$ is $B$, 
-if $G$ is small, then $A$ should not invert w.p. $\ge 1/p$, and thus contra (AC).
+Intuition: $G_n$ is $B_0$, but essentially $B_0$ is running $A$.
+If $G_0$ is small, then $A$ should not invert w.p. $\ge 1/p$, and thus contra (AC).
 
-Assume for contra (AC2), $|G| \lt (1-1/2q)2^n$. 
-
+Assume for contra (AC2), 
+$|G_0| \lt (1-1/2q) \cdot 2^n$. 
 We have 
 
 $$
+\Pr[ A \tinv] = \Pr[A \tinv \cap \tall x_i \in G_n] + \Pr[A \tinv \cap \tsome x_i \notin G_n]
+$$
+
+Since the "easy" set $G_n$ is small, it is unlikely all $x_i$ are easy.
+Formally,
+
+$$
 \begin{align*}
-\Pr[A inv] & = \Pr[A inv \cap all x_i \in G] + \Pr[A inv \cap some x_i \notin G]
+\Pr[A \tinv \cap \tall x_i \in G] \le \Pr[\tall x_i \in G] \le (1-1/2q)^m \le e^{-n}.
 \end{align*}
 $$
 
-Since $G$ is small,
-
-$$
-\begin{align*}
-\Pr[A inv \cap all x_i \in G] \le \Pr[all x_i \in G] \le (1-1/2q)^m \le e^{-n}.
-\end{align*}
-$$
+Note: this is where the repetition $m$ kicks in (in the construction of $g$), 
+and we choose $m(n) := n \cdot 2q(n)$ to get the ineq.
 
 Also, by union bound,
 
 $$
 \begin{align*}
-\Pr[A inv \cap some x_i \notin G]
-\le \sum_i \Pr[A inv \cap x_i \notin G]
-\le \sum_i \Pr[A inv | x_i \notin G]
+\Pr[A \tinv \cap some x_i \notin G]
+\le \sum_i \Pr[A \tinv \cap x_i \notin G]
+\le \sum_i \Pr[A \tinv | x_i \notin G]
 \end{align*}
 $$
 
-Observe that $\Pr[A inv | x_i \notin G]$ is very close to $\Pr[B_0 inv | x \notin G]$, 
-and the difference is $B_0$ plant $y$ in random position.
+Observe that $\Pr[A \tinv | x_i \notin G]$ is very close to $\Pr[B_0 \tinv | x \notin G]$ as the claim. 
+The difference is $B_0$ plant $y$ in random position.
 Indeed, for all $i$
 
 $$
 \begin{align*}
-\Pr[A inv | x_i \notin G]
-= \Pr[B_0 inv | x \notin G \cap j = i]
+\Pr[A \tinv | x_i \notin G]
+= \Pr[B_0 \tinv | x \notin G \cap j = i]
 \end{align*}
 $$
 
