@@ -324,10 +324,9 @@ so that Adv fails with high prob.
 > 
 > from $g: \bit^{mn} \to \bit^{ml}$ is a strong OWF.
 
-Proof:
+Note: by def, there exists a poly $q(n)$ s.t. no adv can invert $f$ w.p. $1-1/q(n)$.
 
-(no adv can invert w.p. $1-1/q$ where $q$ is a function of $n$,
-where $l(n)$ is a function of $n$),
+#### **Proof:**
 
 Assume for contradiction (AC), there exists a nuPPT adv $A$ and poly $p(n)$ 
 s.t. for inf many $n\in\N$, $A$ inverts $g$ w.p. $\ge 1/p$, i.e.,
@@ -340,9 +339,9 @@ We want to construct a nuPPT $B$ to invert $y=f(x)$ for uniform $x \gets \bit^n$
 So, the idea is to transform $y$ into an output of $g$, that is $(y_1,..., y_m)$.
 How? $(y,y, ..., y)$? $(y,y_2, ..., y_m)$? 
 
-We construct $B_0$ as below that inverts $f(x)$ w.p. $\gt 1-1/q$.
+We construct $B_0$ as below to run $A$.
 
-> Algorithm $B_0(y):
+> Algorithm $B_0(1^n, y):
 > 
 > 1. $j \gets [m]$
 > 2. $x_1, ..., x_m \gets \bit^{n}$
@@ -351,30 +350,50 @@ We construct $B_0$ as below that inverts $f(x)$ w.p. $\gt 1-1/q$.
 > 5. run $x'_1, .., x'_m \gets A(1^{mn}, (y_1,..., y_m))$
 > 6. if $f(x_j) = y$, output $x_j$, otherwise output $\bot$.
 
-We let $B(y)$ repeatedly run $B_0(y)$ poly many times using fresh rand, and let $B$ output the first non $\bot$ output of $B_0$.
+Note: $B_0$ inverts $y$ w.p. roughly $1/p$ by (AC), but our goal is to invert w.p. $1-1/q \gg 1/p$.
+Hence, repeating $B_0(y)$ is necessary.
 
-Repeating $B_0$ is necessary: $A$ only inverts w.p. $1/p$, but we want $B$ to invert w.p. $1-1/q$, that is higher.
+> Algorithm $B(1^n, y):
+> 
+> 1. repeatedly run $B_0(y)$ poly $r_1(n)$ many times using fresh randomness
+> 2. output the first non $\bot$ output of $B_0$.
+
+Note: we use the same $y$ as input, and that makes the probability analysis involved 
+since the repetition is *dependent*.
 
 By (AC), inverting $g$ is easy, intuitively there are many $(x,y=f(x))$ that can be inverted by $B_0(y)$.
-(Clearly there are many for $A$.)
-The trick is the key.
+Clearly that holds for $A$, but as mentioned, we need to prove it for $B_0$.
 
-#### Claim
-There exists a "large" set $G$ of "easy" instances, $G := \set{x \in \bit^n : \Pr_{x, y=f(x)}[f(B_0(y)) = y] \geq 1/poly}$ for some poly,
-and $|G| \geq (1 - 1/2q)\cdot 2^n$.
+The following claim is the key.
+
+#### **Claim**
+
+{: .theorem}
+> Suppose that (AC) holds.
+> There exists a "large" set $G_n$ of "easy" instances, 
+> 
+> $$
+> G_n := \set{x \in \bit^n : \Pr_{x, y=f(x)}[f(B_0(y)) = y] \geq 1/r_2(n)}
+> $$
+> 
+> for some poly $r_2(n)$, and $|G| \geq (1 - 1/2q)\cdot 2^n$.
 
 If the claim holds, then $B$ can invert by repeating $B_0$:
 
 $$
+\newcommand{\inv}{\text{ inv}}
+\newcommand{\notinv}{\text{ not}\inv}
 \begin{align*}
-\Pr_{x,y=f(x)}[B \neg inv] 
- & = \Pr_x[B \neg inv \cap x \in G] + \Pr_x[B \neg inv \cap x \notin G] \\
- & \le (1-1/poly)^{poly} + \Pr_x[x \notin G] \\
+\Pr_{x,y}[B \notinv] 
+ & = \Pr[B \notinv \cap x \in G] + \Pr[B \notinv \cap x \notin G] \\
+ & \le (1-1/r_2(n))^{r_1(n)} + \Pr[x \notin G] \\
  & \le e^{-n} + 1/2q \le 1/q
 \end{align*}
 $$
 
-That is, $B$ inverts w.p. $\gt 1-1/q$ and contra $f$ is weak OWF.
+We will choose $r_1(n) := n \cdot r_2(n)$ to get $(1-1/r_2(n))^{r_1(n)} \le e^{-n}$.
+
+Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF.
 
 Proof of claim:
 
