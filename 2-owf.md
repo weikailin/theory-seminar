@@ -186,6 +186,8 @@ We formalize "very small" as follows.
 
 Note: $\eps$ is smaller than any inverse poly for sufficiently large $n$.
 
+Note: when the probability is $\ge 1-\eps(n)$, we often call it "overwhelming".
+
 #### **Definition:** (Strong) One-Way Function
 
 {: .defn}
@@ -298,24 +300,47 @@ Note: the pattern is common in crypto.
 Reduction *from* Assumption (factoring) *to* Construction (OWF) is bread and butter in this course.
 
 
-Reduction from weak to strong OWF
+### From Weak OWF to Strong OWF
 
-Idea: repeat independently weak poly many times.
+The existence of OWF is long-open.
+We will show that strong and weak OWFs are existentially equivalent.
+Clearly, any strong OWF satisfies weak. The challenge is from weak to strong.
 
-Let $f$ be weak OWF s.t. no adv can invert w.p. $1-1/q$ where $q$ is a function of $n$.
+Observation: the definition of weak states that *exist* poly $q(n)$ *for all* nuPPT;
+that is, even weak, there is a good fraction, $1/q$, of instances that are hard for all.
 
-#### Theorem
-Let $g: \bit^{mn} \to \bit^{ml}$ be $g(x_1, ..., x_m) := (f(x_1), ..., f(x_m))$.
-Then, $g$ is a strong OWF for some poly $m(n)$.
+Idea: we repeat the weak $f$ for poly many instances and ask the Adv to invert all,
+so that Adv fails with high prob.
+
+
+#### **Theorem:**
+
+{: .theorem}
+> For any weak OWF $f: \bit^n \to \bit^l$, there exists a poly $m(n)$ such that 
+> 
+> $$
+> g(x_1, ..., x_m) := (f(x_1), ..., f(x_m))
+> $$
+> 
+> from $g: \bit^{mn} \to \bit^{ml}$ is a strong OWF.
 
 Proof:
 
-Assume for contra (AC), there exists nuPPT adv $A$ and poly $p(n)$ s.t. invert $g$ w.p. $\gt 1/p$ for inf many $n\in\N$.
+(no adv can invert w.p. $1-1/q$ where $q$ is a function of $n$,
+where $l(n)$ is a function of $n$),
 
-We want to construct a nuPPT $B$ to invert $y=f(x)$. 
-We want to transform $y$ into an output of $g$.
+Assume for contradiction (AC), there exists a nuPPT adv $A$ and poly $p(n)$ 
+s.t. for inf many $n\in\N$, $A$ inverts $g$ w.p. $\ge 1/p$, i.e.,
 
-We constrcut $B_0$ as below that inverts $f(x)$ w.p. $\gt 1-1/q$.
+$$
+\Pr[\set{x_i\gets\bit^n, y_i = f(x_i)}_{i\in[m]} : g(A(1^n, y)) = y] \ge 1/p(n).
+$$
+
+We want to construct a nuPPT $B$ to invert $y=f(x)$ for uniform $x \gets \bit^n$ by running $A$.
+So, the idea is to transform $y$ into an output of $g$, that is $(y_1,..., y_m)$.
+How? $(y,y, ..., y)$? $(y,y_2, ..., y_m)$? 
+
+We construct $B_0$ as below that inverts $f(x)$ w.p. $\gt 1-1/q$.
 
 > Algorithm $B_0(y):
 > 
