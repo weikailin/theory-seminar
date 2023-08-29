@@ -1,6 +1,6 @@
 ---
 layout: page
-title: One-Way Functions
+title: 2. One-Way Functions
 nav_order: 2
 nav_exclude: false
 ---
@@ -305,8 +305,11 @@ The existence of OWF is long-open.
 We will show that strong and weak OWFs are existentially equivalent.
 Clearly, any strong OWF satisfies weak. The challenge is from weak to strong.
 
+We begin with a warmup.
+
 #### **Claim:**
 
+{: .theorem}
 > If $\set{f_n: \bit^n \to \bit^l}_{n\in\N}$ is a strong OWF, 
 > then $g(x_1,x_2) := (f(x_1), f(x_2))$ is also a strong OWF.
 
@@ -321,16 +324,25 @@ Clearly, any strong OWF satisfies weak. The challenge is from weak to strong.
 > We construct nuPPT $B$ that inverts $f$.
 > 
 >> Algorithm $B(1^n, z)$:
->> 1. $x_1, x_2 \gets \bit^n$ and $y_1 = f(x_1), y_2 = f(x_2)$.
->> 2. Sample $j \gets [2]$, let $y_j \gets z$.
->> 3. 
+>> 1. $x_2 \gets \bit^n$ and $y_2 = f(x_2)$.
+>> 2. Run $x'_1, x'_2 \gets A(1^{2n}, (y,y_2))$.
+>> 3. Output $x'_1$ if $f(x'_1) = y$.
+> 
+> For uniform $z\gets \bit^n$, the above $(y,y_2)$ is the same distribution 
+> as obtaining the output $g(x_1,x_2)$ by sampling $(x_1,x_2)\gets \bit^{2n}$.
+> 
+> Also, when $A$ inverts $(y,y_2)$, we have that $B$ inverts $z$ successfully.
+> By (AC), $B$ inverts w.p. $\gt 1/p$, greater than any negligible function, 
+> and it contradicts that $f$ is a strong OWF.
+
+Note: this is a typical template to prove security by reduction. 
+The quantifiers of (AC) is often the same (to negate negligible).
 
 Observation: the definition of weak states that *exist* poly $q(n)$ *for all* nuPPT;
 that is, even weak, there is a good fraction, $1/q$, of instances that are hard for all.
 
 Idea: we repeat the weak $f$ for poly many instances and ask the Adv to invert all,
 so that Adv fails with high prob.
-
 
 #### **Theorem:**
 
