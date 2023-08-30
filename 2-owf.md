@@ -99,7 +99,7 @@ As an example, we define efficient and correct encryption.
 > 4. Correctness: $\forall n \in \N$, $m \in \bit^n$,
 > 
 > $$
-> \Pr [k \gets Gen(1^n) : \Dec_k(\Enc_k(m)) = m]] = 1.
+> \Pr [k \gets \Gen(1^n) : \Dec_k(\Enc_k(m)) = m]] = 1.
 > $$
 
 Note: the notation $1^n$ means the string of $n$ copies 1's, it is called the *security parameter*.
@@ -121,7 +121,7 @@ Next we want to model adversaries with a stronger capability than honest.
 > We write $\cA(x)$ to denote the computation $\cA_{|x|}(x)$.
 > 
 > Alternatively, an nuPPT algo can be defined as a *uniform* PPT $\cA$ that
-> takes an additional *advice* string for each input length $i$.
+> takes an additional *advice* string of poly length $d(i)$ for each input length $i$.
 
 Purpose: 
 non-uniform gives adv extra power and models many real scenario, 
