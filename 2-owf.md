@@ -273,7 +273,7 @@ The above $\log$ is base 2.
 > Assume for contradiction (AC), for all poly $q$, exists nuPPT $A$, s.t. for infinitely many $n\in \N$,
 > 
 > $$
-> \Pr[(x,y)\gets \bit^n; z = xy : A(1^{2n}, z) \in \set{x,y}] \gt 1- \frac{1}{q(n)}.
+> \Pr[(x,y)\gets \bit^n; z = xy : f_\mul(A(1^{2n}, z)) = z] \gt 1- \frac{1}{q(n)}.
 > $$
 > 
 > Note: the negation of weak OWF.
@@ -281,21 +281,27 @@ The above $\log$ is base 2.
 > Then, we construct an adversary $B$ breaks factoring.
 > 
 > {: .defn-title}
->> Algorithm $B(z)$:
+>> Algorithm $B(1^{2n}, z)$:
 >> 
 >> 1. Sample $(x,y) \gets \bit^n$
 >> 2. If both $x,y$ prime, let $\bar z \gets z$; otherwise, let $\bar z \gets f_\mul(x,y)$.
->> 3. Run $\bar x \gets A(1^{2n}, \bar z)$
->> 4. Output $\bar x$ if both $x,y$ are prime.
+>> 3. Run $(\bar x, \bar y) \gets A(1^{2n}, \bar z)$
+>> 4. Output $(\bar x, \bar y)$ if both $x,y$ are prime and $z = \bar x \bar y$.
 > 
 > We intentionally make the input to $A$ uniform in $\bit^{2n}$.
 > 
 > By Chebychev, both $x,y$ prime w.p. $\gt 1/ (2 \log 2^n)^{2} = 1/(4n^2)$.
 > Hence, $B$ fails to pass $z$ to $A$ w.p. at most $1 - 1/(4n^2)$.
 > 
-> By eq (AC), $A$ fails to invert $\bar z$ w.p. at most $1/q(n)$. Choose $q(n) = 1/8n^2$ and $A$ correspondingly.
+> By eq (AC), $A$ fails to invert $\bar z$ w.p. at most $1/q(n)$. Choose $q(n) := 8n^2$ and $A$ correspondingly.
 > 
-> By union bound, the failure probability of $B$ is at most $1 - 1/(4n^2)+1/8n^2$, 
+> By union bound, the failure probability of $B$ is at most 
+> 
+> $$
+> \Pr[z\neq \bar z \cup A \text{ fails}] 
+> \le \Pr[z\neq \bar z] + \Pr[A \text{ fails}] 
+> \le 1 - 1/(4n^2)+1/8n^2 = 1 - 1/8n^2,
+> $$ 
 > and thus $B$ breaks factoring w.p. at least $1/8n^2$, greater than negl, contradicting Factoring Assumption.
 
 Note: the above reduction assumes efficient primality testing. That is not necessary, left as exercise.
