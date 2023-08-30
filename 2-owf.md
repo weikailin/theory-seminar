@@ -146,10 +146,11 @@ The first may come from NP-hardness.
 >    \Pr[\cA(1^n, f (x)) \in f^{-1}( f (x))] = 1.
 >    $$
 
-Equivalent to the long-open complexity problem: $NP \not\subseteq BPP$ and thus $NP \neq P$.
-Majority of $x$ are easy (even we set prob > 1/2), open if it is useful for encryption.
+This is implied by $NP \not\subseteq BPP$, which is
+a long-open complexity problem.
+Majority of $x$ are easy (even we set prob $\ge 1 - 1/poly$), open if it is useful for encryption.
 
-Note: nuPPT can store any poly, so more than poly are hard.
+Note: nuPPT can store any poly, so there may be more than poly are hard.
 
 #### **Attempt:**
 > A function $f : \bits \to \bits$ is one-way if both of the following hold:
@@ -160,14 +161,14 @@ Note: nuPPT can store any poly, so more than poly are hard.
 >    \Pr[\cA(1^n, f (x)) \in f^{-1}( f (x))] \leq 2^{-n}.
 >    $$
 
-Impossible: too strong, $\cA$ is nu and could have many $(x, f(x))$ pairs. 
+Impossible: too strong, $\cA$ is NU and could have many $(x, f(x))$ pairs. 
 Note: $\cA$ takes $1^n$ as the security parameter in case $|f(x)| \ll n$.
 
 Randomize $x$:
 
 #### **Attempt:**
 
-> 2\. Hard to Invert. For any nuPPT adversary $\cA$, for all $n\in\N$, and $x \in \bit^n$, 
+> 2\. Hard to Invert. For any nuPPT adversary $\cA$, for all $n\in\N$, 
 > 
 >    $$
 >    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) = y] \leq 2^{-n}.
@@ -219,6 +220,8 @@ We relax it:
 >    \Pr[x \gets \bit^n; y \gets f(x) : f(\cA(1^n, y)) = y] \leq 1 - 1/q(n).
 >    $$
 
+Note: here the prob. $1-1/q$ is *the same* for all adv $\cA$, 
+but in the strong OWF, the prob. $\eps$ is different and *depends* on $\cA$.
 
 Primes and Factoring
 --------------------
@@ -227,7 +230,7 @@ Define $f_\mul: \N^2 \to \N$ by
 
 $$
 f_\mul(x,y) = \begin{cases}
-1  & \text{if } x = 1 \text{ or } y = 1 \text{( to eliminate trivial inversion)}\\
+1  & \text{if } x = 1 \text{ or } y = 1 \text{(eliminating trivial invert)}\\
 x \cdot y & \text{o.w.}
 \end{cases}
 $$
@@ -249,14 +252,15 @@ It is not strong OWF.
 ### The Prime Number Theorem
 
 Define $\pi(x)$ as the number of primes $\le x$.
+PNT states that primes are dense.
 
 #### **Theorem:** (Chebychev, 1848)
 
 {: .theorem}
 > For all $x>1$, $\pi(x) \gt \frac{x}{2 \log x}$.
 
-Note: the above is easier to prove, but the famous *Prime Number Theorem* is $\pi(x) \approx x / \ln x$ when $x \to \infty$.
-The above $\log$ is base 2 since 2 is the smallest prime.
+Note: the above is easier to prove, but the famous *Prime Number Theorem* is $\pi(x) \sim x / \ln x$ when $x \to \infty$.
+The above $\log$ is base 2.
 
 #### **Theorem:**
 
