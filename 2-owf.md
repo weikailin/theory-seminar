@@ -302,6 +302,7 @@ The above $\log$ is base 2.
 > \le \Pr[z\neq \bar z] + \Pr[A \text{ fails}] 
 > \le 1 - 1/(4n^2)+1/8n^2 = 1 - 1/8n^2,
 > $$ 
+> 
 > and thus $B$ breaks factoring w.p. at least $1/8n^2$, greater than negl, contradicting Factoring Assumption.
 
 Note: the above reduction assumes efficient primality testing. That is not necessary, left as exercise.
