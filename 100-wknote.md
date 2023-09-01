@@ -39,4 +39,5 @@ There factor is $m^2$, the first $m$ is from the random choice of index in $A_0$
 and the second is from union bound.
 
 We can split the event $A'(\vec y) \wedge \text{ some } x_i \notin G_n$ first, and then take union bound.
-They are actually the same bound, and we need only one factor $m$.
+They are actually the same summation. This yields only one factor $m$. 
+

@@ -472,7 +472,7 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 > 
 > $$
 > \begin{align*}
-> \Pr[A \tinv \cap some x_i \notin G]
+> \Pr[A \tinv \cap \tsome x_i \notin G]
 > \le \sum_i \Pr[A \tinv \cap x_i \notin G]
 > \le \sum_i \Pr[A \tinv | x_i \notin G]
 > \end{align*}
