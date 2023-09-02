@@ -560,7 +560,7 @@ Primality Testing
 > We say that $a \in Z_n^*$ is a *strong* witness if 
 > 
 > $$
-> a^d \neq \plusminus 1 \mod n ~\text{ and }~
+> a^d \neq \pm 1 \mod n ~\text{ and }~
 > a^{2^i \cdot d} \neq -1 \mod n \text{ for all } i = 1,2,...,r-1
 > $$
 
@@ -570,9 +570,22 @@ Primality Testing
 {: .proof}
 > Assume for contradiction that $a$ is not a strong witness.
 > Then the sequence $a^d, a^{2d}, ..., a^{2^r d}$ is either
-> - $(\plusminus 1, 1, 1, ..., 1)$, or
+> - $(\pm 1, 1, 1, ..., 1)$, or
 > - $(\star, \star, ..., -1, 1,1, ..., 1)$.
 > Hence, $a$ is not a witness, a contradiction.
+
+
+#### **Lemma:**
+> If $n$ prime, then there is no strong witness in $Z_n^*$.
+
+{: .proof}
+> If $n$ prime, then the only solution to $x^2 = 1 \mod n$ is $\pm 1$ (need proof).
+> By Fermat's Little Theorem, for any $a \in Z_n^*$, $a^{2^r d} = 1 \mod n$, and $a^{2^{r-1} d} = \pm 1 \mod n$.
+> If $-1$, then it is not a strong witness.
+> Otherwise, $1$, we can continue the next square root $r-2$, until $a^d$, which must be $\pm 1$.
+
+It remains to show that every composite has many strong witnesses.
+
 
 
 Basic number theory, DL assumption
