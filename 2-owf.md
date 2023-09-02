@@ -527,7 +527,7 @@ Primality Testing
 #### **Definition:**
 
 {: .defn}
-> Let $Z_n^* := \set{a \in \N : a < n, \gdc(a,n)=1}$ be the multiplicative group.
+> Let $Z_n^* := \set{a \in \N : a < n, \gcd(a,n)=1}$ be the multiplicative group.
 > Let $\phi(n) := |Z_n^*|$ be the Euler's totient.
 
 Note: $\phi(n) = p_1^{k_1-1}(p_1-1) \cdot p_2^{k_2-1}(p_2-1) ...$
@@ -552,7 +552,7 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 #### **Definition:**
 
 {: .defn}
-> For any composite $n \in \N$, we say that $a \in Z_n^*$ 
+> For any composite $n \in \N$, we say that $a \in Z_n^\*$ 
 > is a *witness* if $a^{n-1} \neq 1 \mod n$.
 
 #### **Lemma:**
@@ -571,7 +571,8 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 
 {: .defn}
 > For any composite $n \in \N$, write $\phi(n) = 2^r \cdot d$ for some integer $r\in \N$ and odd $d$.
-> We say that $a \in Z_n^*$ is a *strong* witness if 
+> We say that $a \in Z_n^\*$ 
+> is a *strong* witness if 
 > 
 > $$
 > a^d \neq \pm 1 \mod n ~\text{ and }~
@@ -603,6 +604,8 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > Otherwise, $1$, we can continue the next square root $r-2$, until $a^d$, which must be $\pm 1$.
 
 It remains to show that every composite has many strong witnesses.
+The first step is to exclude perfect powers.
+The second step is to show that other composites have many strong witnesses.
 
 
 
