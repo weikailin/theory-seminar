@@ -542,10 +542,14 @@ Primality Testing
 
 
 #### **Definition:**
+
+{: .defn}
 > For any composite $n \in \N$, we say that $a \in Z_n^*$ is a *witness* if 
 > $a^{n-1} \neq 1 \mod n$.
 
 #### **Lemma:**
+
+{: .theorem}
 > For all $n\in \N$, if there exists a witness, then there are at least $\phi(n) / 2$ witnesses.
 
 {: .proof}
@@ -556,6 +560,8 @@ Primality Testing
 > ie, $|H| \le \phi(n) / 2$.
 
 #### **Definition:**
+
+{: .defn}
 > For any composite $n \in \N$, write $\phi(n) = 2^r \cdot d$ for some integer $r\in \N$ and odd $d$.
 > We say that $a \in Z_n^*$ is a *strong* witness if 
 > 
@@ -565,6 +571,8 @@ Primality Testing
 > $$
 
 #### **Lemma:**
+
+{: .theorem}
 > If $a$ is a witness, then $a$ is also a strong witness.
 
 {: .proof}
@@ -576,6 +584,8 @@ Primality Testing
 
 
 #### **Lemma:**
+
+{: .theorem}
 > If $n$ prime, then there is no strong witness in $Z_n^*$.
 
 {: .proof}
