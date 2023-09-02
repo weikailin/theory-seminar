@@ -521,7 +521,63 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 > We choose $r_2(n) = 2m \cdot p(n)$ so that $\Pr[A \tinv] \lt 1/p$, contradicting (AC).
 
 
+Primality Testing
+--------------------
+
+#### **Theorem:** (Euler)
+
+{: .theorem}
+> $$
+> \for all N \in \N, \forall a \in Z_N^*, a^{\phi(N)} = 1 \mod N
+> $$
+
+#### **Corollary:** (Fermat's Little Theorem)
+
+{: .theorem}
+> For all prime $p$,
+> 
+> $$
+> \forall a \in \Z_p^*, a^{p-1} = 1 \mod p
+> $$
+
+
+#### **Definition:**
+> For any composite $n \in \N$, we say that $a \in Z_n^*$ is a *witness* if 
+> $a^{n-1} \neq 1 \mod n$.
+
+#### **Lemma:**
+> For all $n\in \N$, if there exists a witness, then there are at least $\phi(n) / 2$ witnesses.
+
+{: .proof}
+> Let $H \subset Z_n^*$ be the subset of none witnesses.
+> We have $1 \in H$, and $H$ is a subgroup modular $n$.
+> Given that there exists a witness, $H$ is a strict subgroup.
+> We can then show that any strict subgroup is at most half size of the supergroup,
+> ie, $|H| \le \phi(n) / 2$.
+
+#### **Definition:**
+> For any composite $n \in \N$, write $\phi(n) = 2^r \cdot d$ for some integer $r\in \N$ and odd $d$.
+> We say that $a \in Z_n^*$ is a *strong* witness if 
+> 
+> $$
+> a^d \neq \plusminus 1 \mod n ~\text{ and }~
+> a^{2^i \cdot d} \neq -1 \mod n \text{ for all } i = 1,2,...,r-1
+> $$
+
+#### **Lemma:**
+> If $a$ is a witness, then $a$ is also a strong witness.
+
+{: .proof}
+> Assume for contradiction that $a$ is not a strong witness.
+> Then the sequence $a^d, a^{2d}, ..., a^{2^r d}$ is either
+> - $(\plusminus 1, 1, 1, ..., 1)$, or
+> - $(\star, \star, ..., -1, 1,1, ..., 1)$.
+> Hence, $a$ is not a witness, a contradiction.
+
+
 Basic number theory, DL assumption
+
+
 
 OWP
 
