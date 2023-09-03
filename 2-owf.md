@@ -607,7 +607,34 @@ It remains to show that every composite has many strong witnesses.
 The first step is to exclude perfect powers.
 The second step is to show that other composites have many strong witnesses.
 
+#### **Lemma:**
 
+{: .theorem}
+> If $n$ is composite such that $n = n_1 \cdot n_2$ for some coprime $n_1,n_2$, 
+> then there are at least half strong witness in $Z_n^*$.
+
+{: .proof}
+> Let $H$ be the subset of none-strong witnesses. 
+> We will show that there exists $\bar H \superset H$ s.t. $\bar H$ is a strict subgroup of $Z_n^*$,
+> which is sufficient.
+> 
+> For each $a \in H$, consider the sequence $a^d, a^{2d}, ..., a^{2^r d}$. 
+> Let $j$ be the largest index such that $\exists a \in H, a^{2^j d} = -1 \mod n$ 
+> but for all $a\in H$, $a^{2^{j+1}d} = 1 \mod n$.
+> Such $j < r$ exists because $(-1)^d = -1 \mod n$.
+> Now, define 
+> 
+> $$
+> \bar H:= \set{a : a^{2^{j}d} = \pm 1 \mod n}.
+> $$
+> 
+> Clearly, $H \subseteq \bar H$.
+> Also, $\bar H$ is a subgroup.
+> It remains to show that $\bar H$ is strict.
+> Let $a\in \bar H$ be an element s.t. $a^{2^j d} = -1 \mod n$.
+> We have $a^{2^j d} = -1 \mod n_1 = -1 \mod n_2$ by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
+> Let $b \in Z_n^*$ be an element s.t. $b^{2^j d} = -1 \mod n_1 = +1 \mod n_2$.
+> We have $b^{2^j d} \neq \pm 1$ because of CRT, which implies that $b \notin \bar H$.
 
 Basic number theory, DL assumption
 
