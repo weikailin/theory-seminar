@@ -334,7 +334,7 @@ We begin with a warmup.
 > 
 > We construct nuPPT $B$ that inverts $f$.
 > 
->> Algorithm $B(1^n, z)$:
+>> Algorithm $B(1^n, y)$:
 >> 1. $x_2 \gets \bit^n$ and $y_2 = f(x_2)$.
 >> 2. Run $x'_1, x'_2 \gets A(1^{2n}, (y,y_2))$.
 >> 3. Output $x'_1$ if $f(x'_1) = y$.
@@ -343,7 +343,7 @@ We begin with a warmup.
 > as obtaining the output $g(x_1,x_2)$ by sampling $(x_1,x_2)\gets \bit^{2n}$.
 > 
 > Also, when $A$ inverts $(y,y_2)$, we have that $B$ inverts $z$ successfully.
-> By (AC), $B$ inverts w.p. $\gt 1/p$, greater than any negligible function, 
+> By (AC), $A$ inverts w.p. $\gt 1/p$, greater than any negligible function, 
 > and it contradicts that $f$ is a strong OWF.
 
 Note: this is a typical template to prove security by reduction. 
@@ -374,7 +374,7 @@ Assume for contradiction (AC), there exists a nuPPT adv $A$ and poly $p(n)$
 s.t. for inf many $n\in\N$, $A$ inverts $g$ w.p. $\ge 1/p$, i.e.,
 
 $$
-\Pr[\set{x_i\gets\bit^n, y_i = f(x_i)}_{i\in[m]} : g(A(1^n, y)) = y] \ge 1/p(n).
+\Pr[\set{x_i\gets\bit^n, y_i \gets f(x_i)}_{i\in[m]}, y \gets (y_1...y_m) : g(A(1^n, y)) = y] \ge 1/p(n).
 $$
 
 We want to construct a nuPPT $B$ to invert $y=f(x)$ for uniform $x \gets \bit^n$ by running $A$.
@@ -391,7 +391,7 @@ We construct $B_0$ as below to run $A$.
 > 3. let $y_i \gets f(x_i)$ for all $i$
 > 4. let $y_j \gets y$
 > 5. run $x'_1, .., x'_m \gets A(1^{mn}, (y_1,..., y_m))$
-> 6. if $f(x_j) = y$, output $x_j$, otherwise output $\bot$.
+> 6. if $f(x'_j) = y$, output $x_j$, otherwise output $\bot$.
 
 Note: $B_0$ inverts $y$ w.p. roughly $1/p$ by (AC), but our goal is to invert w.p. $1-1/q \gg 1/p$.
 Hence, repeating $B_0(y)$ is necessary.
@@ -539,6 +539,17 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > $$
 > \forall n \in \N, \forall a \in Z_n^*, a^{\phi(n)} = 1 \mod n
 > $$
+
+{: .proof}
+> Let $a \in Z_n^\*$, and let $S := \set{ax : x \in Z_n^\*}$.
+> We have $S = Z_n^*$ (otherwise, we have $x_1 \neq x_2$ but $ax_1 = ax_2$, a contradiction given $a^{-1}$ exists).
+> Then, by commutative (first eq),
+> 
+> $$
+> \Prod_{x \in Z_n^\*} = \Prod_{b \in S} b = \Prod_{x \in Z_n^\*} ax = a^{\phi(n)} \Prod_{x \in Z_n^\*}.
+> $$
+> 
+> That implies $a^{\phi(n)} = 1$.
 
 #### **Corollary:** (Fermat's Little Theorem)
 
