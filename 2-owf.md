@@ -615,7 +615,7 @@ The second step is to show that other composites have many strong witnesses.
 
 {: .proof}
 > Let $H$ be the subset of none-strong witnesses. 
-> We will show that there exists $\bar H \superset H$ s.t. $\bar H$ is a strict subgroup of $Z_n^*$,
+> We will show that there exists $\bar H \supset H$ s.t. $\bar H$ is a strict subgroup of $Z_n^*$,
 > which is sufficient.
 > 
 > For each $a \in H$, consider the sequence $a^d, a^{2d}, ..., a^{2^r d}$. 
@@ -635,6 +635,17 @@ The second step is to show that other composites have many strong witnesses.
 > We have $a^{2^j d} = -1 \mod n_1 = -1 \mod n_2$ by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
 > Let $b \in Z_n^*$ be an element s.t. $b^{2^j d} = -1 \mod n_1 = +1 \mod n_2$.
 > We have $b^{2^j d} \neq \pm 1$ because of CRT, which implies that $b \notin \bar H$.
+
+
+#### **Theorem:** generators are dense
+
+{: .theorem}
+> If $n$ is prime, such a number x (called a primitive root of n) will always exist; 
+> see exercise 3.2.1.2–16. In fact, primitive roots are rather numerous. 
+> There are φ(n − 1) of them, and this is quite a substantial number, since n/φ(n − 1) = O(log log n).
+> 
+> (Knuth, TA of CP, vol 2, Sec 4.5.4)
+
 
 Basic number theory, DL assumption
 
