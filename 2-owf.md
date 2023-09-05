@@ -541,12 +541,12 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > $$
 
 {: .proof}
-> Let $a \in Z_n^\*$, and let $S := \set{ax : x \in Z_n^\*}$.
+> Let $a \in Z_n^\ast$, and let $S := \set{ax : x \in Z_n^\ast}$.
 > We have $S = Z_n^*$ (otherwise, we have $x_1 \neq x_2$ but $ax_1 = ax_2$, a contradiction given $a^{-1}$ exists).
 > Then, by commutative (first eq),
 > 
 > $$
-> \prod_{x \in Z_n^\*} = \prod_{b \in S} b = \prod_{x \in Z_n^\*} ax = a^{\phi(n)} \prod_{x \in Z_n^\*}.
+> \prod_{x \in Z_n^\ast} = \prod_{b \in S} b = \prod_{x \in Z_n^\ast} ax = a^{\phi(n)} \prod_{x \in Z_n^\ast}.
 > $$
 > 
 > That implies $a^{\phi(n)} = 1$.
