@@ -546,7 +546,7 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > Then, by commutative (first eq),
 > 
 > $$
-> \Prod_{x \in Z_n^\*} = \Prod_{b \in S} b = \Prod_{x \in Z_n^\*} ax = a^{\phi(n)} \Prod_{x \in Z_n^\*}.
+> \prod_{x \in Z_n^\*} = \prod_{b \in S} b = \prod_{x \in Z_n^\*} ax = a^{\phi(n)} \prod_{x \in Z_n^\*}.
 > $$
 > 
 > That implies $a^{\phi(n)} = 1$.

@@ -9,6 +9,14 @@ Policy on use of AI
 
 The ethical use of artificial intelligence (AI) technologies is strictly at the discretion of the course's professor and is otherwise prohibited without the professor's explicit written or verbal permission. AI tools may not be cited as authors, though the tools used must be fully disclosed as a source along with the capacity in which they were used. All outputs of artificial intelligence, both explicitly used and as inspiration in one's submission, must be properly cited to its appropriate source.
 
+From the highlight of [Briana on People of ACM](https://www.acm.org/articles/people-of-acm/2023/briana-morrison) for the great use of GenAI/LLMs:
+
+> For years we have espoused that we want to teach “critical thinking skills.” 
+> What better way to train and test those skills than 
+> having students refine a GenAI prompt, review the output, 
+> and test the results until all test cases pass?
+
+
 Students with disabilities or learning needs
 --------------------------------------------
 
