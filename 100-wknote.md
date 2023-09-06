@@ -3,6 +3,7 @@ layout: page
 title: Wei-Kai's Notes
 # nav_order: 0
 nav_exclude: true
+toc: true
 ---
 
 This page maintains some of my personal and random thought's for this course.
@@ -40,4 +41,15 @@ and the second is from union bound.
 
 We can split the event $A'(\vec y) \wedge \text{ some } x_i \notin G_n$ first, and then take union bound.
 They are actually the same summation. This yields only one factor $m$. 
+
+### [Ps, Theorem 12.3, p.12]
+The probability
+
+$$
+\frac{\Pr_{k,m}[m=m' \cap \Enc_k(m)=c]}{\Pr_{k,m}[\Enc_k(m)=c]}
+$$
+
+does not seem to "be re-written as" the next one that exchanges $m$ and $m'$.
+Particularly, in the nominator, $m$ is a random variable but $m'$ is fixed,
+but in general the substitution shall be applied globally.
 
