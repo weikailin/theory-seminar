@@ -580,7 +580,7 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > For any composite $n \in \N$, we say that $a \in Z_n^\*$ 
 > is a *witness* if $a^{n-1} \neq 1 \mod n$.
 
-#### **Lemma:**
+#### **Lemma:** strict subgroup is small
 
 {: .theorem}
 > Let $G$ be a finite group.
@@ -607,7 +607,7 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > We can then show that any strict subgroup is at most half size of the supergroup,
 > ie, $|H| \le \phi(n) / 2$.
 
-#### **Definition:**
+#### **Definition:** Strong witness
 
 {: .defn}
 > For any composite $n \in \N$, write $\phi(n) = 2^r \cdot d$ for some integer $r\in \N$ and odd $d$.
@@ -621,7 +621,7 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > \end{align*}
 > $$
 
-#### **Lemma:**
+#### **Lemma:** (warm up)
 
 {: .theorem}
 > If $a$ is a witness, then $a$ is also a strong witness.
@@ -634,7 +634,7 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > Hence, $a$ is not a witness, a contradiction.
 
 
-#### **Lemma:**
+#### **Lemma:** (Miller-Rabin, every prime has no strong witness)
 
 {: .theorem}
 > If $n$ prime, then there is no strong witness in $Z_n^*$.
@@ -649,21 +649,25 @@ It remains to show that every composite has many strong witnesses.
 The first step is to exclude perfect powers.
 The second step is to show that other composites have many strong witnesses.
 
-#### **Lemma:**
+#### **Lemma:**(Miller-Rabin, every composite has many strong witnesses)
 
 {: .theorem}
 > If $n$ is composite such that $n = n_1 \cdot n_2$ for some coprime $n_1,n_2$, 
 > then there are at least half strong witness in $Z_n^*$.
 
 {: .proof}
-> Let $H$ be the subset of none-strong witnesses. 
+> Let $H:=\set{a \in Z_n^\ast : a \text{ is not strong witness}}$, the subset of none-strong witnesses. 
 > We will show that there exists $\bar H \supset H$ s.t. $\bar H$ is a strict subgroup of $Z_n^*$,
-> which is sufficient.
+> which is sufficient (as $|H| \le |\bar H| \le |Z_n^\ast|/2$).
 > 
 > For each $a \in H$, consider the sequence $a^d, a^{2d}, ..., a^{2^r d}$. 
-> Let $j$ be the largest index such that $\exists a \in H, a^{2^j d} = -1 \mod n$ 
-> but for all $a\in H$, $a^{2^{j+1}d} = 1 \mod n$.
-> Such $j < r$ exists because $(-1)^d = -1 \mod n$.
+> Let $j$ be the largest index such that 
+> 
+> $\exists a \in H, a^{2^j d} = -1 \mod n$ 
+> 
+> (so that for all $a\in H$, $a^{2^{j+1}d} = 1 \mod n$).
+> 
+> Such $j < r$ exists because $(-1)^d = -1 \mod n$ since $d$ odd.
 > Now, define 
 > 
 > $$
@@ -671,12 +675,21 @@ The second step is to show that other composites have many strong witnesses.
 > $$
 > 
 > Clearly, $H \subseteq \bar H$.
-> Also, $\bar H$ is a subgroup.
+> Also, $\bar H$ is a subgroup (need proof).
 > It remains to show that $\bar H$ is strict.
 > Let $a\in \bar H$ be an element s.t. $a^{2^j d} = -1 \mod n$.
-> We have $a^{2^j d} = -1 \mod n_1 = -1 \mod n_2$ by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
-> Let $b \in Z_n^*$ be an element s.t. $b^{2^j d} = -1 \mod n_1 = +1 \mod n_2$.
+> We have 
+> 
+> $$
+> a^{2^j d} = -1 \mod n_1 = -1 \mod n_2
+> $$
+> 
+> by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
+> Let $b \in Z_n^*$ be an element s.t. $b^{2^j d} = -1 \mod n_1 = +1 \mod n_2$, which exists by CRT.
 > We have $b^{2^j d} \neq \pm 1$ because of CRT, which implies that $b \notin \bar H$.
+
+
+
 
 
 #### **Theorem:** generators are dense
