@@ -8,6 +8,8 @@ toc: true
 
 This page maintains some of my personal and random thought's for this course.
 
+1. TOC
+{:toc}
 
 ### [Ps, Definition 26.1] Worst-case One-way Function.
 The "hard to invert" property says that there is no adversary A such that 
