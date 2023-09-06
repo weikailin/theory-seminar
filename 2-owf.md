@@ -557,10 +557,10 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 {: .proof}
 > Let $a \in Z_n^\ast$, and let $S := \set{ax : x \in Z_n^\ast}$.
 > We have $S = Z_n^*$ (otherwise, we have $x_1 \neq x_2$ but $ax_1 = ax_2$, a contradiction given $a^{-1}$ exists).
-> Then, by commutative (first eq),
+> Then, by commutative for the first equality,
 > 
 > $$
-> \prod_{x \in Z_n^\ast} = \prod_{b \in S} b = \prod_{x \in Z_n^\ast} ax = a^{\phi(n)} \prod_{x \in Z_n^\ast}.
+> \prod_{x \in Z_n^\ast} x = \prod_{b \in S} b = \prod_{x \in Z_n^\ast} ax = a^{\phi(n)} \prod_{x \in Z_n^\ast} x.
 > $$
 > 
 > That implies $a^{\phi(n)} = 1$.
@@ -615,8 +615,10 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > is a *strong* witness if 
 > 
 > $$
-> a^d \neq \pm 1 \mod n ~\text{ and }~
-> a^{2^i \cdot d} \neq -1 \mod n \text{ for all } i = 1,2,...,r-1
+> \begin{align*}
+> & a^d \neq \pm 1 \mod n ~\text{, and }~\\
+> & a^{2^i \cdot d} \neq -1 \mod n \text{ for all } i = 1,2,...,r-1
+> \end{align*}
 > $$
 
 #### **Lemma:**
