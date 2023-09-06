@@ -2,17 +2,38 @@
 layout: page
 title: Papers
 nav_order: 100
-nav_exclude: true
+nav_exclude: false
 ---
+
+I picked them from Crypto 2023, and the list reflects my own interest.
+Each of them is chosen to represent one topic in cryptography, 
+so there is likely a paper published earlier that is easier to read.
+You can pick a paper in the following list, an older paper cited by a paper in the list,
+or you may pick your own from related conferences,
+here is a list: Crypto, Eurocrypt, Asiacrypt, STOC, FOCS, TCC, ITC.
+
+**Proposal (20%):** 1 page, due Oct 18 (Wed). 
+Please find your group of at most 2.
+Please describe the paper and the topic you picked, explain why the topic is interesting,
+and identify 3-5 references (textbook or published papers) that is potentially useful later.
+The purpose is to get started early and to let me see if I can help early on.
+
+**Presentation (40%):**
+This will be the last 1-2 lectures at the end of semester.
+The time slot per group is ~20 minutes.
+Your goal is to make the talk comprehensible to other students, 
+so that every student will grade all other groups.
+
+**Report (40%):**
+Please write the summary of your research in 2-5 pages.
+I will read and grade your report. 
 
 (Potential) Final project papers
 ==============================
 
-I picked them from Crypto 2023. 
-Each of them is chosen to represent one topic in cryptography, 
-so there is likely an earlier one easier to work on.
-The choices are reflecting my interest, and you may pick your own from related conferences, such as 
-Crypto, Eurocrypt, Asiacrypt, STOC, FOCS, TCC, ITC.
+When you look for references:
+UVA library has online access to many publications, 
+and most cryptographers post online versions of their publication.
 
 - How to Recover a Secret with O(n) Additions
   

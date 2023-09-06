@@ -59,7 +59,7 @@ The final project is to read research papers in the area of cryptography, to wri
 
 The project can be done individually or by a group of two. Both students in the group get the same grade. Each group is required to submit the authors and the research topic in an 1-page proposal (20%) at mid-semester. The summary (40%) is due at the end of the semester, and the last two lectures will be the presentation (40%).
 
-See below for potential research topics.
+See [more details and potential research topics](papers.md).
 
 ### Honor System
 

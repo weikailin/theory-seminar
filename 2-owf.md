@@ -534,7 +534,7 @@ Primality Testing
 > A group $G$ is a set of elements with a binary operator
 > $\ast$ that satisfies the following properties:
 > 1. Closuer: $\forall a,b \in G, a \ast b \in G$
-> 2. Identity: $\exists 1 \in G$ s.t. $\forall a \in G, 1 \ast a = a \ast 1 = a.
+> 2. Identity: $\exists 1 \in G$ s.t. $\forall a \in G, 1 \ast a = a \ast 1 = a$.
 > 3. Associativity: $\forall a, b, c \in G, (a\ast b) \ast c = a \ast (b \ast c)$.
 > 4. Inverse: $\forall a \in G, \exists b \in G$ s.t. $a \ast b = b \ast a = 1$.
 
