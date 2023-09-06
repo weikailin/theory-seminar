@@ -547,6 +547,17 @@ Primality Testing
 Note: $\phi(n) = p_1^{k_1-1}(p_1-1) \cdot p_2^{k_2-1}(p_2-1) ...$
 for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 
+#### **Theorem:** Chinese Remainder Theorem (CRT), or Extended Euclidean Algo
+
+{: .theorem}
+> For any $n_1, n_2 \in \N$ s.t. $\gcd(n_1, n_2) = 1$,
+> 
+> $$
+> Z_{n_1 n_2}^\ast \cong Z_{n_1}^\ast \times Z_{n_2}^\ast,
+> $$
+> 
+> and we have poly time algos to transform from one representation to the other.
+
 #### **Theorem:** (Euler)
 
 {: .theorem}
