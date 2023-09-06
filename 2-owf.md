@@ -21,6 +21,8 @@ $
 \newcommand{\mul}{\mathrm{mul}}
 $
 
+{:toc}
+
 One-Way Functions
 =================
 
