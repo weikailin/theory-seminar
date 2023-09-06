@@ -527,16 +527,22 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 Primality Testing
 --------------------
 
+
+
+#### **Definition:** Group
+
+{: .defn}
+> A group $G$ is a set of elements with a binary operator
+> $\ast$ that satisfies the following properties:
+> 1. Closuer: $\forall a,b \in G, a \ast b \in G$
+> 2. Identity: $\exists 1 \in G$ s.t. $\forall a \in G, 1 \ast a = a \ast 1 = a.
+> 3. Associativity: $\forall a, b, c \in G, (a\ast b) \ast c = a \ast (b \ast c)$.
+> 4. Inverse: $\forall a \in G, \exists b \in G$ s.t. $a \ast b = b \ast a = 1$.
+
 #### **Definition:**
 
 {: .defn}
-> Let $Z_n^* := \set{a \in \N : a < n, \gcd(a,n)=1}$ be the multiplicative group.
-> Let $\phi(n) := |Z_n^*|$ be the Euler's totient.
-
-#### **Definition:**
-
-{: .defn}
-> Let $Z_n^* := \set{a \in \N : a < n, \gcd(a,n)=1}$ be the multiplicative group.
+> Let $Z_n^* := \set{a \in \N : a < n, \gcd(a,n)=1}$ be the multiplicative group modulo $n$.
 > Let $\phi(n) := |Z_n^*|$ be the Euler's totient.
 
 Note: $\phi(n) = p_1^{k_1-1}(p_1-1) \cdot p_2^{k_2-1}(p_2-1) ...$
