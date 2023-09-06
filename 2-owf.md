@@ -21,6 +21,7 @@ $
 \newcommand{\mul}{\mathrm{mul}}
 $
 
+1. TOC
 {:toc}
 
 One-Way Functions
@@ -525,6 +526,12 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 
 Primality Testing
 --------------------
+
+#### **Definition:**
+
+{: .defn}
+> Let $Z_n^* := \set{a \in \N : a < n, \gcd(a,n)=1}$ be the multiplicative group.
+> Let $\phi(n) := |Z_n^*|$ be the Euler's totient.
 
 #### **Definition:**
 
