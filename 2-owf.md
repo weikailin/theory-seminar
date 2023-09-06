@@ -411,7 +411,7 @@ Clearly that holds for $A$, but as mentioned, we need to prove it for $B_0$.
 
 The following claim is the key.
 
-#### **Claim**
+#### **Claim:** (many easy instances)
 
 {: .theorem}
 > Suppose that (AC) holds.
@@ -440,9 +440,10 @@ $$
 \end{align*}
 $$
 
-We will choose $r_1(n) := n \cdot r_2(n)$ to get $(1-1/r_2^{r_1} \le e^{-n}$.
+We will choose $r_1(n) := n \cdot r_2(n)$ to get $(1-1/r_2)^{r_1} \le e^{-n}$.
 
 Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF.
+It remains to prove the claim.
 
 {: .proof-title}
 > Proof of Claim:
