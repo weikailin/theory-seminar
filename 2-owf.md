@@ -21,8 +21,6 @@ $
 \newcommand{\mul}{\mathrm{mul}}
 $
 
-1. TOC
-{:toc}
 
 One-Way Functions
 =================
@@ -436,7 +434,8 @@ $$
 \begin{align*}
 \Pr_{x,y}[B \tnotinv] 
  & = \Pr[B \tnotinv \cap x \in G] + \Pr[B \tnotinv \cap x \notin G] \\
- & \le (1-1/r_2^{r_1} + \Pr[x \notin G] \\
+ & \le \Pr[B \tnotinv | x \in G] + \Pr[x \notin G] \\
+ & \le (1-1/r_2)^{r_1} + 1/2q \\
  & \le e^{-n} + 1/2q \le 1/q
 \end{align*}
 $$
