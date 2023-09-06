@@ -460,7 +460,7 @@ It remains to prove the claim.
 > $$
 > 
 > Since the "easy" set $G_n$ is small, it is unlikely all $x_i$ are easy.
-> Formally,
+> Formally, by (AC2)
 > 
 > $$
 > \begin{align*}
@@ -483,8 +483,8 @@ It remains to prove the claim.
 > 
 > Observe that 
 > $\Pr[A \tinv | x_i \notin G]$ is very close to $\Pr[B_0(y) \tinv | x \notin G]$ as that of the claim. 
-> The difference is $B_0$ plant $y$ in random position.
-> Indeed, for all $i \in [m]$,
+> The only difference is that $B_0$ plant $y$ in random position.
+> Indeed, for any fixed $i \in [m]$,
 > 
 > $$
 > \begin{align*}
