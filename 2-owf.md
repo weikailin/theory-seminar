@@ -528,7 +528,6 @@ Primality Testing
 --------------------
 
 
-
 #### **Definition:** Group
 
 {: .defn}
@@ -539,7 +538,7 @@ Primality Testing
 > 3. Associativity: $\forall a, b, c \in G, (a\ast b) \ast c = a \ast (b \ast c)$.
 > 4. Inverse: $\forall a \in G, \exists b \in G$ s.t. $a \ast b = b \ast a = 1$.
 
-#### **Definition:**
+#### **Definition:** Euler's Totient Function
 
 {: .defn}
 > Let $Z_n^* := \set{a \in \N : a < n, \gcd(a,n)=1}$ be the multiplicative group modulo $n$.
@@ -580,6 +579,21 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 {: .defn}
 > For any composite $n \in \N$, we say that $a \in Z_n^\*$ 
 > is a *witness* if $a^{n-1} \neq 1 \mod n$.
+
+#### **Lemma:**
+
+{: .theorem}
+> Let $G$ be a finite group.
+> If $H \subset G$ is a strict subgroup of $G$,
+> then $|H| \le |G| / 2$.
+
+{: .proof}
+> Let $b \in G$ be an element s.t. $b \notin H$.
+> Consider elements in the set $B:=\set{ab : a \in H}$.
+> If there exists $ab \in H$, then we have $a^{-1}ab = b \in H$, contradicting $b \notin H$.
+> Hence, $B \cap H = \emptyset$, and it remains to show that $|B| = |H|$.
+> Suppose for contradiction that $|B| < |H|$, then there exist $a_1\neq a_2 \in H$ s.t. $a_1 b = a_2 b$,
+> a contradiction since we can multiply $b^{-1}$ on both sides.
 
 #### **Lemma:**
 
