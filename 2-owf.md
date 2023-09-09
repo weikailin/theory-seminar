@@ -637,6 +637,96 @@ The second step is to show that other composites have many strong witnesses.
 > We have $b^{2^j d} \neq \pm 1$ because of CRT, which implies that $b \notin \bar H$.
 
 
+A Universal OWF
+--------------------
+
+The idea is to construct a function that computes all easy-to-compute functions.
+
+#### **Function:** $f_u$
+
+{: .defn}
+> Input: $y$, let $n := |y|$.
+> 
+> 1. Interpret $y$ as a pair $(M,x)$ of Turing machine and bitstring where $|M| = \log n$
+> 2. Run $M$ on $x$ for $T=n^2$ steps
+> 3. If $M$ halts in $T$ steps, output $(M,M(x))$; otherwise, output $\bot$.
+
+#### **Theorem:** A Universal Weak OWF
+
+{: .theorem}
+> If there exists a OWF, then the above function $f_u$ is a weak OWF.
+
+To prove it, we will use the following lemma.
+
+#### **Lemma:** Strong OWF in time $O(n^2)$
+
+{: .theorem}
+> If there exists a strongly one-way function $g$ , then there exists 
+> a strongly one-way function $g'$ that is computable in time $O(n^2)$.
+
+Intuition: 
+If there exists a strong OWF $g$ in time $O(n^2)$, then there exists a TM $M_g$ that computes $g$ in $O(n^2)$ steps
+such that the description length $|M_g| = d$ is a constant.
+WLOG, assume the description of any TM can be padded with a special $\bot$ symbol to arbitrary long.
+Then, for all sufficiently large $n$, there is a string describing $M_g$ in $\log n$ bits,
+and the $\log n$-bit random prefix of $y$ is exactly $M_g$ w.p. $1/n$.
+Hence, $f_u(y)$ is hard to invert.
+
+Formally, assume for contra (AC),
+for all poly $q(n)$, there exists NUPPT $A$ s.t. for infinitely many $n\in\N$,
+
+$$
+\Pr[y\gets \bit^n, z \gets f_u(y) : f_u(A(1^n, z)) = z] \gt 1 - 1/q.
+$$
+
+We construct NUPPT $B$ that inverts $z' \gets g(x)$ for $x\gets \bit^{n-\log n}$ by
+
+1. Run $y \gets A(1^n, (M_g,z'))$.
+2. Interpret $y$ as $(M, x)$.
+3. If $M = M_g$ and $z' = g(x)$, output $x$; otherwise, output $\bot$.
+
+By (AC), we have
+
+$$
+\begin{align*}
+1/q
+& \ge \Pr[A \notinv] 
+& \ge \Pr[A \notinv | y = (M_g, \star)] \Pr[y = (M_g, \star)]
+= \Pr[A \notinv | y = (M_g, \star)] \cdot (1/n).
+\end{align*}
+$$
+
+Notice that 
+
+$$
+\Pr[A \notinv | y = (M_g, \star)] = \Pr[x\gets\bit^{n-\log n}, z' \gets g(x) : B \notinv].
+$$
+
+Hence, we have 
+
+$$
+\Pr[B \notinv] \le n / q(n).
+$$
+
+Choosing $q(n) = n^2$ and $A$ correspondingly, we have $B$ inverts w.p. at least $1-1/n$,
+that is greater than $1/p(m)$ for some polynomial $p$ and the input size $m:= n - \log n$ of $g$,
+contradicts $g$ is a strong OWF.
+
+{: .proof-title}
+> Proof of Lemma (Strong OWF in time $O(n^2)$)
+> 
+> Suppose we can compute $g$ in time $n^c$ for some const $c \gt 2$.
+> Then, for any input $x \bit^{n^c}$,
+> interpret $x = x_1\|x_2$ s.t. $|x_1| = n^c - n$,
+> and then define
+> $$
+> g'(x) = g'(x_1\|x_2) := x_1 \| g(x_2).
+> $$
+> Let $m=n^c$ be the input size of $g'$
+> It is easy to see that $g'$ is computable in $O(m^2)$ time, and it follows by standard reduction 
+> that $g'$ is hard to invert if $g$ is a OWF.
+
+
 #### **Theorem:** generators are dense
 
 {: .theorem}
