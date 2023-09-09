@@ -21,6 +21,7 @@ $
 \newcommand{\mul}{\mathrm{mul}}
 $
 
+
 One-Way Functions
 =================
 
@@ -334,7 +335,7 @@ We begin with a warmup.
 > 
 > We construct nuPPT $B$ that inverts $f$.
 > 
->> Algorithm $B(1^n, z)$:
+>> Algorithm $B(1^n, y)$:
 >> 1. $x_2 \gets \bit^n$ and $y_2 = f(x_2)$.
 >> 2. Run $x'_1, x'_2 \gets A(1^{2n}, (y,y_2))$.
 >> 3. Output $x'_1$ if $f(x'_1) = y$.
@@ -343,7 +344,7 @@ We begin with a warmup.
 > as obtaining the output $g(x_1,x_2)$ by sampling $(x_1,x_2)\gets \bit^{2n}$.
 > 
 > Also, when $A$ inverts $(y,y_2)$, we have that $B$ inverts $z$ successfully.
-> By (AC), $B$ inverts w.p. $\gt 1/p$, greater than any negligible function, 
+> By (AC), $A$ inverts w.p. $\gt 1/p$, greater than any negligible function, 
 > and it contradicts that $f$ is a strong OWF.
 
 Note: this is a typical template to prove security by reduction. 
@@ -374,7 +375,7 @@ Assume for contradiction (AC), there exists a nuPPT adv $A$ and poly $p(n)$
 s.t. for inf many $n\in\N$, $A$ inverts $g$ w.p. $\ge 1/p$, i.e.,
 
 $$
-\Pr[\set{x_i\gets\bit^n, y_i = f(x_i)}_{i\in[m]} : g(A(1^n, y)) = y] \ge 1/p(n).
+\Pr[\set{x_i\gets\bit^n, y_i \gets f(x_i)}_{i\in[m]}, y \gets (y_1...y_m) : g(A(1^n, y)) = y] \ge 1/p(n).
 $$
 
 We want to construct a nuPPT $B$ to invert $y=f(x)$ for uniform $x \gets \bit^n$ by running $A$.
@@ -391,7 +392,7 @@ We construct $B_0$ as below to run $A$.
 > 3. let $y_i \gets f(x_i)$ for all $i$
 > 4. let $y_j \gets y$
 > 5. run $x'_1, .., x'_m \gets A(1^{mn}, (y_1,..., y_m))$
-> 6. if $f(x_j) = y$, output $x_j$, otherwise output $\bot$.
+> 6. if $f(x'_j) = y$, output $x_j$, otherwise output $\bot$.
 
 Note: $B_0$ inverts $y$ w.p. roughly $1/p$ by (AC), but our goal is to invert w.p. $1-1/q \gg 1/p$.
 Hence, repeating $B_0(y)$ is necessary.
@@ -410,7 +411,7 @@ Clearly that holds for $A$, but as mentioned, we need to prove it for $B_0$.
 
 The following claim is the key.
 
-#### **Claim**
+#### **Claim:** (many easy instances)
 
 {: .theorem}
 > Suppose that (AC) holds.
@@ -433,14 +434,16 @@ $$
 \begin{align*}
 \Pr_{x,y}[B \tnotinv] 
  & = \Pr[B \tnotinv \cap x \in G] + \Pr[B \tnotinv \cap x \notin G] \\
- & \le (1-1/r_2^{r_1} + \Pr[x \notin G] \\
+ & \le \Pr[B \tnotinv | x \in G] + \Pr[x \notin G] \\
+ & \le (1-1/r_2)^{r_1} + 1/2q \\
  & \le e^{-n} + 1/2q \le 1/q
 \end{align*}
 $$
 
-We will choose $r_1(n) := n \cdot r_2(n)$ to get $(1-1/r_2^{r_1} \le e^{-n}$.
+We will choose $r_1(n) := n \cdot r_2(n)$ to get $(1-1/r_2)^{r_1} \le e^{-n}$.
 
 Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF.
+It remains to prove the claim.
 
 {: .proof-title}
 > Proof of Claim:
@@ -457,7 +460,7 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 > $$
 > 
 > Since the "easy" set $G_n$ is small, it is unlikely all $x_i$ are easy.
-> Formally,
+> Formally, by (AC2)
 > 
 > $$
 > \begin{align*}
@@ -480,8 +483,8 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 > 
 > Observe that 
 > $\Pr[A \tinv | x_i \notin G]$ is very close to $\Pr[B_0(y) \tinv | x \notin G]$ as that of the claim. 
-> The difference is $B_0$ plant $y$ in random position.
-> Indeed, for all $i \in [m]$,
+> The only difference is that $B_0$ plant $y$ in random position.
+> Indeed, for any fixed $i \in [m]$,
 > 
 > $$
 > \begin{align*}
@@ -524,14 +527,36 @@ Then, $B$ inverts w.p. $\gt 1-1/q$, and it is contradicting that $f$ is weak OWF
 Primality Testing
 --------------------
 
-#### **Definition:**
+
+#### **Definition:** Group
 
 {: .defn}
-> Let $Z_n^* := \set{a \in \N : a < n, \gcd(a,n)=1}$ be the multiplicative group.
+> A group $G$ is a set of elements with a binary operator
+> $\ast$ that satisfies the following properties:
+> 1. Closuer: $\forall a,b \in G, a \ast b \in G$
+> 2. Identity: $\exists 1 \in G$ s.t. $\forall a \in G, 1 \ast a = a \ast 1 = a$.
+> 3. Associativity: $\forall a, b, c \in G, (a\ast b) \ast c = a \ast (b \ast c)$.
+> 4. Inverse: $\forall a \in G, \exists b \in G$ s.t. $a \ast b = b \ast a = 1$.
+
+#### **Definition:** Euler's Totient Function
+
+{: .defn}
+> Let $Z_n^* := \set{a \in \N : a < n, \gcd(a,n)=1}$ be the multiplicative group modulo $n$.
 > Let $\phi(n) := |Z_n^*|$ be the Euler's totient.
 
 Note: $\phi(n) = p_1^{k_1-1}(p_1-1) \cdot p_2^{k_2-1}(p_2-1) ...$
 for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
+
+#### **Theorem:** Chinese Remainder Theorem (CRT), or Extended Euclidean Algo
+
+{: .theorem}
+> For any $n_1, n_2 \in \N$ s.t. $\gcd(n_1, n_2) = 1$,
+> 
+> $$
+> Z_{n_1 n_2}^\ast \cong Z_{n_1}^\ast \times Z_{n_2}^\ast,
+> $$
+> 
+> and we have poly time algos to transform from one representation to the other.
 
 #### **Theorem:** (Euler)
 
@@ -539,6 +564,17 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > $$
 > \forall n \in \N, \forall a \in Z_n^*, a^{\phi(n)} = 1 \mod n
 > $$
+
+{: .proof}
+> Let $a \in Z_n^\ast$, and let $S := \set{ax : x \in Z_n^\ast}$.
+> We have $S = Z_n^*$ (otherwise, we have $x_1 \neq x_2$ but $ax_1 = ax_2$, a contradiction given $a^{-1}$ exists).
+> Then, by commutative for the first equality,
+> 
+> $$
+> \prod_{x \in Z_n^\ast} x = \prod_{b \in S} b = \prod_{x \in Z_n^\ast} ax = a^{\phi(n)} \prod_{x \in Z_n^\ast} x.
+> $$
+> 
+> That implies $a^{\phi(n)} = 1$.
 
 #### **Corollary:** (Fermat's Little Theorem)
 
@@ -555,6 +591,21 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > For any composite $n \in \N$, we say that $a \in Z_n^\*$ 
 > is a *witness* if $a^{n-1} \neq 1 \mod n$.
 
+#### **Lemma:** strict subgroup is small
+
+{: .theorem}
+> Let $G$ be a finite group.
+> If $H \subset G$ is a strict subgroup of $G$,
+> then $|H| \le |G| / 2$.
+
+{: .proof}
+> Let $b \in G$ be an element s.t. $b \notin H$.
+> Consider elements in the set $B:=\set{ab : a \in H}$.
+> If there exists $ab \in H$, then we have $a^{-1}ab = b \in H$, contradiction.
+> Hence, $B \cap H = \emptyset$, and it remains to show that $|B| = |H|$.
+> Suppose for contradiction that $|B| < |H|$, then there exist $a_1\neq a_2 \in H$ s.t. $a_1 b = a_2 b$,
+> a contradiction since we can multiply $b^{-1}$ on both sides.
+
 #### **Lemma:**
 
 {: .theorem}
@@ -567,19 +618,21 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > We can then show that any strict subgroup is at most half size of the supergroup,
 > ie, $|H| \le \phi(n) / 2$.
 
-#### **Definition:**
+#### **Definition:** Strong witness
 
 {: .defn}
-> For any composite $n \in \N$, write $\phi(n) = 2^r \cdot d$ for some integer $r\in \N$ and odd $d$.
+> For any composite $n \in \N$, write $n-1 = 2^r \cdot d$ for some integer $r\in \N$ and odd $d$.
 > We say that $a \in Z_n^\*$ 
 > is a *strong* witness if 
 > 
 > $$
-> a^d \neq \pm 1 \mod n ~\text{ and }~
-> a^{2^i \cdot d} \neq -1 \mod n \text{ for all } i = 1,2,...,r-1
+> \begin{align*}
+> & a^d \neq \pm 1 \mod n ~\text{, and }~\\
+> & a^{2^i \cdot d} \neq -1 \mod n \text{ for all } i = 1,2,...,r-1
+> \end{align*}
 > $$
 
-#### **Lemma:**
+#### **Lemma:** (warm up)
 
 {: .theorem}
 > If $a$ is a witness, then $a$ is also a strong witness.
@@ -589,10 +642,11 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > Then the sequence $a^d, a^{2d}, ..., a^{2^r d}$ is either
 > - $(\pm 1, 1, 1, ..., 1)$, or
 > - $(\star, \star, ..., -1, 1,1, ..., 1)$.
+> 
 > Hence, $a$ is not a witness, a contradiction.
 
 
-#### **Lemma:**
+#### **Lemma:** (Miller-Rabin, every prime has no strong witness)
 
 {: .theorem}
 > If $n$ prime, then there is no strong witness in $Z_n^*$.
@@ -601,27 +655,32 @@ for $n = p_1^{k_1} \cdot p_2^{k_2} ...$ where $p_i$ are distinct primes.
 > If $n$ prime, then the only solution to $x^2 = 1 \mod n$ is $\pm 1$ (need proof).
 > By Fermat's Little Theorem, for any $a \in Z_n^*$, $a^{2^r d} = 1 \mod n$, and $a^{2^{r-1} d} = \pm 1 \mod n$.
 > If $-1$, then it is not a strong witness.
-> Otherwise, $1$, we can continue the next square root $r-2$, until $a^d$, which must be $\pm 1$.
+> Otherwise, $1$, we can continue the next square root $r-2$, and so on, until $a^d$, which must be $\pm 1$.
 
 It remains to show that every composite has many strong witnesses.
 The first step is to exclude perfect powers.
 The second step is to show that other composites have many strong witnesses.
 
-#### **Lemma:**
+#### **Lemma:**(Miller-Rabin, every composite has many strong witnesses)
 
 {: .theorem}
 > If $n$ is composite such that $n = n_1 \cdot n_2$ for some coprime $n_1,n_2$, 
 > then there are at least half strong witness in $Z_n^*$.
 
 {: .proof}
-> Let $H$ be the subset of none-strong witnesses. 
+> Let $H:=\set{a \in Z_n^\ast : a \text{ is not strong witness}}$, the subset of none-strong witnesses. 
 > We will show that there exists $\bar H \supset H$ s.t. $\bar H$ is a strict subgroup of $Z_n^*$,
-> which is sufficient.
+> which is sufficient (as $|H| \le |\bar H| \le |Z_n^\ast|/2$).
 > 
+> Let $2^r d = n-1$.
 > For each $a \in H$, consider the sequence $a^d, a^{2d}, ..., a^{2^r d}$. 
-> Let $j$ be the largest index such that $\exists a \in H, a^{2^j d} = -1 \mod n$ 
-> but for all $a\in H$, $a^{2^{j+1}d} = 1 \mod n$.
-> Such $j < r$ exists because $(-1)^d = -1 \mod n$.
+> Let $j$ be the largest index such that 
+> 
+> $\exists a \in H, a^{2^j d} = -1 \mod n$ 
+> 
+> (so that for all $a\in H$, $a^{2^{j+1}d} = 1 \mod n$).
+> 
+> Such $j < r$ exists because $(-1)^d = -1 \mod n$ since $d$ odd.
 > Now, define 
 > 
 > $$
@@ -629,12 +688,36 @@ The second step is to show that other composites have many strong witnesses.
 > $$
 > 
 > Clearly, $H \subseteq \bar H$.
-> Also, $\bar H$ is a subgroup.
+> Also, $\bar H$ is a subgroup (need proof).
 > It remains to show that $\bar H$ is strict.
 > Let $a\in \bar H$ be an element s.t. $a^{2^j d} = -1 \mod n$.
-> We have $a^{2^j d} = -1 \mod n_1 = -1 \mod n_2$ by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
-> Let $b \in Z_n^*$ be an element s.t. $b^{2^j d} = -1 \mod n_1 = +1 \mod n_2$.
+> We have 
+> 
+> $$
+> a^{2^j d} = -1 \mod n_1 = -1 \mod n_2
+> $$
+> 
+> by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
+> Let $b \in Z_n^*$ be an element s.t. $b^{2^j d} = -1 \mod n_1 = +1 \mod n_2$, which exists by CRT.
 > We have $b^{2^j d} \neq \pm 1$ because of CRT, which implies that $b \notin \bar H$.
+
+#### **Algorithm:** Miller-Rabin Primality Testing
+
+{: .defn}
+> Input: $n$
+> 
+> 1. Output 'No' if $n$ even.
+> 2. Output 'No' if $n = x^y$ is a perfect power for some $x,y \in \N$.
+> 3. Write $n-1$ as $2^r d$.
+> 4. Repeat $\lambda$ times:
+> 	- Sample uniformly $a \gets Z_n^\ast$ (using CRT).
+> 	- If $a$ is a strong witness, output 'No'.
+> 5. Output 'Yes'.
+> 
+> Theorem: 
+> For any prime $n$, this algo outputs 'Yes' w.p. 1.
+> For any composite $n$, this algo outputs 'Yes' w.p. $\le 2^{-\lambda}$.
+
 
 
 A Universal OWF
