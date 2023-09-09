@@ -55,6 +55,12 @@ does not seem to "be re-written as" the next one that exchanges $m$ and $m'$.
 Particularly, in the nominator, $m$ is a random variable but $m'$ is fixed,
 but in general the substitution shall be applied globally.
 
+### [Ps, algorithm 64.2: A Universal One-way Function, p.64]
+
+When $M$ terminates, it should output $M \| M(x)$.
+If not, we have an easy way to invert: given an output $z$ that is short, 
+we invert it to $(M', z)$ s.t. $M'(x)$ just output $x$.
+
 
 Quizzes
 -------
