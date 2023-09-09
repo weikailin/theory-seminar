@@ -19,6 +19,7 @@ $
 \newcommand{\bit}{\set{0,1}}
 \newcommand{\bits}{\bit^\*}
 \newcommand{\mul}{\mathrm{mul}}
+\newcommand{\univ}{\mathrm{univ}}
 $
 
 
@@ -725,19 +726,21 @@ A Universal OWF
 
 The idea is to construct a function that computes all easy-to-compute functions.
 
-#### **Function:** $f_u$
+#### **Function:** $f_\univ$
 
 {: .defn}
-> Input: $y$, let $n := |y|$.
+> Input: $y$, 
+> let $n := |y|$.
 > 
-> 1. Interpret $y$ as a pair $(M,x)$ of Turing machine and bitstring where $|M| = \log n$
+> 1. Interpret $y$ as a pair $(M,x)$ of Turing machine and bitstring,
+>    where $|M| = \log n$
 > 2. Run $M$ on $x$ for $T=n^2$ steps
 > 3. If $M$ halts in $T$ steps, output $(M,M(x))$; otherwise, output $\bot$.
 
 #### **Theorem:** A Universal Weak OWF
 
 {: .theorem}
-> If there exists a OWF, then the above function $f_u$ is a weak OWF.
+> If there exists a OWF, then the above function $f_\univ$ is a weak OWF.
 
 To prove it, we will use the following lemma.
 
@@ -753,13 +756,13 @@ such that the description length $|M_g| = d$ is a constant.
 WLOG, assume the description of any TM can be padded with a special $\bot$ symbol to arbitrary long.
 Then, for all sufficiently large $n$, there is a string describing $M_g$ in $\log n$ bits,
 and the $\log n$-bit random prefix of $y$ is exactly $M_g$ w.p. $1/n$.
-Hence, $f_u(y)$ is hard to invert.
+Hence, $f_\univ(y)$ is hard to invert.
 
 Formally, assume for contra (AC),
 for all poly $q(n)$, there exists NUPPT $A$ s.t. for infinitely many $n\in\N$,
 
 $$
-\Pr[y\gets \bit^n, z \gets f_u(y) : f_u(A(1^n, z)) = z] \gt 1 - 1/q.
+\Pr[y\gets \bit^n, z \gets f_\univ(y) : f_\univ(A(1^n, z)) = z] \gt 1 - 1/q.
 $$
 
 We construct NUPPT $B$ that inverts $z' \gets g(x)$ for $x\gets \bit^{n-\log n}$ by
@@ -773,22 +776,22 @@ By (AC), we have
 $$
 \begin{align*}
 1/q
-& \ge \Pr[A \notinv] 
-& \ge \Pr[A \notinv | y = (M_g, \star)] \Pr[y = (M_g, \star)]
-= \Pr[A \notinv | y = (M_g, \star)] \cdot (1/n).
+& \ge \Pr[A \tnotinv] 
+& \ge \Pr[A \tnotinv | y = (M_g, \star)] \Pr[y = (M_g, \star)]
+= \Pr[A \tnotinv | y = (M_g, \star)] \cdot (1/n).
 \end{align*}
 $$
 
 Notice that 
 
 $$
-\Pr[A \notinv | y = (M_g, \star)] = \Pr[x\gets\bit^{n-\log n}, z' \gets g(x) : B \notinv].
+\Pr[A \tnotinv | y = (M_g, \star)] = \Pr[x\gets\bit^{n-\log n}, z' \gets g(x) : B \tnotinv].
 $$
 
 Hence, we have 
 
 $$
-\Pr[B \notinv] \le n / q(n).
+\Pr[B \tnotinv] \le n / q(n).
 $$
 
 Choosing $q(n) = n^2$ and $A$ correspondingly, we have $B$ inverts w.p. at least $1-1/n$,
