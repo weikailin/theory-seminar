@@ -776,8 +776,8 @@ By (AC), we have
 $$
 \begin{align*}
 1/q
-& \ge \Pr[A \tnotinv] 
-& \ge \Pr[A \tnotinv | y = (M_g, \star)] \Pr[y = (M_g, \star)]
+& \ge \Pr[A \tnotinv] \\
+& \ge \Pr[A \tnotinv | y = (M_g, \star)] \Pr[y = (M_g, \star)] \\
 = \Pr[A \tnotinv | y = (M_g, \star)] \cdot (1/n).
 \end{align*}
 $$
