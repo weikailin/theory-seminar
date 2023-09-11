@@ -669,7 +669,7 @@ The second step is to show that other composites have many strong witnesses.
 > then there are at least half strong witness in $Z_n^*$.
 
 {: .proof}
-> Let $H:=\set{a \in Z_n^\ast : a \text{ is not strong witness}}$, the subset of none-strong witnesses. 
+> Let $H:=\set{a \in Z_n^\ast : a \text{ is a not a strong witness}}$. 
 > We will show that there exists $\bar H \supset H$ s.t. $\bar H$ is a strict subgroup of $Z_n^*$,
 > which is sufficient (as $|H| \le |\bar H| \le |Z_n^\ast|/2$).
 > 
@@ -691,16 +691,38 @@ The second step is to show that other composites have many strong witnesses.
 > Clearly, $H \subseteq \bar H$.
 > Also, $\bar H$ is a subgroup (need proof).
 > It remains to show that $\bar H$ is strict.
-> Let $a\in \bar H$ be an element s.t. $a^{2^j d} = -1 \mod n$.
-> We have 
+> Let $a\in \bar H$ be an element s.t. $a^{2^j d} = -1 \mod n$
+> (where $a$ exists by def of $H$).
+> Let $a_1 \in Z_{n_1}^\ast$ be the element s.t.
 > 
 > $$
-> a^{2^j d} = -1 \mod n_1 = -1 \mod n_2
+> a = a_1 \mod n_1.
 > $$
 > 
-> by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
-> Let $b \in Z_n^*$ be an element s.t. $b^{2^j d} = -1 \mod n_1 = +1 \mod n_2$, which exists by CRT.
-> We have $b^{2^j d} \neq \pm 1$ because of CRT, which implies that $b \notin \bar H$.
+> Then, we have 
+> 
+> $$
+> a_1^{2^j d} = a^{2^j d} = -1 \mod n_1,
+> $$
+> 
+> where the second equality holds by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
+> Let $b_1=a_1 \mod n_1$ and $b_2=1 \mod n_2, and let 
+> 
+> $$
+> b = b_1 \mod n_1 = b_2 \mod n_2
+> $$
+> 
+> by CRT.
+> Then, we have 
+> 
+> $$
+> \begin{align*}
+> b^{2^j d} & = b_1^{2^j d} = -1 \mod n_1 \\
+> & = b_2^{2^j d} = 1 \mod n_2.
+> \end{align*}
+> $$
+> 
+> By CRT, $b^{2^j d} \neq \pm 1 \mod n$, and thus $b \notin \bar H$.
 
 #### **Algorithm:** Miller-Rabin Primality Testing
 
