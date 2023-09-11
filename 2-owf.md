@@ -733,7 +733,7 @@ The second step is to show that other composites have many strong witnesses.
 > 2. Output 'No' if $n = x^y$ is a perfect power for some $x,y \in \N$.
 > 3. Write $n-1$ as $2^r d$.
 > 4. Repeat $\lambda$ times:
-> 	- Sample uniformly $a \gets Z_n^\ast$ (using CRT).
+> 	- Sample uniformly $a \gets Z_n^\ast$ (by computing $\gcd(a,n)$).
 > 	- If $a$ is a strong witness, output 'No'.
 > 5. Output 'Yes'.
 > 
