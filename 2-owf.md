@@ -800,7 +800,6 @@ We construct NUPPT $B$ that inverts $z' \gets g(x)$ for $x\gets \bit^{n-\log n}$
 
 
 **Notice**{: .label}
-
 We uses $M_g$ in $B$ because $B$ is asked to invert $g$, 
 which means that we know $g$ in this proof.
 Alternatively, we prove it *without* AC in lecture, 
