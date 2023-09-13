@@ -834,6 +834,47 @@ contradicts $g$ is a strong OWF.
 > It is easy to see that $g'$ is computable in $O(m^2)$ time, and it follows by standard reduction 
 > that $g'$ is hard to invert if $g$ is a OWF.
 
+Note:
+The above construction is impractical due to inefficiency. 
+Suppose there exists a OWF that is easy to compute by a TM of 1000 bits.
+The above needs a "sufficiently long" input so that $\log n \ge 1000$ to be a weak OWF, which means $|x| \ge 2^{1000}$.
+
+
+Collection of OWFs
+--------------------
+
+To construct OWFs efficiently, many mathematical / computational assumptions are considered.
+The intuition is to consider *efficiently sampleable* distributions instead of uniformly random strings.
+The typical syntax is PPT algos $(\Gen, \Samp)$:
+
+- $\pp \gets \Gen(1^n)$
+- $x \gets \Samp(1^n, \pp)$
+- $f_\pp : \bit^n \to \bit^\ast$
+
+And then, for all NUPPT adversary $A$, there exists a negligible function $\eps$ such that
+
+$$
+\Pr[\pp\gets\Gen(1^n), x \gets \Samp(1^n, \pp), y \gets f_\pp(x) : f_\pp(A(1^n, \pp, y)) = 1] \le \eps(n).
+$$
+
+For example, given the factoring assumption, we can construct a collection of OWF by 
+
+- let $\Gen$ output $n$ directly,
+- let $\Samp$ output two $n$-bit primes uniformly at random (using primality testing), and 
+- let $f_\pp$ be the $n$-bit multiplication.
+
+Other collections (such as RSA, discrete logarithm, or Rabin) are more involved in their constructions,
+and they provide additional "properties" on top of OWF.
+
+<!-- 
+Other stuff, wanted to say discrete logarithm.
+Z*_p can be proved to be a cyclic group, and it is a permutation such that the range is exactly the domain,
+but its generator can be hard to find, and it can even be easy to solve DL due to the even order.
+Choosing p = 2q + 1 for both p, q prime and then choosing the subgroup G_q of Z*_p is good DL,
+every element is generator, but the domain is Z_q while the range g^x in G_q is represented in Z*_p,
+and we may not have good way to map it back to Z_q.
+
+Maybe leave it to PKE, or just use LWE then.
 
 #### **Theorem:** generators are dense
 
@@ -844,13 +885,9 @@ contradicts $g$ is a strong OWF.
 > 
 > (Knuth, TA of CP, vol 2, Sec 4.5.4)
 
-
 Basic number theory, DL assumption
 
-
-
 OWP
-
-Universal OWF
+-->
 
 
