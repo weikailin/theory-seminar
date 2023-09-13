@@ -6,4 +6,15 @@
 <!-- Copied from https://docs.mathjax.org/en/latest/web/components/combined.html -->
 <script type="text/javascript" id="MathJax-script" defer
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+window.MathJax = {
+  tex: {
+    macros: {
+      RR: "{\\bf R}",
+      bold: ["{\\bf #1}", 1]
+    },
+    environments: {
+      braced: ["\\left\\{", "\\right\\}"]
+    }
+  }
+};
 </script>

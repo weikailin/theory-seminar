@@ -67,14 +67,17 @@ $$
 
 For "Kramdown" renderer:
 
-do we need to escape vertical pipes $| S |$?
+- Do we need to escape vertical pipes $| S |$? 
+  Unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
 
-unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
+- However, table begins from a block so
+  putting this on second line $| S |$ escapes it.
 
-table begins from a block so
-putting this on second line $| S |$ escapes it.
+- Unfortunately need to escape curly braces $\\{0,1\\}$ due to markdown escapes. Seems no better way than latex macro.
 
-unfortunately need to escape curly braces $\\{0,1\\}$ due to markdown escapes.
+- Also need to escape "star $*$" unless there is only one in the block.
+
+test macro $\RR$
 
 [test pdf](../../otherdocs/[SODA18]CacheOblivSort.pdf)
 
