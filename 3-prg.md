@@ -5,6 +5,10 @@ nav_order: 3
 nav_exclude: true
 ---
 
+$$
+\newcommand{\wkxxx}{}
+$$
+
 Indistinguishability and Pseudo-Randomness
 =================
 
@@ -67,4 +71,55 @@ E.g., supposing $D_n$ is a distribution over $n$-bit strings for all $n\in\N$, $
 > \Big| \Pr[t \gets X_n, D(t) = 1] − \Pr[t \gets Y_n, D(t) = 1] \Big| \lt \eps(n).
 > $$
 
+Note: "=1" is a convention in literature. 
+
+This definition requires the two distributions to pass *all efficient* statistical tests,
+which include the following.
+- Roughly as many 0 as 1.
+- Roughly as many 01 as 10.
+- Each sequence of bits occurs with roughly the same probability.
+- Given any prefix, guessing the next bit correctly happens with roughly the same probability.
+
+#### **Lemma:** Closure Under Efficient Operations
+
+{: .defn}
+> If the pair of ensembles $\set{X_n}_n \approx \set{Y_n}_n$, 
+> then for any NUPPT $M$, $\set{M(X_n)}_n \approx \set{M(Y_n)}_n$.
+
+{: .proof}
+> (By standard reduction) 
+
+#### **Lemma:** Hybrid Lemma
+
+{: .defn}
+> Let $X^{(1)}, X^{(2)}, ..., X^{(m)}$ be a sequence of probability distributions. 
+> Assume that the machine $D$ distinguishes $X^{(1)}$ and $X^{(m)}$ with probability $p$. 
+> Then there exists some $i \in \set{1, ..., m − 1}$ s.t. 
+> $D$ distinguishes $X^{(1)}$ and $X^{(m)}$ with probability $p/m$.
+
+{: .proof}
+> (By triangular ineq) 
+
+By this lemma, if $\cX \approx \cY$ and $\cY \approx \cZ$ for ensembles $\cX, \cY, \cZ$,
+then it follows that $\cX \approx \cZ$.
+
+Notice that this lemma applies to distributions (not ensembles).
+
+Looking forward:
+Consider two ensembles $\cX = \set{X_n}_n, \cY=\set{Y_n}_n$, and suppose that
+the machine $D$ distinguishes $\cX, \cY$ w.p. $p(n)$ (that depends on $n$),
+and then suppose that the sequence$X_n = X_n^{(1)}, ... , X_n^{(m(n))} = Y_n$
+consists of $m(n)$ distributions such that $m$ is a polynomial of $n$.
+Then, we *can not* define $m(n)$ ensembles between $\cX$ and $\cY$ due to the dependence of $m$ on $n$.
+This is indeed the case when we have many hybrids, e.g., going from $(n+1)$-bit PRG to $m(n)$-bit PRG.
+There are two ways to treat this case, the formal one and the more popular one.
+In the formal way, we assume for contra that exists $D$ and $p(n)$ s.t. 
+for inf many $n\in\N$, $D$ distinguishes $(X_n, Y_n)$ w.p. at least $p(n)$;
+we then construct a reduction $B$ such that *guesses* an index $j \in [m(n)-1]$ 
+and hoping that $j = i$, where $i$ is the index given by hybrid lemma, 
+so that $B$ runs $D$ to distinguish and solve the challenge specified by the $j$-th hybrid.
+The popular way is less rigorous but more intuitive:
+we just claim that the two distributions $X_n^{(j)}, X_n^{(j+1)}$ are "indistinguishable"
+for each $j, n$ (which is informal since $n$ is no longer asymptotic)
+and thus $X_n, Y_n$ are "indistinguishable" (still informal).
 
