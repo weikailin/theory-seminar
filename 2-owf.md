@@ -687,13 +687,14 @@ The second step is to show that other composites have many strong witnesses.
 > Now, define 
 > 
 > $$
-> \bar H:= \set{a : a^{2^{j}d} = \pm 1 \mod n}.
+> J := 2^j\cdot d, \text{ and }
+> \bar H:= \set{a : a^J = \pm 1 \mod n}.
 > $$
 > 
 > Clearly, $H \subseteq \bar H$.
 > Also, $\bar H$ is a subgroup (need proof).
 > It remains to show that $\bar H$ is strict.
-> Let $a\in \bar H$ be an element s.t. $a^{2^j d} = -1 \mod n$
+> Let $a\in \bar H$ be an element s.t. $a^J = -1 \mod n$
 > (where $a$ exists by def of $H$).
 > Let $a_1 \in Z_{n_1}^\ast$ be the element s.t.
 > 
@@ -704,11 +705,11 @@ The second step is to show that other composites have many strong witnesses.
 > Then, we have 
 > 
 > $$
-> a_1^{2^j d} = a^{2^j d} = -1 \mod n_1,
+> a_1^J = a^J = -1 \mod n_1,
 > $$
 > 
 > where the second equality holds by $n=n_1n_2$ and $\gcd(n_1,n_2)=1$.
-> Let $b_1=a_1 \mod n_1$ and $b_2=1 \mod n_2, and let 
+> Let $b_1=a_1 \mod n_1$ and $b_2=1 \mod n_2$, and let 
 > 
 > $$
 > b = b_1 \mod n_1 = b_2 \mod n_2
@@ -719,12 +720,13 @@ The second step is to show that other composites have many strong witnesses.
 > 
 > $$
 > \begin{align*}
-> b^{2^j d} & = b_1^{2^j d} = -1 \mod n_1 \\
-> & = b_2^{2^j d} = 1 \mod n_2.
+> b^J & = b_1^J = -1 \mod n_1 \\
+> & = b_2^J = 1 \mod n_2.
 > \end{align*}
 > $$
 > 
-> By CRT, $b^{2^j d} \neq \pm 1 \mod n$, and thus $b \notin \bar H$.
+> Because $1 = 1 \mod n_1 = 1 \mod n_2$ and $-1 = -1 \mod n_1 = -1 \mod n_2$ are unique,
+> $b^J \neq \pm 1 \mod n$, which implies $b \notin \bar H$.
 
 #### **Algorithm:** Miller-Rabin Primality Testing
 
@@ -775,11 +777,12 @@ To prove it, we will use the following lemma.
 > a strongly one-way function $g'$ that is computable in time $O(n^2)$.
 
 Intuition: 
-If there exists a strong OWF $g$ in time $O(n^2)$, then there exists a TM $M_g$ that computes $g$ in $O(n^2)$ steps
+If there exists a strong OWF $g$ in time $O(n^2)$, then there exists (at least) a TM $M_g$ that computes $g$ in $O(n^2)$ steps
 such that the description length $|M_g| = d$ is a constant.
 WLOG, assume the description of any TM can be padded with a special $\bot$ symbol to arbitrary long.
-Then, for all sufficiently large $n$, there is a string describing $M_g$ in $\log n$ bits,
-and the $\log n$-bit random prefix of $y$ is exactly $M_g$ w.p. $1/n$.
+For any $s \ge |M_g|$, let $M_{g,s}$ be the description of $M_g$ padded to $s$ bits.
+Then, for all sufficiently large $n$, 
+the $\log n$-bit random prefix of $y$ is exactly $M_{g,\log n}$ w.p. $1/n$.
 Hence, $f_\univ(y)$ is hard to invert.
 
 Formally, assume for contra (AC),
@@ -794,6 +797,13 @@ We construct NUPPT $B$ that inverts $z' \gets g(x)$ for $x\gets \bit^{n-\log n}$
 1. Run $y \gets A(1^n, (M_g,z'))$.
 2. Interpret $y$ as $(M, x)$.
 3. If $M = M_g$ and $z' = g(x)$, output $x$; otherwise, output $\bot$.
+
+
+**Notice** {: .label}
+We uses $M_g$ in $B$ because $B$ is asked to invert $g$, 
+which means that we know $g$ in this proof.
+Alternatively, we prove it *without* AC in lecture, 
+and there is only probability analysis which does not depend on $g$. 
 
 By (AC), we have
 
