@@ -21,7 +21,7 @@ MathJax = {
     load: ['[tex]/cases']
   },
   tex: {
-    inlineMath: [['$', '$']], //['\\(', '\\)']],
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
     packages: {'[+]': ['cases']},
     macros: {
       // RR: "{\\bf R}",
