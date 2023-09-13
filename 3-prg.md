@@ -82,7 +82,7 @@ which include the following.
 
 #### **Lemma:** Closure Under Efficient Operations
 
-{: .defn}
+{: .theorem}
 > If the pair of ensembles $\set{X_n}_n \approx \set{Y_n}_n$, 
 > then for any NUPPT $M$, $\set{M(X_n)}_n \approx \set{M(Y_n)}_n$.
 
@@ -91,7 +91,7 @@ which include the following.
 
 #### **Lemma:** Hybrid Lemma
 
-{: .defn}
+{: .theorem}
 > Let $X^{(1)}, X^{(2)}, ..., X^{(m)}$ be a sequence of probability distributions. 
 > Assume that the machine $D$ distinguishes $X^{(1)}$ and $X^{(m)}$ with probability $p$. 
 > Then there exists some $i \in \set{1, ..., m − 1}$ s.t. 
@@ -122,4 +122,31 @@ The popular way is less rigorous but more intuitive:
 we just claim that the two distributions $X_n^{(j)}, X_n^{(j+1)}$ are "indistinguishable"
 for each $j, n$ (which is informal since $n$ is no longer asymptotic)
 and thus $X_n, Y_n$ are "indistinguishable" (still informal).
+
+Example:
+Let $\cX, \cY, \cZ, \cZ'$ be ensembles.
+Suppose that $(\cX, \cZ) \approx (\cX, \cZ')$ and $(\cY, \cZ) \approx (\cY, \cZ')$.
+Does $(\cX, \cY, \cZ) \approx (\cX, \cY, \cZ')$?
+
+#### **Lemma:** Prediction Lemma
+
+{: .theorem}
+> Let $\set{X^0_n}_n$ and $\set{X^1_n}_n$ be two ensembles where $X^0_n, X^1_n$ are 
+> probability distributions over $\bit^{\ell(n)}$ for some polynomial $\ell(\cdot)$, 
+> and let $D$ be a NUPPT machine that distinguishes between $\set{X^0_n}_n$ and $\set{X^1_n}_n$
+> with probability $\ge p(·)$ for infinitely many $n \in \N$.
+> Then there exists a NUPPT $A$ such that
+> 
+> $$
+> \Pr[b \gets \bit, t \gets X^b_n : A(t) = b] \ge \frac{1}{2} + \frac{p(n)}{2}
+> $$
+> 
+> for infinitely many $n \in \N$.
+
+Note: the converse the easier to prove. Hence, prediction and distinguishing is essentially equivalent.
+
+{: .proof}
+> Remove the absolute value in the def of CI by negating the distinguisher $D$,
+> and then standard probability. 
+
 
