@@ -105,7 +105,8 @@ then it follows that $\cX \approx \cZ$.
 
 Notice that this lemma applies to distributions (not ensembles).
 
-Looking forward:
+**Notice**{: .label}
+More than a constant number of hybrids (between two ensembles) is tricky.
 Consider two ensembles $\cX = \set{X_n}_n, \cY=\set{Y_n}_n$, and suppose that
 the machine $D$ distinguishes $\cX, \cY$ w.p. $p(n)$ (that depends on $n$),
 and then suppose that the sequence$X_n = X_n^{(1)}, ... , X_n^{(m(n))} = Y_n$
