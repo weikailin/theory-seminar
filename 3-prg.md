@@ -27,7 +27,7 @@ Let $g$ be the above function with short input $x$ and long output $g(x)$.
 We want Alice and Bob share the same $g(x)$ to decrypt correctly, so $g$ must be deterministic. 
 Mathematically, we have def for the distance between two probability distributions.
 However, for any $|g(x)| \gt |x|$, the input / output distributions are far.
-The point is "random-looking".
+The point is "random-looking" at best.
 
 We will introduce computational indistinguishability, and then define pseudorandom generator (PRG) and pseudorandom function (PRF).
 
