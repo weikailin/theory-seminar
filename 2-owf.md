@@ -9,6 +9,8 @@ $
 \newcommand{\Enc}{\mathsf{Enc}}
 \newcommand{\Dec}{\mathsf{Dec}}
 \newcommand{\Gen}{\mathsf{Gen}}
+\newcommand{\Samp}{\mathsf{Samp}}
+\newcommand{\pp}{\mathrm{pp}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cK}{\mathcal{K}}
 \newcommand{\cA}{\mathcal{A}}
