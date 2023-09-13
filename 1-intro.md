@@ -98,6 +98,8 @@ We will cover:
    - Construction of the essentials (basic number theory and assumptions)
  - Modern crypto (cool stuff): zero-knowledge proofs (ZKP), secure two-party computation (2PC), secure multiparty computation (MPC), fully homomorphic encryption (FHE), my research (oblivious RAM (ORAM), doubly efficient private information retrieval (DEPIR), RAM-FHE)
 
+![Topics in a tree](assets/images/outline-tree-plain.svg)
+
 Related but almost NOT cover:
  - System security
  - Blockchain
