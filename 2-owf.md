@@ -799,7 +799,7 @@ We construct NUPPT $B$ that inverts $z' \gets g(x)$ for $x\gets \bit^{n-\log n}$
 3. If $M = M_g$ and $z' = g(x)$, output $x$; otherwise, output $\bot$.
 
 
-**Notice** {: .label}
+**Notice**{: .label}
 
 We uses $M_g$ in $B$ because $B$ is asked to invert $g$, 
 which means that we know $g$ in this proof.
