@@ -23,6 +23,10 @@ MathJax = {
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']],
     packages: {'[+]': ['cases']},
+    macros: {
+      RR: "{\\bf R}",
+      bold: ["{\\bf #1}", 1]
+    },
   },
   autoload: {
     cases: [[], ['cases', 'numcases', 'subnumcases']]
