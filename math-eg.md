@@ -81,8 +81,10 @@ test macro $\N$
 
 [test pdf](../../otherdocs/[SODA18]CacheOblivSort.pdf)
 
-**label-purple**{: .label .label-purple }
-**label-red**{: .label .label-red }
+**purple**{: .label .label-purple}
+**red**{: .label .label-red}
+Notice there is no space from span-level obj.
+
 
 [Link to section](1-intro.md#a-toy-example-match-making)
 
