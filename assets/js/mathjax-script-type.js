@@ -21,11 +21,15 @@ MathJax = {
     load: ['[tex]/cases']
   },
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    inlineMath: [['$', '$'], //['\\(', '\\)']],
     packages: {'[+]': ['cases']},
     macros: {
-      RR: "{\\bf R}",
-      bold: ["{\\bf #1}", 1]
+      // RR: "{\\bf R}",
+      // bold: ["{\\bf #1}", 1],
+      set: ["\\{#1\\}", 1],
+      bit: "\\set{0,1}",
+      N: "\\mathbb{N}",
+      eps: "\\epsilon",
     },
   },
   autoload: {
