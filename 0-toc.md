@@ -16,5 +16,6 @@ Table of Lecture Notes
 | Sep 4     | [Factoring, reduction](2-owf.md#primes-and-factoring)    | [Ps 2.3-2.4], [KL 9.2.3] |
 | Sep 6     | [From weak to strong OWF](2-owf.md#from-weak-owf-to-strong-owf)    | [Ps 2.4] [Wichs@NEU](https://www.ccs.neu.edu/home/wichs/class/crypto-fall17/lecture10.pdf), [Goldwasser@Berkeley](https://inst.eecs.berkeley.edu/~cs276/fa20/slides/lec7.pdf), [LTW05](https://lucatrevisan.github.io/pubs/LTW05.pdf) |
 | Sep 11    | [Primality testing](2-owf.md#primality-testing)    | [KL 9.2.2] |
+| Sep 13    | [Finish Miller-Rabin, universal OPWF](2-owf.md#a-universal-owf)    | [Ps 2.13] [Wichs@NEU](https://www.ccs.neu.edu/home/wichs/class/crypto-fall17/lecture10.pdf) |
 
 

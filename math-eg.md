@@ -77,7 +77,7 @@ For "Kramdown" renderer:
 
 - Also need to escape "star $*$" unless there is only one in the block.
 
-test macro $\RR$
+test macro $\N$
 
 [test pdf](../../otherdocs/[SODA18]CacheOblivSort.pdf)
 
