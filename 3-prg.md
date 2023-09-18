@@ -183,7 +183,7 @@ Pseudo-Random Generator
 #### **Definition:** Pseudo-random Ensembles.
 
 {: .defn}
-> The probability ensemble $\set{X_n}_n}$, where $X_n$ is a probability distribution
+> The probability ensemble $\set{X_n}_n$, where $X_n$ is a probability distribution
 > over $\bit^{l(n)}$ for some polynomial $l(\cdot)$, is said to be pseudorandom 
 > if $\set{X_n}_n \approx \set{U_{l(n)}}_n$,
 > where $U_m$ is the uniform distribution over $\bit^m$.
@@ -200,7 +200,8 @@ Note:
 > A function $g : \bit^\ast \to \bit^\ast$ is a *Pseudo-random Generator (PRG)* 
 > if the following holds.
 > 1. (efficiency): $g$ can be computed in PPT.
-> 2. (expansion): $|g(x)| \gt |x|$
+> 2. (expansion): 
+>    $|g(x)| \gt |x|$
 > 3. The ensemble $\set{x \gets U_n : g(x)}_n$ is pseudorandom.
 
 We sometimes say that the expansion of PRG $g$ is $t$ 
