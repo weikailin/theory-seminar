@@ -78,7 +78,7 @@ For "Kramdown" renderer:
 
 - Also need to escape "star $*$" unless there is only one in the block.
 
-- Sometimes need to escape underscores especially in inline math, such as $H^0\_n := g'(s), H^1\_n := U\_1$.
+- Sometimes need to escape underscores especially in inline math, such as $H^0_n := g'(s), H^1_n := U_1$.
   Unclear when italic is triggered.
 
 test macro $\N$
