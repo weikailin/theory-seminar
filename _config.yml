@@ -88,3 +88,6 @@ callouts:
   proof:
     color: grey-dk
     title: 'Proof:'
+  wknote:
+    color: purple
+    title: 'WKNote'
