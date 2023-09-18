@@ -283,13 +283,13 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > 2. $t_0 \gets U_i$, $t_1 \gets t[n+1]$, and $t_2 \gets s^1(t[1...n]) \\| s^2(t[1...n]) \\| ...s^{\ell-i-1}(t[1...n])$
 > 3. output $D(t_0 \\| t_1 \\| t_2)$
 > 
-> To show that $D'$ succeed with non-negl prob., notice that conditioned on $i = j$,
+> To show that $D'$ succeed with non-negl prob., notice that conditioned on $i = j'$ for any $j'$,
 > the distribution $t_0 \\| t_1 \\| t_2$ is identical to 
 > 
 > $$
 > \begin{cases}
-> H_{j+1} & \text{if } t \gets \bit^{n+1}\\
-> H_{j}  &  \text{if } x \gets \bit^n, t \gets g(x).
+> H_{j'+1} & \text{if } t \gets \bit^{n+1}\\
+> H_{j'}  &  \text{if } x \gets \bit^n, t \gets g(x).
 > \end{cases}
 > $$
 > 
@@ -297,9 +297,15 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > 
 > $$
 > \begin{align*}
-> \Pr_{t\gets U_{n+1},i}[D'(t) = 1 | i = j] - \Pr_{x\gets U_n, j}[t \gets g(x) : D'(t) = 1 | i = j] \ge \frac{1}{mp}.
+> \Pr_{t\gets U_{n+1},i}[D'(t) = 1 | i = j'] - \Pr_{x\gets U_n}[t \gets g(x) : D'(t) = 1 | i = j']\\
+> = \Pr[D(H_{j'+1}) = 1] - \Pr[D(H_j') = 1].\\
 > \end{align*}
 > $$
+>
+>  
+> \Pr_{t,i}[D'(t) = 1]
+> \ge \Pr_{t,i}[D'(t) = 1 \cap i = j]
+> = \Pr_{t,i}[D'(t) = 1 | i = j] \frac{1}{\ell}
 > 
 
 
