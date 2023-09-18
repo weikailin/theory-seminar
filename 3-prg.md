@@ -6,7 +6,7 @@ nav_exclude: false
 ---
 
 $$
-\newcommand{\wkxxx}{}
+\newcommand{\wkxxx}{[WK: xxx]}
 $$
 
 Indistinguishability and Pseudo-Randomness
