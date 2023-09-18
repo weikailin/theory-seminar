@@ -307,6 +307,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > \ge \Pr_{t,i}[D'(t) = 1 \cap i = j]
 > = \Pr_{t,i}[D'(t) = 1 | i = j] \frac{1}{\ell}
 > 
+> (WK: breakdown $i$ into sum of sub-events $i = j$ for all $j$, then change to $H_i$'s, then they cancel out)
 
 
 
