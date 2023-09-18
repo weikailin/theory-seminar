@@ -221,7 +221,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > $$
 > 
 > where 
-> $X_0 \gets s, x_{i+1} \\| b_{i+1} \gets g(x_i)$. Then $g'$ is a PRG.
+> $n := |s|$, $X_0 \gets s, x_{i+1} \\| b_{i+1} \gets g(x_i)$. Then $g'$ is a PRG.
 
 {:.proof-title}
 > Proof, warmup:
@@ -235,6 +235,23 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 
 {:.proof}
 > It is slightly tricky when $\ell$ depends on $n$.
+> Define the prefix $h$ and last bit $s$ of iterating $g$ as:
+> 
+> $$
+> h^i(x) := \begin{cases}
+>   g(x)[1...n] & i = 1,\\
+>   g(h^{i-1}(x))[1...n] & i > 1
+> \end{cases}, \text{ and }
+> s^i(x) := \begin{cases}
+>   g(x)[n+1]  & i=1,\\
+>   g(h^{i-1}(x))[n+1] & i \gt 1.
+> \end{cases}
+> $$
+> 
+> We have $g'(x) = s^1 s^2 ...s^{\ell(n)}$, and we want to prove it through Hybrid Lemma.
+> Given $n$, define hybrid distributions $H_0 := U_{\ell(n)}$, $H_{\ell(n)} := g'(x)$,
+> and $H_i$ for $i = 0,1,...,\ell(n)-1$ as 
+> 
 > 
 
 
