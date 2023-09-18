@@ -91,7 +91,7 @@ Kramdown tests
 **red**{: .label .label-red}
 Notice there is no space from span-level obj.
 
-{:.wk-note}
+{:.wknote}
 this is a note, block-level. 
 
 #### **Definition:** Shannon Secrecy.

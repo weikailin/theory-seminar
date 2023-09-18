@@ -5,9 +5,9 @@ nav_order: 3
 nav_exclude: false
 ---
 
-$$
+$
 \newcommand{\wkxxx}{[WK: xxx]}
-$$
+$
 
 Indistinguishability and Pseudo-Randomness
 ==========================================
@@ -209,4 +209,16 @@ if $|g(x)| - |x| \ge t$ for all $x$.
 Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 (proof left as exercise, why expansion is necessary?)
 
+#### **Lemma:** Expansion of a PRG
+
+{:.theorem}
+> Let $g:\bit^n \to \bit^{n+1}$ to be a PRG. 
+> For any polynomial $\ell$, define $g': \bit^n \to \bit^{\ell(n)}$ as follows:
+> 
+> $$
+> g'(s) \to b_1 b_2 ... b_{\ell(n)},
+> $$
+> 
+> where 
+> $X_0 \gets s, x_{i+1} \| b_{i+1} \gets g(x_i)$. Then $g'$ is a PRG.
 
