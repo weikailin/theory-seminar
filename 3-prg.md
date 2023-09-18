@@ -227,12 +227,15 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > Proof, warmup:
 > 
 > Suppose that $\ell = 2$, no expansion, but we want to show pseudorandomness.
-> Define distributions $H^0_n := g'(s), H^1_n := u_1 \| g(U_n)[n+1], H^2_n := U_2$ for $n \in \N$.
-> Since $g'(s) = g(s)[n+1] \| g(g(s)[1...n])[n+1]$, by $g(s) \approx U_{n+1}$ and closure,
+> Define distributions $H^0_n := g'(s), H^1_n := u_1 \\| g(U_n)[n+1], H^2_n := U_2$ for $n \in \N$.
+> Since $g'(s) = g(s)[n+1] \\| g(g(s)[1...n])[n+1]$, by $g(s) \approx U_{n+1}$ and closure,
 > we have $\cH^0 \approx \cH^1$.
 > By $g(x)$ is pseudorandom and closure, $g(U_n)[n+1] \approx U_1$, which implies $\cH^1 \approx \cH^2$.
 > By (the corollary of) hybrid lemma, we have $\cH^0 \approx \cH^2$.
 
+{:.proof}
+> It is slightly tricky when $\ell$ depends on $n$.
+> 
 
 
 
