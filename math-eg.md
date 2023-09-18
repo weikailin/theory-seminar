@@ -12,6 +12,7 @@ $
 \newcommand{\Dec}{\mathsf{Dec}}
 \newcommand{\Gen}{\mathsf{Gen}}
 $
+{: .d-none}
 
 inline $f(x) = 0$
 
