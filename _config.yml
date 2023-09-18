@@ -33,7 +33,7 @@ permalink: pretty
 aux_links:
   Wei-Kai Lin:
     - 'https://weikailin.github.io'
-footer_content:
+footer_content: 'test footer content <a href="math-eg.md">link</a>'
 
 # Collections for website data
 collections:
