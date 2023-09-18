@@ -257,7 +257,49 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > $$
 > 
 > where $U_i$ denotes sampling an $i$-bit string uniformly at random.
+> Clearly, $H_{\ell(n)} = U_{\ell(n)}$.
 > 
+> Assume for contra, there exists NUPPT $D$, poly $p(n)$ s.t. for inf many $n\in\N$,
+> $D$ distinguishes $\set{x\gets\bit^n : g(x)}_n$ and $U_{\ell(n)}$ w.p. at least $1/p(n)$.
+> Then for any such $n$, by hybrid lemma, there exists $j \in \set{0,1,...,\ell(n)-1}$ such that 
+> 
+> $$
+> \Pr[t\gets H_j : D(t)=1] - \Pr[t \gets H_{j+1} : D(t) = 1] \ge \frac{1}{mp(n)}.
+> $$
+> 
+> Observe that 
+> $$
+> \begin{align*}
+> H_{i+1} & = U_{i} \\| U_1 \\| s^{1}(x) \\| ...s^{\ell-i-1}(x), \text{ and } \\
+> H_{i} & = U_{i} \\| s^{1}(x) \\| s^{2}(x) \\| ...s^{\ell-i}(x), \\
+> & = U_{i} \\| g(x)[n+1] \\| s^{1}(g(x)[1...n]) \\| ...s^{\ell-i-1}(g(x)[1...n])
+> \end{align*}
+> $$
+> for all $i$.
+> 
+> Hence, we can construct an NUPPT disintinguisher $D'$ such that distinguishes $g(x)$ and $U_1 \\| U_n$:
+> given input $t \in \bit^{n+1}$, $D'$ performs
+> 1. sample $i \gets \set{0,...,\ell-1}$
+> 2. $t_0 \gets U_i$, $t_1 \gets t[n+1]$, and $t_2 \gets s^1(t[1...n]) \\| s^2(t[1...n]) \\| ...s^{\ell-i-1}(t[1...n])$
+> 3. output $D(t_0 \\| t_1 \\| t_2)$
+> 
+> To show that $D'$ succeed with non-negl prob., notice that conditioned on $i = j$,
+> the distribution $t_0 \\| t_1 \\| t_2$ is identical to 
+> 
+> $$
+> \begin{cases}
+> H_{j+1} & \text{if } t \gets \bit^{n+1}\\
+> H_{j}  &  \text{if } x \gets \bit^n, t \gets g(x).
+> \end{cases}
+> $$
+> 
+> Hence, 
+> 
+> $$
+> \begin{align*}
+> \Pr_{t\gets U_{n+1},i}[D'(t) = 1 | i = j] - \Pr_{x\gets U_n, j}[t \gets g(x) : D'(t) = 1 | i = j] \ge \frac{1}{mp}.
+> \end{align*}
+> $$
 > 
 
 
