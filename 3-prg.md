@@ -37,7 +37,7 @@ $$
 m \oplus g(s), ~ |m| = |g(s)|, \text{ but } |s| \ll |m|.
 $$
 
-We will introduce computational indistinguishability, and then define pseudorandom generator (PRG) and pseudorandom function (PRF).
+We will introduce computational indistinguishability, and then define pseudo-random generator (PRG) and pseudo-random function (PRF).
 
 Computational Indistinguishability
 ------------------------
@@ -46,8 +46,8 @@ Key Idea:
 If we have no way to show the difference, then we are satisfied. We call it indistinguishability.
 
 Example: Turing test, when a machine and a human is indistinguishable in *every* human's prompts, we call it AI.
-- [Turing 50, Computing machinery and intelligence](https://link.springer.com/chapter/10.1007/978-1-4020-6710-5_3)
-- [Wigderson 22, Imitation game](https://www.youtube.com/watch?v=JZH1AT1kdK8)
+- [Turing 1950, Computing machinery and intelligence](https://link.springer.com/chapter/10.1007/978-1-4020-6710-5_3)
+- [Wigderson 2022, Imitation game](https://www.youtube.com/watch?v=JZH1AT1kdK8)
 
 Observation: they are *not* the same, not even close in any sense; 
 however, the distinguisher "another human" can not tell the difference due to a limited power.
@@ -172,9 +172,41 @@ Does $(\cX, \cY, \cZ) \approx (\cX, \cY, \cZ')$?
 > for infinitely many $n \in \N$.
 
 {: .proof}
-> Remove the absolute value in the def of CI by negating the distinguisher $D$,
+> Remove the absolute value in the def of comp. ind. by negating the distinguisher $D$,
 > and then standard probability. 
 
 Note: the converse the easier to prove. Hence, prediction and distinguishing is essentially equivalent.
+
+Pseudo-Random Generator 
+------------------------
+
+#### **Definition:** Pseudo-random Ensembles.
+
+{: .defn}
+> The probability ensemble $\set{X_n}_n}$, where $X_n$ is a probability distribution
+> over $\bit^{l(n)}$ for some polynomial $l(\cdot)$, is said to be pseudorandom 
+> if $\set{X_n}_n \approx \set{U_{l(n)}}_n$,
+> where $U_m$ is the uniform distribution over $\bit^m$.
+
+Note:
+- this definition says that a pseudorandom distribution must pass 
+  **all** efficiently computable tests that the uniform distribution would have passesd.
+- it is hard to check or prove if a distribution is pseudorandom 
+  (due to the "for all" quantifier from comp. ind.)
+
+#### **Definition:** Pseudo-random Generators.
+
+{: .defn}
+> A function $g : \bit^\ast \to \bit^\ast$ is a *Pseudo-random Generator (PRG)* 
+> if the following holds.
+> 1. (efficiency): $g$ can be computed in PPT.
+> 2. (expansion): $|g(x)| \gt |x|$
+> 3. The ensemble $\set{x \gets U_n : g(x)}_n$ is pseudorandom.
+
+We sometimes say that the expansion of PRG $g$ is $t$ 
+if $|g(x)| - |x| \ge t$ for all $x$.
+
+Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
+(proof left as exercise, why expansion is necessary?)
 
 
