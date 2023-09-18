@@ -5,6 +5,7 @@ nav_exclude: true
 ---
 
 Math tests
+----------
 
 $
 \newcommand{\Enc}{\mathsf{Enc}}
@@ -79,14 +80,19 @@ For "Kramdown" renderer:
 
 test macro $\N$
 
-[test pdf](../../otherdocs/[SODA18]CacheOblivSort.pdf)
+Kramdown tests
+--------------
+
+[Link to pdf](../../otherdocs/[SODA18]CacheOblivSort.pdf)
+
+[Link to section](1-intro.md#a-toy-example-match-making)
 
 **purple**{: .label .label-purple}
 **red**{: .label .label-red}
 Notice there is no space from span-level obj.
 
-
-[Link to section](1-intro.md#a-toy-example-match-making)
+{:.wk-note}
+this is a note, block-level. 
 
 #### **Definition:** Shannon Secrecy.
 
