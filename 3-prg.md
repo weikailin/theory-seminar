@@ -183,10 +183,10 @@ Pseudo-Random Generator
 #### **Definition:** Pseudo-random Ensembles.
 
 {: .defn}
-> The probability ensemble $\set{X_n}_n$, where $X_n$ is a probability distribution
+> The probability ensemble $\set{X\_n}\_n$, where $X\_n$ is a probability distribution
 > over $\bit^{l(n)}$ for some polynomial $l(\cdot)$, is said to be pseudorandom 
-> if $\set{X_n}_n \approx \set{U_{l(n)}}_n$,
-> where $U_m$ is the uniform distribution over $\bit^m$.
+> if $\set{X\_n}\_n \approx \set{U\_{l(n)}}\_n$,
+> where $U\_m$ is the uniform distribution over $\bit^m$.
 
 Note:
 - this definition says that a pseudorandom distribution must pass 
