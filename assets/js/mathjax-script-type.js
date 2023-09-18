@@ -35,6 +35,7 @@ MathJax = {
       cB: "\\mathcal{B}",
       cC: "\\mathcal{C}",
       cD: "\\mathcal{D}",
+      cH: "\\mathcal{H}",
       cK: "\\mathcal{K}",
       cM: "\\mathcal{M}",
       cX: "\\mathcal{X}",
