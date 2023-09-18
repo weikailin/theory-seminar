@@ -242,15 +242,21 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 >   g(x)[1...n] & i = 1,\\
 >   g(h^{i-1}(x))[1...n] & i > 1
 > \end{cases}, \text{ and }
-> s^i(x) := \begin{cases}
+> s^i := s^i(x) := \begin{cases}
 >   g(x)[n+1]  & i=1,\\
 >   g(h^{i-1}(x))[n+1] & i \gt 1.
 > \end{cases}
 > $$
 > 
-> We have $g'(x) = s^1 s^2 ...s^{\ell(n)}$, and we want to prove it through Hybrid Lemma.
-> Given $n$, define hybrid distributions $H_0 := U_{\ell(n)}$, $H_{\ell(n)} := g'(x)$,
-> and $H_i$ for $i = 0,1,...,\ell(n)-1$ as 
+> We have $g'(x) = s^1 \\| s^2 \\| ...s^{\ell(n)}$, and we want to prove it through Hybrid Lemma.
+> Given $n$, define hybrid distributions $H_0 := g'(x)$, $H_{\ell(n)} := U_{\ell(n)}$,
+> and define $H_i$ for $i = 1,...,\ell(n)$ as 
+> 
+> $$
+> H_i := U_i \\| s^{1} \| ...s^{\ell(n)-i},
+> $$
+> 
+> where $U_i$ denotes sampling an $i$-bit string uniformly at random.
 > 
 > 
 
