@@ -400,7 +400,7 @@ That is, indistinguishable by any NUPPT Turing machine that is *capable of inter
 #### **Definition:** Pseudo-random Functions (PRFs)
 
 {:.defn}
-> A family of functions $\set{f_s: \bin^{|s|} \to \bit^{|s|}}_{s \in \bits}$
+> A family of functions $\set{f_s: \bit^{|s|} \to \bit^{|s|}}_{s \in \bits}$
 > is *pseudo-random* if
 > 
 > - (Easy to compute): $f_s(x)$ can be computed by a PPT algo that is given input $s,x$.
@@ -443,3 +443,18 @@ $$
 That is, we evaluate $g$ on $s$, but keep only one side of the output depending on $b_1$,
 and then keep applying $g$ on the kept side, and then continue to choose the side by $b_2$, and so on.
 
+This constructs a binary tree. 
+The intuition is from expanding the 1-bit PRG,
+but now we want that any sub-string of the expansion can be efficiently computed.
+(We CS people love binary trees.)
+Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
+
+{:.proof}
+> There are $2^n$ leaves in the tree, too many so that we can not use the
+> "switch one more PRG to uniform in each hybrid" technique as in expanding PRG.
+> The trick is that the distinguisher $D$ can only query $f_s$ at most polynomial many times
+> since $D$ is poly-time.
+> Each query correspond to a path in the binary tree, and there are at most 
+> polynomial many nodes in all queries.
+> 
+> 
