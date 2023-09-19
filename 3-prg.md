@@ -322,10 +322,10 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > That implies 
 > 
 > $$
-> \begin{cases}
+> \begin{align*}
 > \Pr_{t,i} [D'(t) = 1 | i=j] = \Pr[t' \gets H_{j+1} : D(t') = 1], \\
 > \Pr_{x,i} [D'(t) = 1 | i=j] = \Pr[t' \gets H_{j} : D(t') = 1].
-> \end{cases}
+> \end{align*}
 > $$
 > 
 > We thus have 
@@ -334,7 +334,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > \begin{align*}
 > & \Pr_{t\gets U_{n+1}, i} [D'(t) = 1] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1] \\
 > =& \frac{1}{\ell} \cdot \sum_{j=0}^{\ell-1} \Pr_{t'\gets H_{j+1}} [D(t') = 1] - \Pr_{t' \gets H_j} [D(t') = 1] \\
-> =& \frac{1}{\ell} \cdot \left(\Pr_{t'\gets H_\ell [D(t') = 1] - \Pr_{t' \gets H_0} [D(t') = 1]\right) \\
+> =& \frac{1}{\ell} \cdot \left(\Pr_{t'\gets H_\ell} [D(t') = 1] - \Pr_{t' \gets H_0} [D(t') = 1]\right) \\
 > \ge& \frac{1}{\ell} \cdot \frac{1}{p(n)},
 > \end{align*}
 > $$
