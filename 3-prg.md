@@ -8,6 +8,7 @@ nav_exclude: false
 $
 \newcommand{\wkxxx}{[WK: xxx]}
 $
+{: .d-none}
 
 Indistinguishability and Pseudo-Randomness
 ==========================================
@@ -267,7 +268,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > and define $H_i$ for $i = 1,...,\ell-1$ as 
 > 
 > $$
-> H_i := U_i \\| s^{1} \| ...s^{\ell(n)-i},
+> H_i := U_i \| s^{1} \| ...s^{\ell(n)-i},
 > $$
 > 
 > where $U_i$ denotes sampling an $i$-bit string uniformly at random.
@@ -275,8 +276,8 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > 
 > $$
 > \begin{align*}
-> H_{i+1} & = U_{i} \| U_1 \| s^{1}(x) \| ...s^{\ell-i-1}(x), \text{ and } \\
-> H_{i} & = U_{i} \| s^{1}(x) \| s^{2}(x) \| ...s^{\ell-i}(x), \\
+> H_{i+1} & = U_{i} \| U_1 \| s^{1} \| ...s^{\ell-i-1}, \text{ and } \\
+> H_{i} & = U_{i} \| s^{1} \| s^{2} \| ...s^{\ell-i} \\
 > & = U_{i} \| g(x)[n+1] \| s^{1}(g(x)[1...n]) \| ...s^{\ell-i-1}(g(x)[1...n])
 > \end{align*}
 > $$
@@ -284,14 +285,14 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > for all $i = 0, 1, ..., \ell$.
 > 
 > Assume for contra (AC), there exists NUPPT $D$, poly $p(n)$ s.t. for inf many $n\in\N$,
-> $D$ distinguishes $\set{x\gets\bit^n : g(x)}_n$ and $U_{\ell(n)}$ w.p. at least $1/p(n)$.
+> $D$ distinguishes $\set{x\gets\bit^n : g(x)}\_n$ and $U\_{\ell(n)}$ w.p. at least $1/p(n)$.
 > The intuition is to apply Hybrid Lemma so that there exists $j^\ast$ 
-> such that $H_{j^*}, H_{j^\ast+1}$ are distinguishable, 
+> such that $H\_{j^*}, H\_{j^\ast+1}$ are distinguishable, 
 > and thus by Closure Lemma $g(x)$ is distinguishable from uniform.
 > 
 > We prove it formally by constructing $D'$ that aims to distinguish $g(x)$.
 > Given input $t \in \bit^{n+1}$, $D'$ performs:
-> 1. sample $i \gets \set{0,...,\ell-1}$, where $\ell \gets \ell(n)$
+> 1. Samplable $i \gets \set{0,...,\ell-1}$ (where $\ell \gets \ell(n)$)
 > 2. $t_0 \gets U_i$, $t_1 \gets t[n+1]$, and $t_2 \gets s^1(t[1...n]) \\| s^2(t[1...n]) \\| ...s^{\ell-i-1}(t[1...n])$
 > 3. output $D(t_0 \\| t_1 \\| t_2)$
 > 
@@ -300,12 +301,13 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > $$
 > \begin{align*}
 > & \Pr_{t\gets U_{n+1}, i} [D'(t) = 1] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1] \\
-> =& \sum_{j=0}^{\ell-1} \Pr_{t, i} [D'(t) = 1 \cap i=j] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1 \cap i=j] \\
-> =& \sum_{j=0}^{\ell-1} \left(\Pr_{t, i} [D'(t) = 1 | i=j] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1 | i=j]\right) \cdot \Pr[i=j] \\
-> =& \frac{1}{\ell} \cdot \sum_{j=0}^{\ell-1} \Pr_{t, i} [D'(t) = 1 | i=j] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1 | i=j] \\
+> =& \sum_{j=0}^{\ell-1} \Pr_{t, i} [D'(t) = 1 \cap i=j] - \Pr_{x, i} [D'(g(x)) = 1 \cap i=j] \\
+> =& \sum_{j=0}^{\ell-1} \left(\Pr_{t, i} [D'(t) = 1 | i=j] - \Pr_{x, i} [D'(g(x)) = 1 | i=j]\right) \cdot \Pr[i=j] \\
+> =& \frac{1}{\ell} \cdot \sum_{j=0}^{\ell-1} \Pr_{t, i} [D'(t) = 1 | i=j] - \Pr_{x, i} [D'(g(x)) = 1 | i=j] \\
 > \end{align*}
 > $$
-> where the sampling of random variable $i \gets \set{0,1,...,\ell-1}$ is omitted. 
+> 
+> where the random variable $i \gets \set{0,1,...,\ell-1}$ is sampled exactly the same as in $D'$. 
 > 
 > Notice that conditioned on $i = j$ for any fixed $j$, the distribution $t_0 \\| t_1 \\| t_2$ (given to $D$)
 > is identical to 
