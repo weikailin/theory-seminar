@@ -258,16 +258,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > 
 > where $U_i$ denotes sampling an $i$-bit string uniformly at random.
 > Clearly, $H_{\ell(n)} = U_{\ell(n)}$.
-> 
-> Assume for contra, there exists NUPPT $D$, poly $p(n)$ s.t. for inf many $n\in\N$,
-> $D$ distinguishes $\set{x\gets\bit^n : g(x)}_n$ and $U_{\ell(n)}$ w.p. at least $1/p(n)$.
-> Then for any such $n$, by hybrid lemma, there exists $j \in \set{0,1,...,\ell(n)-1}$ such that 
-> 
-> $$
-> \Pr[t\gets H_j : D(t)=1] - \Pr[t \gets H_{j+1} : D(t) = 1] \ge \frac{1}{mp(n)}.
-> $$
-> 
-> Observe that 
+> Also observe that $H_i, H_{i+1}$ differ by a $g(x)$, that is,
 > $$
 > \begin{align*}
 > H_{i+1} & = U_{i} \\| U_1 \\| s^{1}(x) \\| ...s^{\ell-i-1}(x), \text{ and } \\
@@ -275,40 +266,64 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > & = U_{i} \\| g(x)[n+1] \\| s^{1}(g(x)[1...n]) \\| ...s^{\ell-i-1}(g(x)[1...n])
 > \end{align*}
 > $$
-> for all $i$.
+> for all $i = 0, 1, ..., \ell$.
 > 
-> Hence, we can construct an NUPPT disintinguisher $D'$ such that distinguishes $g(x)$ and $U_1 \\| U_n$:
-> given input $t \in \bit^{n+1}$, $D'$ performs
-> 1. sample $i \gets \set{0,...,\ell-1}$
+> Assume for contra (AC), there exists NUPPT $D$, poly $p(n)$ s.t. for inf many $n\in\N$,
+> $D$ distinguishes $\set{x\gets\bit^n : g(x)}_n$ and $U_{\ell(n)}$ w.p. at least $1/p(n)$.
+> The intuition is to apply Hybrid Lemma so that there exists $j^\ast$ 
+> such that $H_{j^*}, H_{j^\ast+1}$ are distinguishable, 
+> and thus by Closure Lemma $g(x)$ is distinguishable from uniform.
+> 
+> We prove it formally by constructing $D'$ that aims to distinguish $g(x)$.
+> Given input $t \in \bit^{n+1}$, $D'$ performs:
+> 1. sample $i \gets \set{0,...,\ell-1}$, where $\ell \gets \ell(n)$
 > 2. $t_0 \gets U_i$, $t_1 \gets t[n+1]$, and $t_2 \gets s^1(t[1...n]) \\| s^2(t[1...n]) \\| ...s^{\ell-i-1}(t[1...n])$
 > 3. output $D(t_0 \\| t_1 \\| t_2)$
 > 
-> To show that $D'$ succeed with non-negl prob., notice that conditioned on $i = j'$ for any $j'$,
-> the distribution $t_0 \\| t_1 \\| t_2$ is identical to 
-> 
-> $$
-> \begin{cases}
-> H_{j'+1} & \text{if } t \gets \bit^{n+1}\\
-> H_{j'}  &  \text{if } x \gets \bit^n, t \gets g(x).
-> \end{cases}
-> $$
-> 
-> Hence, 
+> To show that $D'$ succeed with non-negl prob., we partition the event as follows:
 > 
 > $$
 > \begin{align*}
-> \Pr_{t\gets U_{n+1},i}[D'(t) = 1 | i = j'] - \Pr_{x\gets U_n}[t \gets g(x) : D'(t) = 1 | i = j']\\
-> = \Pr[D(H_{j'+1}) = 1] - \Pr[D(H_j') = 1].\\
+> & \Pr_{t\gets U_{n+1}, i} [D'(t) = 1] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1] \\
+> =& \sum_{j=0}^{\ell-1} \Pr_{t, i} [D'(t) = 1 \cap i=j] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1 \cap i=j] \\
+> =& \sum_{j=0}^{\ell-1} \left(\Pr_{t, i} [D'(t) = 1 | i=j] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1 | i=j]\right) \cdot \Pr[i=j] \\
+> =& \frac{1}{\ell} \cdot \sum_{j=0}^{\ell-1} \Pr_{t, i} [D'(t) = 1 | i=j] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1 | i=j] \\
 > \end{align*}
 > $$
->
->  
-> \Pr_{t,i}[D'(t) = 1]
-> \ge \Pr_{t,i}[D'(t) = 1 \cap i = j]
-> = \Pr_{t,i}[D'(t) = 1 | i = j] \frac{1}{\ell}
+> where the sampling of random variable $i \gets \set{0,1,...,\ell-1}$ is omitted. 
 > 
-> (WK: breakdown $i$ into sum of sub-events $i = j$ for all $j$, then change to $H_i$'s, then they cancel out)
-
+> Notice that conditioned on $i = j$ for any fixed $j$, the distribution $t_0 \\| t_1 \\| t_2$ (given to $D$)
+> is identical to 
+> 
+> $$
+> \begin{cases}
+> H_{j+1} & \text{if } t \gets \bit^{n+1}\\
+> H_{j}  &  \text{if } x \gets \bit^n, t \gets g(x).
+> \end{cases}
+> $$
+> 
+> That implies 
+> 
+> $$
+> \begin{cases}
+> \Pr_{t,i} [D'(t) = 1 | i=j] = \Pr[t' \gets H_{j+1} : D(t') = 1], \\
+> \Pr_{x,i} [D'(t) = 1 | i=j] = \Pr[t' \gets H_{j} : D(t') = 1].
+> \end{cases}
+> $$
+> 
+> We thus have 
+> 
+> $$
+> \begin{align*}
+> & \Pr_{t\gets U_{n+1}, i} [D'(t) = 1] - \Pr_{x\gets U_n, i} [D'(g(x)) = 1] \\
+> =& \frac{1}{\ell} \cdot \sum_{j=0}^{\ell-1} \Pr_{t'\gets H_{j+1}} [D(t') = 1] - \Pr_{t' \gets H_j} [D(t') = 1] \\
+> =& \frac{1}{\ell} \cdot \left(\Pr_{t'\gets H_\ell [D(t') = 1] - \Pr_{t' \gets H_0} [D(t') = 1]\right) \\
+> \ge& \frac{1}{\ell} \cdot \frac{1}{p(n)},
+> \end{align*}
+> $$
+> 
+> where the last inequality follows by (AC).
+> That is, $D'$ distinguishes $g(x)$ w.p. at least $\frac{1}{\ell(n)p(n)}$, contradicting $g$ is a PRG.
 
 
 <!-- > 
