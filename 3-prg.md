@@ -370,6 +370,51 @@ Pseudo-Random Functions
 
 In order to apply PRGs more efficiently, 
 we construct a tree structure and call the abstraction pseudo-random functions (PRFs).
+We begin with defining (truly) random function.
 
+#### **Definition:** Random Functions
 
+{: .defn}
+> A random function $f: \bit^n \to \bit^n$ is a random variable sampled uniformly 
+> from the set $\RF_n := \set{f : \bit^n \to \bit^n}$.
+
+We can view a random function in two ways.
+In the combinatorial view, any function $f: \bit^n \to \bit^n$ is described by
+a table of $2^n$ entries, each entry is the $n$-bit string, $f(x)$.
+
+$f(0000...00),f(0000...01), ...,f(1111...11)$
+
+In the computational view, a random function $f$ is a data structure that 
+initializes a map $m$, and then on any input $x$ perform the following:
+1. if $x \in m$, output $m[x]$
+2. else let $y \gets \bit^n$ uniformly at random, add $m[x] = y$, and output $y$
+
+In both views, the random function needs $2^n \cdot n$ bits to describe,
+and thus there are $2^{n2^n}$ random functions in $\RF_n$.
+
+Note: the random function $F\gets \RF_n$ is also known as *random oracle* in the literature.
+
+Intuitively, a *pseudo-random* function (PRF) shall look similar to a random function.
+That is, indistinguishable by any NUPPT Turing machine that is *capable of interacting with the function*.
+
+#### **Definition:** Pseudo-random Functions (PRFs)
+
+{:.defn}
+> A family of functions $\set{f_s: \bin^{|s|} \to \bit^{|s|}}_{s \in \bits}$
+> is *pseudo-random* if
+> 
+> - (Easy to compute): $f_s(x)$ can be computed by a PPT algo that is given input $s,x$.
+> - (Pseudorandom): for any NUPPT $D$, there exists a negl function $\eps(\cdot)$ s.t.
+>   
+>   $$
+>   \Pr[s\gets \bit^n : D^{f_s(\cdot)}(1^n) = 1] - \Pr[F\gets \RF_n : D^{F(\cdot)}(1^n) = 1] \le \eps(n).
+>   $$
+>   
+>   This is often denoted as $\set{s\gets \bit^n : f_s}_n \approx \set{F \gets \RF_n : F}_n$.
+
+Note: $D^{f(\cdot)}$ denotes that the TM $D$ may interact with the function $f$ 
+through black-box input and output, while each input-output takes time to read/write 
+but computing $f$ takes 0 time.
+
+Note: similar to PRG, the seed $s$ is not revealed to $D$ (otherwise it is trivial to distinguish).
 
