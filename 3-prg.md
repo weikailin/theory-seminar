@@ -328,7 +328,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > \end{align*}
 > $$
 > 
-> We thus have 
+> We thus have the summations cancelling out,
 > 
 > $$
 > \begin{align*}
@@ -348,8 +348,8 @@ We did not apply Hybrid Lemma (and no triangular ineq), nor did we use Closure L
 Alternatively after (AC), one may apply Hybrid Lemma which claims that exists $j^\ast$
 s.t. $H_{j^\ast}$ is distinguishable from $H^{j^\ast+1}$ w.p. at least $1/(\ell p)$,
 and then hardwire $j^\ast$ into $D'$ in order to distinguish $g(x)$.
-This would make $D'$ *non-uniform* because $j^\ast$ can depend on each $n$ 
-and we do not have an efficient way to find $j^\ast$.
+This would make $D'$ **non-uniform** because $j^\ast$ would depend on each $n$ 
+and we would not have an efficient way to find $j^\ast$.
 
 
 
