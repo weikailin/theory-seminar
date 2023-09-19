@@ -13,6 +13,7 @@ $
 \newcommand{\cK}{\mathcal{K}}
 \newcommand{\card}[1]{\vert{#1}\vert}
 $
+{: .d-none}
 
 Introduction
 ============

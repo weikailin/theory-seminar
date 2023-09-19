@@ -23,6 +23,7 @@ $
 \newcommand{\mul}{\mathrm{mul}}
 \newcommand{\univ}{\mathrm{univ}}
 $
+{: .d-none}
 
 
 One-Way Functions
