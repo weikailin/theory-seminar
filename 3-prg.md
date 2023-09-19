@@ -275,9 +275,9 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > 
 > $$
 > \begin{align*}
-> H_{i+1} & = U_{i} \\| U_1 \\| s^{1}(x) \\| ...s^{\ell-i-1}(x), \text{ and } \\
-> H_{i} & = U_{i} \\| s^{1}(x) \\| s^{2}(x) \\| ...s^{\ell-i}(x), \\
-> & = U_{i} \\| g(x)[n+1] \\| s^{1}(g(x)[1...n]) \\| ...s^{\ell-i-1}(g(x)[1...n])
+> H_{i+1} & = U_{i} \| U_1 \| s^{1}(x) \| ...s^{\ell-i-1}(x), \text{ and } \\
+> H_{i} & = U_{i} \| s^{1}(x) \| s^{2}(x) \| ...s^{\ell-i}(x), \\
+> & = U_{i} \| g(x)[n+1] \| s^{1}(g(x)[1...n]) \| ...s^{\ell-i-1}(g(x)[1...n])
 > \end{align*}
 > $$
 > 
@@ -340,6 +340,9 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > where the last inequality follows by (AC).
 > That is, $D'$ distinguishes $g(x)$ w.p. at least $\frac{1}{\ell(n)p(n)}$, contradicting $g$ is a PRG.
 
+**Notice:**{:.label}
+In the above, we proved it formally and preserved the uniformity (if $D$ is a uniform TM, then $D'$ is also uniform). 
+We did not apply Hybrid Lemma (and no triangular ineq), 
 
 <!-- > 
 > Assume for contra, there is a NUPPT distinguisher $D$ and poly $p$ s.t. for inf many $n$,
