@@ -77,7 +77,7 @@ For "Kramdown" renderer:
   Tricky escape?
 
   $$
-> H_i := U_i \\| s^{1} \| ...s^{\ell(n)-i},
+  H_i := U_i \\| s^{1} \| ...s^{\ell(n)-i},
   $$
 
 - Unfortunately need to escape curly braces $\\{0,1\\}$ due to markdown escapes. Seems no better way than latex macro.
