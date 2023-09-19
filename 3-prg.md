@@ -351,6 +351,17 @@ and then hardwire $j^\ast$ into $D'$ in order to distinguish $g(x)$.
 This would make $D'$ **non-uniform** because $j^\ast$ would depend on each $n$ 
 and we would not have an efficient way to find $j^\ast$.
 
+Example:
+Now suppose that we have a PRG $g$ with $n \mapsto \ell(n)$ expansion for any poly $\ell$.
+We can construct a *computationally* secure encryption by 
+sampling key $k$ as an $n$-bit string and then bitwise XORing $g(k)$ with the message.
+That $m \oplus g(k)$ encrypts one message.
+We can encrypt more messages by attaching to each message a sequence number,
+such as $(m_1 \oplus g(k)[1...n], 1), (m_2 \oplus g(k)[n...2n], 2)$, and so on.
+
+What's the downside of the above multi-message encryption?
+
+
 
 
 <!-- > 
