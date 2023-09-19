@@ -6,7 +6,7 @@ nav_exclude: false
 ---
 
 $
-\newcommand{\wkxxx}{[WK: xxx]}
+\newcommand{\RF}{\mathsf{RF}}
 $
 {: .d-none}
 
@@ -417,4 +417,29 @@ through black-box input and output, while each input-output takes time to read/w
 but computing $f$ takes 0 time.
 
 Note: similar to PRG, the seed $s$ is not revealed to $D$ (otherwise it is trivial to distinguish).
+
+#### **Theorem:** Construct PRF from PRG
+
+{:.theorem}
+> If a pseudorandom generator exists, then pseudorandom functions exist.
+
+We have shown that a PRG with 1-bit expansion implies any PRG with poly expansion.
+So, let $g$ be a length-doubling PRG, i.e., $|g(x)| = 2 |x|$.
+Also, define $g_0, g_1$ to be 
+
+$$
+g_0(x) := g(x)[1...n], \text{ and } g_1:= g(x)[n...2n],
+$$
+
+where 
+$n := |x|$ is the input length.
+
+We define $f_s$ as follows to be a PRF:
+
+$$
+f_s(b_1 b_2 ... b_n) := g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_1}(s).
+$$
+
+That is, we evaluate $g$ on $s$, but keep only one side of the output depending on $b_1$,
+and then keep applying $g$ on the kept side, and then continue to choose the side by $b_2$, and so on.
 
