@@ -74,8 +74,8 @@ For "Kramdown" renderer:
 
 - However, table begins from a block so
   putting this on second line $| S |$ escapes it.
-
   Tricky escape?
+
   $$
 > H_i := U_i \\| s^{1} \| ...s^{\ell(n)-i},
   $$
