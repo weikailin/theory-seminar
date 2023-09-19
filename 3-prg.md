@@ -342,7 +342,14 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 
 **Notice:**{:.label}
 In the above, we proved it formally and preserved the uniformity (if $D$ is a uniform TM, then $D'$ is also uniform). 
-We did not apply Hybrid Lemma (and no triangular ineq), 
+We did not apply Hybrid Lemma (and no triangular ineq), nor did we use Closure Lemma.
+Alternatively after (AC), one may apply Hybrid Lemma which claims that exists $j^*$
+s.t. $H_{j^\ast}$ is distinguishable from $H^{j^\ast+1}$ w.p. at least $1/(\ell p)$,
+and then hardwire $j^\ast$ into $D'$ in order to distinguish $g(x)$.
+This would make $D'$ *non-uniform* because $j^\ast$ can depend on each $n$ 
+and we do not have an efficient way to find $j^\ast$.
+
+
 
 <!-- > 
 > Assume for contra, there is a NUPPT distinguisher $D$ and poly $p$ s.t. for inf many $n$,

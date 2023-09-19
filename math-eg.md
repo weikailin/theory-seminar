@@ -58,7 +58,7 @@ $$
 \end{align*}
 $$
 
-env cases
+env cases (need config and include package)
 
 $$
 f_\mul(x,y) = \begin{cases}
@@ -67,7 +67,10 @@ x \cdot y & o.w.
 \end{cases}
 $$
 
-For "Kramdown" renderer:
+test macro $\N$
+
+Uncool "Kramdown" Renderer
+------------------------
 
 - Do we need to escape vertical pipes $| S |$? 
   Unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
@@ -78,7 +81,7 @@ For "Kramdown" renderer:
 - Tricky escape? The display mode below did NOT escape vpipe but escaped backslash.
 
   $$
-  H_i := U_i \\| s^{1} \| ...s^{\ell(n)-i},
+  H_i := U_i \\| s^{1} \| ...s^{\ell(n)-i}
   $$
 
 - Unfortunately need to escape curly braces $\\{0,1\\}$ due to markdown escapes. Seems no better way than latex macro.
@@ -87,8 +90,6 @@ For "Kramdown" renderer:
 
 - Sometimes need to escape underscores especially in inline math, such as $H^0_n := g'(s), H^1_n := U_1$.
   Unclear when italic is triggered.
-
-test macro $\N$
 
 Kramdown tests
 --------------
