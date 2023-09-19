@@ -351,6 +351,10 @@ and then hardwire $j^\ast$ into $D'$ in order to distinguish $g(x)$.
 This would make $D'$ **non-uniform** because $j^\ast$ would depend on each $n$ 
 and we would not have an efficient way to find $j^\ast$.
 
+We proved in the above that a PRG with 1-bit expansion is sufficient to build any poly-long expansion.
+We have not yet give any candidate construct of PRG (even 1-bit expansion), 
+but it is useful to firstly see what we can achieve using PRGs.
+
 Example:
 Now suppose that we have a PRG $g$ with $n \mapsto \ell(n)$ expansion for any poly $\ell$.
 We can construct a *computationally* secure encryption by 
@@ -361,10 +365,11 @@ such as $(m_1 \oplus g(k)[1...n], 1), (m_2 \oplus g(k)[n...2n], 2)$, and so on.
 
 What's the downside of the above multi-message encryption?
 
+Pseudo-Random Functions 
+------------------------
+
+In order to apply PRGs more efficiently, 
+we construct a tree structure and call the abstraction pseudo-random functions (PRFs).
 
 
 
-<!-- > 
-> Assume for contra, there is a NUPPT distinguisher $D$ and poly $p$ s.t. for inf many $n$,
-> $D$ distinguishes ensembles $\cH^0, \cH^2$ w.p. $\ge 1/p(n)$.
-> Then, by hybrid lemma, there ex -->
