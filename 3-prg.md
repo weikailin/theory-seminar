@@ -104,7 +104,8 @@ Examples:
 
 1. $M$ ignores its input. Clearly, $M(X_n) \equiv M(Y_n)$ for all $n$.
 2. $M$ is identity, i.e., its output is exactly the input. $\set{M(X_n) = X_n}_n \approx \set{M(Y_n)=Y_n}_n$.
-3. $M$ outputs the first half of the input, i.e., $M(x) := x[1, ..., |x|/2]$.
+3. $M$ outputs the first half of the input, 
+   i.e., $M(x) := x[1, ..., |x|/2]$.
 
 #### **Lemma:** Hybrid Lemma
 
@@ -214,26 +215,34 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 
 {:.theorem}
 > Let $g:\bit^n \to \bit^{n+1}$ to be a PRG. 
-> For any polynomial $\ell$, define $g': \bit^n \to \bit^{\ell(n)}$ as follows:
+> For any polynomial $\ell(n) \gt n$, define $g': \bit^n \to \bit^{\ell(n)}$ as follows:
 > 
 > $$
-> g'(s) \to b_1 b_2 ... b_{\ell(n)},
+> g'(s) \to b_1 b_2 ... b_{\ell},
 > $$
 > 
 > where 
-> $n := |s|$, $X_0 \gets s, x_{i+1} \\| b_{i+1} \gets g(x_i)$. Then $g'$ is a PRG.
+> $\ell := \ell(|s|)$, $x_0 \gets s, x_{i+1} \\| b_{i+1} \gets g(x_i)$. Then $g'$ is a PRG.
 
 {:.proof-title}
 > Proof, warmup:
 > 
 > Suppose that $\ell = 2$, no expansion, but we want to show pseudorandomness.
-> Define distributions $H^0\_n := g'(s), H^1\_n := U\_1 \\| g(U\_n)[n+1], H^2\_n := U\_2$ for $n \in \N$.
+> Define distributions 
+> 
+> $$
+> H^0\_n := g'(s), H^1\_n := U\_1 \\| g(s)[n+1], H^2\_n := U\_2
+> $$
+> 
+> for $n \in \N$, and define $\cH^i := \set{H^i_n}_n$ for $i=0,1,2$.
 > Since $g'(s) = g(s)[n+1] \\| g(g(s)[1...n])[n+1]$, by $g(s) \approx U\_{n+1}$ and closure,
 > we have $\cH^0 \approx \cH^1$.
 > By $g(x)$ is pseudorandom and closure, $g(U\_n)[n+1] \approx U\_1$, which implies $\cH^1 \approx \cH^2$.
-> By (the corollary of) hybrid lemma, we have $\cH^0 \approx \cH^2$.
+> By the corollary of hybrid lemma, we have $\cH^0 \approx \cH^2$.
 
-{:.proof}
+{:.proof-title}
+> Proof of PRG Expansion
+> 
 > It is slightly tricky when $\ell$ depends on $n$.
 > Define the prefix $h$ and last bit $s$ of iterating $g$ as:
 > 
@@ -241,24 +250,29 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > h^i(x) := \begin{cases}
 >   g(x)[1...n] & i = 1,\\
 >   g(h^{i-1}(x))[1...n] & i > 1
-> \end{cases}, \text{ and }
+> \end{cases}
+> $$
+> 
+> and
+> 
+> $$
 > s^i := s^i(x) := \begin{cases}
 >   g(x)[n+1]  & i=1,\\
 >   g(h^{i-1}(x))[n+1] & i \gt 1.
 > \end{cases}
 > $$
 > 
-> We have $g'(x) = s^1 \\| s^2 \\| ...s^{\ell(n)}$, and we want to prove it through Hybrid Lemma.
-> Given $n$, define hybrid distributions $H_0 := g'(x)$, $H_{\ell(n)} := U_{\ell(n)}$,
-> and define $H_i$ for $i = 1,...,\ell(n)$ as 
+> We have $g'(x) = s^1 \\| s^2 \\| ...s^{\ell}$, and we want to prove it through Hybrid Lemma.
+> Given $n$, define hybrid distributions $H_0 := g'(x)$, $H_{\ell} := U_{\ell}$,
+> and define $H_i$ for $i = 1,...,\ell-1$ as 
 > 
 > $$
 > H_i := U_i \\| s^{1} \| ...s^{\ell(n)-i},
 > $$
 > 
 > where $U_i$ denotes sampling an $i$-bit string uniformly at random.
-> Clearly, $H_{\ell(n)} = U_{\ell(n)}$.
-> Also observe that $H_i, H_{i+1}$ differ by a $g(x)$, that is,
+> Observe that for each $i=0,1,...,\ell-1$, $H_i$ and $H_{i+1}$ differ by a $g(x)$, that is,
+> 
 > $$
 > \begin{align*}
 > H_{i+1} & = U_{i} \\| U_1 \\| s^{1}(x) \\| ...s^{\ell-i-1}(x), \text{ and } \\
@@ -266,6 +280,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > & = U_{i} \\| g(x)[n+1] \\| s^{1}(g(x)[1...n]) \\| ...s^{\ell-i-1}(g(x)[1...n])
 > \end{align*}
 > $$
+> 
 > for all $i = 0, 1, ..., \ell$.
 > 
 > Assume for contra (AC), there exists NUPPT $D$, poly $p(n)$ s.t. for inf many $n\in\N$,
