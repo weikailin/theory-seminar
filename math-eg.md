@@ -91,6 +91,8 @@ Uncool "Kramdown" Renderer
 - Sometimes need to escape underscores especially in inline math, such as $H^0_n := g'(s), H^1_n := U_1$.
   Unclear when italic is triggered.
 
+- oracle $O\_{i,j,t}[t](\cdot)$ such that is similar to $H\_{i,j}$
+
 Kramdown tests
 --------------
 
