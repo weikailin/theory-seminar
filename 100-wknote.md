@@ -65,7 +65,7 @@ we invert it to $(M', z)$ s.t. $M'(x)$ just output $x$.
 Others
 -------
 Related courses:
-- PHYS 5880 Introduction to Quantum Computing
+- PHYS 5880 Introduction to Quantum Computing (Gia-Wei Chern, Fall 23)
 
 Quizzes:
 - What's your program / major? (for example, PhD, MCS, undergrad CS)
