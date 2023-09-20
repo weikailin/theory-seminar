@@ -517,11 +517,11 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > Now we have $n \cdot T(n)$ hybrids, so we can construct $D'(t)$:
 > 
 > 1. sample $i \gets \set{0,1,...,n-1}$ and $j\gets\set{0,...,T(n)-1}$ uniformly at random
-> 2. define oracle $O\_{i,j}[t](\cdot)$ such that is similar to $H\_{i,j}$ but 
+> 2. define oracle $O\_{i,j,t}(\cdot)$ such that is similar to $H\_{i,j}$ but 
 >    "injects" $t$ to the map $m$ in the $j$-th query if the prefix $b\_1 ... b\_i b\_{i+1} \notin m$.
 >    (This is constructable and computable only in the *next step* when queries come from $D$.)
-> 3. run and output $D^{O\_{i,j}[t](\cdot)}(1^n)$, that is running $D$ on input $1^n$ 
->    when providing $D$ with oracle queries to $O\_{i,j}[t]$
+> 3. run and output $D^{O\_{i,j,t}(\cdot)}(1^n)$, that is running $D$ on input $1^n$ 
+>    when providing $D$ with oracle queries to $O\_{i,j,t}$
 >
 > It remains to calculate the probabilities, namely, 
 > given (AC), $D'$ distinguishes $g(x)$ from uniformly sampled string w.p. $\ge \frac{1}{nT(n)p(n)}$,
