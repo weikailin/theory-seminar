@@ -487,10 +487,12 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > $$
 > H_{i,j}(b_1 ... b_n) :=
 > \begin{cases}
->   H_{i+1}(b_1 ... b_n) & \text{if the number of queries so far, including the current query} \le j
+>   H_{i+1}(b_1 ... b_n) & \text{number of queries} \le j
 >   H_i(b_1 ... b_n)     & \text{otherwise}
-> \end{cases}.
+> \end{cases},
 > $$
+> 
+> where the "number of queries" counts the queries to $H_{i,j}$ so far, including the current query.
 > 
 > We have $H_{i,0} \equiv H_i$. 
 > Moreover for any $D$ runs in time $T(n)$, we have $H_{i,T(n)} \equiv H_{i+1}$
@@ -502,11 +504,15 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 >    $$
 >    O_{i,j}(b_1 ... b_n) := 
 >    \begin{cases}
->    H_{i+1}(b_1 ... b_n) & \text{if the number of queries so far, including the current query} \lt j
->    H_{i+1}(b_1 ... b_n) & \text{if the number of queries so far, including the current query} = j
+>    H_{i+1}(b_1 ... b_n) & \text{the number of queries} \lt j \\
+>    g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_{i-2}}(t_{b_{i-1}}) & \text{number of queries} = j \\
 >    H_i(b_1 ... b_n)     & \text{otherwise}
->    \end{cases}.H_{i+1}(b_1 ... b_n) & \text{if the number of queries so far, including the current query} \le j
-> 2. run $D^{O_{i,j}(\cdot)}(1^n)$, that is running $D$ on input $1^n$ 
+>    \end{cases},
+>    $$
+>    
+>    (This is only computable later in the *next step* when queries come from $D$.)
+>    
+> 3. run $D^{O_{i,j}(\cdot)}(1^n)$, that is running $D$ on input $1^n$ 
 >    when providing $D$ oracle queries to $O_{i,j}$, defined as:
 > 
 > 
