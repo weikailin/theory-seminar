@@ -471,7 +471,7 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > 
 > $$
 > H_i(b_1 ... b_n) :=
-> g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_{i-1}}(s(b_{i}} b_{i-1} ... b_{1})),
+> g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_{i-1}}(s(b_{i} b_{i-1} ... b_{1})),
 > $$
 > 
 > where $s(a)$ is a random variable sampled by $s(a) \gets \bit^{n}$ for any string $a$ of $0$-$n$ bits.
@@ -495,6 +495,18 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > We have $H_{i,0} \equiv H_i$. 
 > Moreover for any $D$ runs in time $T(n)$, we have $H_{i,T(n)} \equiv H_{i+1}$
 > (their combinatorial views differ, but their computational views are identical for $T(n)$ queries).
-> 
+> Now we have $n \cdot T(n)$ hybrids, so we can construct $D'(t)$
+> 1. sample $i \gets \set{0,1,...,n-1}$ and $j\gets\set{0,...,T(n)-1}$ uniformly at random
+> 2. define oracle $O_{i,j}(\cdot)$ as
+>    
+>    $$
+>    O_{i,j}(b_1 ... b_n) := 
+>    \begin{cases}
+>    H_{i+1}(b_1 ... b_n) & \text{if the number of queries so far, including the current query} \lt j
+>    H_{i+1}(b_1 ... b_n) & \text{if the number of queries so far, including the current query} = j
+>    H_i(b_1 ... b_n)     & \text{otherwise}
+>    \end{cases}.H_{i+1}(b_1 ... b_n) & \text{if the number of queries so far, including the current query} \le j
+> 2. run $D^{O_{i,j}(\cdot)}(1^n)$, that is running $D$ on input $1^n$ 
+>    when providing $D$ oracle queries to $O_{i,j}$, defined as:
 > 
 > 
