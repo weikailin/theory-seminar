@@ -216,7 +216,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 #### **Lemma:** Expansion of a PRG
 
 {:.theorem}
-> Let $g:\bit^n \to \bit^{n+1}$ to be a PRG. 
+> Let $g:\bit^n \to \bit^{n+1}$ to be a PRG for all $n \in\N$. 
 > For any polynomial $\ell(n) \gt n$, define $g': \bit^n \to \bit^{\ell(n)}$ as follows:
 > 
 > $$
@@ -514,12 +514,16 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > We have $H_{i,0} \equiv H_i$. 
 > Moreover for any $D$ runs in time $T(n)$, we have $H_{i,T(n)} \equiv H_{i+1}$
 > (their combinatorial views differ, but their computational views are identical for $T(n)$ queries).
-> Now we have $n \cdot T(n)$ hybrids, so we can construct $D'(t)$
+> Now we have $n \cdot T(n)$ hybrids, so we can construct $D'(t)$:
+> 
 > 1. sample $i \gets \set{0,1,...,n-1}$ and $j\gets\set{0,...,T(n)-1}$ uniformly at random
 > 2. define oracle $O[t]_{i,j}(\cdot)$ such that is similar to $H_{i,j}$ but 
 >    "injects" $t$ to the map $m$ in the $j$-th query if the prefix $b_1 ... b_i b_{i+1} \notin m$.
 >    (This is constructable and computable only in the *next step* when queries come from $D$.)
 > 3. run and output $D^{O[t]_{i,j}(\cdot)}(1^n)$, that is running $D$ on input $1^n$ 
 >    when providing $D$ with oracle queries to $O[t]_{i,j}$
-> 
-> 
+>
+> It remains to calculate the probabilities, namely, 
+> given (AC), $D'$ distinguishes $g(x)$ from uniformly sampled string w.p. $\ge \frac{1}{nT(n)p(n)}$,
+> a contradiction.
+> The calculation is almost identical to [the proof of PRG expansion](#lemma-expansion-of-a-prg) and left as an exercise.
