@@ -62,9 +62,12 @@ If not, we have an easy way to invert: given an output $z$ that is short,
 we invert it to $(M', z)$ s.t. $M'(x)$ just output $x$.
 
 
-Quizzes
+Others
 -------
+Related courses:
+- PHYS 5880 Introduction to Quantum Computing
 
+Quizzes:
 - What's your program / major? (for example, PhD, MCS, undergrad CS)
 - Have you taken courses related to cryptography? (for example, blockchain, security, computation theory, complexity, probability, algebra, number theory) If you have any project / experience related to cryptography, you may describe it here.
 - What's your expectation or goal for this course? Try to be specific, such as to fulfill program requirement X, to build an application Y, or to get a better CV for future job Z.
