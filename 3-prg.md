@@ -385,10 +385,11 @@ a table of $2^n$ entries, each entry is the $n$-bit string, $f(x)$.
 
 $f(0000...00),f(0000...01), ...,f(1111...11)$
 
-In the computational view, a random function $f$ is a data structure that 
-initializes a map $m$, and then on any input $x$ perform the following:
-1. if $x \in m$, output $m[x]$
-2. else let $y \gets \bit^n$ uniformly at random, add $m[x] = y$, and output $y$
+In the computational view, a random function $f$ is a data structure that on any input $x$,
+perform the following:
+1. initialize a map $m$ to empty before any query
+2. if $x \notin m$, then sample $y \gets \bit^n$ and set $m[x] \gets y$
+3. output $m[x]$
 
 In both views, the random function needs $2^n \cdot n$ bits to describe,
 and thus there are $2^{n2^n}$ random functions in $\RF_n$.
@@ -467,14 +468,14 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > More formally, assume for contra (AC), there exists NUPPT $D$, poly $p$ s.t.
 > for inf many $n\in\N$, $D$ distinguishes $f_s$ from RF (in the oracle interaction).
 > We want to construct $D'$ that distinguishes $g(x)$.
-> We define hybrid oracles as follows:
+> We define hybrid oracles $H_i(b_1 ... b_n)$ as follows:
 > 
-> $$
-> H_i(b_1 ... b_n) :=
-> g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_{i-1}}(s(b_{i} b_{i-1} ... b_{1})),
-> $$
+> 1. the map $m$ is initialized to empty
+> 2. if the prefix $b_1 ... b_i \notin m$, then sample $s(b_{i} b_{i-1} ... b_{1}) \gets \bit^n$ 
+>    and set $m[b_i ... b_1] \gets s(b_{i} b_{i-1} ... b_{1})$
+> 3. output $g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_{i-1}}(m[b_{i} ... b_{1}])$
 > 
-> where $s(a)$ is a random variable sampled by $s(a) \gets \bit^{n}$ for any string $a$ of $0$-$n$ bits.
+> Notice that $H_i$ is a function defined using the computational view.
 > 
 > Let $\PRF_n := \set{f_s : s \gets \bit^n}$ be the distribution of $f_s$ for short.
 > We have $H_0 \equiv \PRF_n$ and $H_n \equiv \RF_n$, 
@@ -482,37 +483,43 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > The key observation is that,
 > given $D$ is PPT, we know a poly $T(n)$ that is the running time of $D$ on $1^n$,
 > and then we just need to switch at most $T(n)$ instances of $g(x)$.
-> That is to define sub-hybrids,
+> That is to define sub-hybrids $H_{i,j}$,
 > 
-> $$
-> H_{i,j}(b_1 ... b_n) :=
-> \begin{cases}
->   H_{i+1}(b_1 ... b_n) & \text{number of queries} \le j
->   H_i(b_1 ... b_n)     & \text{otherwise}
-> \end{cases},
-> $$
-> 
-> where the "number of queries" counts the queries to $H_{i,j}$ so far, including the current query.
+> 1. the map $m$ is initialized to empty
+> 2. if the prefix $b_1 ... b_i b_{i+1} \notin m$, 
+>    then depending on the "number of queries" that are made to $H_{i,j}$ so far, including the current query,
+>    do the following:
+>    sample $s \gets \bit^n$, set 
+>    
+>    $$
+>    m[b_{i+1} b_i ... b_1] \gets 
+>    \begin{cases}
+>      \bit^n   & \text{number of queries} \le j \\
+>      g_{b{i+1}}(s)     & \text{otherwise}
+>    \end{cases},
+>    $$
+>    
+>    and set
+>    
+>    $$
+>    m[\overline{b_{i+1}} b_i ... b_1] \gets 
+>    \begin{cases}
+>      \bit^n   & \text{number of queries} \le j \\
+>      g_{\overline{b{i+1}}}(s)     & \text{otherwise}
+>    \end{cases}.
+>    $$
+>    
+> 3. output $g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_{i}}(m[b_{i+1} ... b_{1}])$
 > 
 > We have $H_{i,0} \equiv H_i$. 
 > Moreover for any $D$ runs in time $T(n)$, we have $H_{i,T(n)} \equiv H_{i+1}$
 > (their combinatorial views differ, but their computational views are identical for $T(n)$ queries).
 > Now we have $n \cdot T(n)$ hybrids, so we can construct $D'(t)$
 > 1. sample $i \gets \set{0,1,...,n-1}$ and $j\gets\set{0,...,T(n)-1}$ uniformly at random
-> 2. define oracle $O_{i,j}(\cdot)$ as
->    
->    $$
->    O_{i,j}(b_1 ... b_n) := 
->    \begin{cases}
->    H_{i+1}(b_1 ... b_n) & \text{the number of queries} \lt j \\
->    g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_{i-2}}(t_{b_{i-1}}) & \text{number of queries} = j \\
->    H_i(b_1 ... b_n)     & \text{otherwise}
->    \end{cases},
->    $$
->    
->    (This is only computable later in the *next step* when queries come from $D$.)
->    
-> 3. run $D^{O_{i,j}(\cdot)}(1^n)$, that is running $D$ on input $1^n$ 
->    when providing $D$ oracle queries to $O_{i,j}$, defined as:
+> 2. define oracle $O[t]_{i,j}(\cdot)$ such that is similar to $H_{i,j}$ but 
+>    "injects" $t$ to the map $m$ in the $j$-th query if the prefix $b_1 ... b_i b_{i+1} \notin m$.
+>    (This is constructable and computable only in the *next step* when queries come from $D$.)
+> 3. run and output $D^{O[t]_{i,j}(\cdot)}(1^n)$, that is running $D$ on input $1^n$ 
+>    when providing $D$ with oracle queries to $O[t]_{i,j}$
 > 
 > 
