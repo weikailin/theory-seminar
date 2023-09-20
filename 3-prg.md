@@ -495,7 +495,7 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 >    m[b_{i+1} b_i ... b_1] \gets 
 >    \begin{cases}
 >      \bit^n   & \text{number of queries} \le j \\
->      g_{b{i+1}}(s)     & \text{otherwise}
+>      g_{b_{i+1}}(s)     & \text{otherwise}
 >    \end{cases},
 >    $$
 >    
@@ -505,7 +505,7 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 >    m[\overline{b_{i+1}} b_i ... b_1] \gets 
 >    \begin{cases}
 >      \bit^n   & \text{number of queries} \le j \\
->      g_{\overline{b{i+1}}}(s)     & \text{otherwise}
+>      g_{\overline{b_{i+1}}}(s)     & \text{otherwise}
 >    \end{cases}.
 >    $$
 >    
