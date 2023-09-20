@@ -7,6 +7,7 @@ nav_exclude: false
 
 $
 \newcommand{\RF}{\mathsf{RF}}
+\newcommand{\PRF}{\mathsf{PRF}}
 $
 {: .d-none}
 
@@ -456,5 +457,44 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > since $D$ is poly-time.
 > Each query correspond to a path in the binary tree, and there are at most 
 > polynomial many nodes in all queries.
+> Hence, we will switch the $g(x)$ evaluations from root to leaves of the tree
+> and from the first query to the last query.
+> 
+> Note: switching *each instance* of $g(x)$ (for each $x$) is a reduction
+> that runs $D$ to distinguish *one instance* of $g(x)$; 
+> therefore, we switch *exactly one* in each hybrid.
+> 
+> More formally, assume for contra (AC), there exists NUPPT $D$, poly $p$ s.t.
+> for inf many $n\in\N$, $D$ distinguishes $f_s$ from RF (in the oracle interaction).
+> We want to construct $D'$ that distinguishes $g(x)$.
+> We define hybrid oracles as follows:
+> 
+> $$
+> H_i(b_1 ... b_n) :=
+> g_{b_n} \circ g_{b_{n-1}} \circ ... g_{b_{i-1}}(s(b_{i}} b_{i-1} ... b_{1})),
+> $$
+> 
+> where $s(a)$ is a random variable sampled by $s(a) \gets \bit^{n}$ for any string $a$ of $0$-$n$ bits.
+> 
+> Let $\PRF_n := \set{f_s : s \gets \bit^n}$ be the distribution of $f_s$ for short.
+> We have $H_0 \equiv \PRF_n$ and $H_n \equiv \RF_n$, 
+> but there are still too many switches between $H_i, H_{i+1}$.
+> The key observation is that,
+> given $D$ is PPT, we know a poly $T(n)$ that is the running time of $D$ on $1^n$,
+> and then we just need to switch at most $T(n)$ instances of $g(x)$.
+> That is to define sub-hybrids,
+> 
+> $$
+> H_{i,j}(b_1 ... b_n) :=
+> \begin{cases}
+>   H_{i+1}(b_1 ... b_n) & \text{if the number of queries so far, including the current query} \le j
+>   H_i(b_1 ... b_n)     & \text{otherwise}
+> \end{cases}.
+> $$
+> 
+> We have $H_{i,0} \equiv H_i$. 
+> Moreover for any $D$ runs in time $T(n)$, we have $H_{i,T(n)} \equiv H_{i+1}$
+> (their combinatorial views differ, but their computational views are identical for $T(n)$ queries).
+> 
 > 
 > 
