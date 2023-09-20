@@ -527,3 +527,18 @@ Clearly, $f_s$ is easy to compute, and we want to prove it is pseudorandom.
 > given (AC), $D'$ distinguishes $g(x)$ from uniformly sampled string w.p. $\ge \frac{1}{nT(n)p(n)}$,
 > a contradiction.
 > The calculation is almost identical to [the proof of PRG expansion](#lemma-expansion-of-a-prg) and left as an exercise.
+
+Secure Encryption Scheme
+------------------------
+
+#### **Definition:** Chose-Plaintext-Attack Encryption (CPA)
+
+Hard-Core Bits from any OWF 
+---------------------------
+
+
+
+
+
+<!-- #### **Definition:** Chose-Ciphertext-Attack Encryption (CCA 1/2) -->
+
