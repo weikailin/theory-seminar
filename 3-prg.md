@@ -233,7 +233,7 @@ Example: if $g: \bit^n \to \bit^{n+1}$ for all $n$ is a PRG, then $g$ is a OWF.
 > Define distributions 
 > 
 > $$
-> H^0\_n := g'(s), H^1\_n := U\_1 \\| g(s)[n+1], H^2\_n := U\_2
+> H^0_n := g'(s), H^1_n := U_1 \| g(s)[n+1], H^2\_n := U\_2
 > $$
 > 
 > for $n \in \N$, and define $\cH^i := \set{H^i_n}_n$ for $i=0,1,2$.
