@@ -78,7 +78,7 @@ Uncool "Kramdown" Renderer
 - However, table begins from a block so
   putting this on second line $| S |$ escapes it.
 
-- Do we need to escape vertical pipes \(| S |\)? 
+- Do we need to escape vertical pipes \\(| S |\\)? 
   Unfortunately need to escape vertical pipes $\vert S \vert$ due to over sensitive table in kramdown.
   
 - Tricky escape? The display mode below did NOT escape vpipe but escaped backslash.
@@ -94,9 +94,9 @@ Uncool "Kramdown" Renderer
 - Sometimes need to escape underscores especially in inline math, such as $H^0_n := g'(s), H^1_n := U_1$.
   Unclear when italic is triggered.
 
-- oracle $O\_{i,j,t}[t](\cdot)$ such that is similar to $H\_{i,j}$
-
 - oracle \(O[t]_{i,j}(\cdot)\) such that is similar to \(H_{i,j}\)
+
+- unfortunate $O\_{i,j,t}[t](\cdot)$
 
 Kramdown tests
 --------------
