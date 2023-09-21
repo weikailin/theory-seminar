@@ -35,9 +35,6 @@ aux_links:
     - 'https://weikailin.github.io'
 # footer_content: 'test footer content'
 
-gems:
-  - jekyll-tidy
-
 # Collections for website data
 collections:
   staffers:
@@ -94,3 +91,8 @@ callouts:
   wknote:
     color: purple
     title: 'WKNote'
+
+# The output html is one-liner, tried this, no effect, must be just-the-docs template issue
+# gems:
+#   - jekyll-tidy
+
