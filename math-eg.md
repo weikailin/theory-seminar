@@ -96,7 +96,7 @@ Uncool "Kramdown" Renderer
 
 - oracle \(O[t]_{i,j}(\cdot)\) such that is similar to \(H_{i,j}\)
 
-- unfortunate $O\_{i,j,t}[t](\cdot)$
+- unfortunate \\(O\_{i,j,t}[t](\cdot)\\)
 
 Kramdown tests
 --------------
