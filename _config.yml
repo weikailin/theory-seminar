@@ -35,6 +35,9 @@ aux_links:
     - 'https://weikailin.github.io'
 # footer_content: 'test footer content'
 
+gems:
+  - jekyll-tidy
+
 # Collections for website data
 collections:
   staffers:
@@ -74,8 +77,6 @@ compress_html:
   startings: []
   blanklines: false
   profile: false
-
-html_prettify: true
 
 # WK's customize
 math: mathjax
