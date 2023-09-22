@@ -19,7 +19,7 @@ Welcome to Theory Seminar
 We are a group of researchers interested in theoretical computer science (TCS) at UVA.
 The goal of this seminar is to share both novel and classic ingenious ideas 
 in TCS, broadly speaking.
-Potential topics include (but not limited to ) algorithms, complexity,
+Potential topics include (but not limited to) algorithms, complexity,
 learning theory, coding theory, game theory, and cryptography.
 
 Fall 2023: we are planning to meeting biweekly, see the schedule below.
