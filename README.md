@@ -29,3 +29,10 @@ Of course, *you* are more than welcome to give a theory talk!
 Please send us an email to:
 
 - Wei-Kai Lin, wklin (at) virginia (dot) edu
+
+Schedule, Fall 2023
+----------------------------------------
+
+|Date    |Speaker               |Title                                    |
+---------------------------------------------------------------------------
+|Oct 5   |Everyone              |[Our favorite theorems](20231005-fav-thm.md)                            |
