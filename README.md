@@ -38,3 +38,4 @@ Schedule, Fall 2023
 |Oct 5   |Everyone              |[Our favorite theorems](20231005-fav-thm.md)                            |
 |Oct 19  |Biocomplexity Institute  | [Biocomplexity Institute Fall 2023 Semi-Annual Research Meeting
 ](https://biocomplexity.virginia.edu/event/biocomplexity-institute-fall-2023-semi-annual-research-meeting)      |
+|Nov 2   |Yuting Li  | [Basic Knowledge of Expanders and their Applications](20231102-expanders.md)
