@@ -39,3 +39,4 @@ Schedule, Fall 2023
 |Oct 19  |Biocomplexity Institute  | [Biocomplexity Institute Fall 2023 Semi-Annual Research Meeting](https://biocomplexity.virginia.edu/event/biocomplexity-institute-fall-2023-semi-annual-research-meeting)      |
 |Nov 2   |Yuting Li  | [Basic Knowledge of Expanders and their Applications](20231102-expanders.md)  |
 |Nov 16  |Yuting Li  | [Basic Knowledge of Expanders and their Applications (continued)](20231116-expanders.md)  |
+|Nov 30  |Zirou Qiu  | [The probabilistic method and its applications](20231130-prob-method.md)  |
