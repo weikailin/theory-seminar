@@ -19,6 +19,7 @@ The probabilistic method and its applications
 
 ### Abstract:
 The probabilistic method is a powerful technique to prove the existence of math objects that satisfy certain desirable properties (e.g., a proper coloring of a graph, a dominating set with bounded size). In this seminar, we give a tour of its usage in subjects such as combinatorics and number theory.
+
 Here are some applications that will be covered:
 
 1. Bounding the Ramsey number
