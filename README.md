@@ -40,3 +40,4 @@ Schedule, Fall 2023
 |Nov 2   |Yuting Li  | [Basic Knowledge of Expanders and their Applications](20231102-expanders.md)  |
 |Nov 16  |Yuting Li  | [Basic Knowledge of Expanders and their Applications (continued)](20231116-expanders.md)  |
 |Nov 30  |Zirou Qiu  | [The probabilistic method and its applications](20231130-prob-method.md)  |
+|Dec 7   |Zirou Qiu  | [The probabilistic method and its applications (continued)](20231207-prob-method.md)  |

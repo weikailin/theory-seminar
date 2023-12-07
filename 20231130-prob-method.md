@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 5. Basic Knowledge of Expanders and their Applications (continued)
+title: 5. The probabilistic method and its application
 nav_order: 5
 nav_exclude: false
 ---
