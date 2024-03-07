@@ -3,6 +3,7 @@ layout: page
 title: 6. The probabilistic method and its application (continued)
 nav_order: 6
 nav_exclude: false
+parent: 2023 Fall
 ---
 
 ### Date
