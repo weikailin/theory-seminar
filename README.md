@@ -34,5 +34,5 @@ Schedule, Spring 2024
 
 |Date    |Speaker               |Title                                    |
 |--------|----------------------|-----------------------------------------|
-|Oct 5   |Everyone              |[Our favorite theorems](20231005-fav-thm.md)                            |
-<!-- |Oct 19  |Biocomplexity Institute  | [Biocomplexity Institute Fall 2023 Semi-Annual Research Meeting](https://biocomplexity.virginia.edu/event/biocomplexity-institute-fall-2023-semi-annual-research-meeting)      | -->
+|Mar 12  |Yuting Li             |[Expander codes](20240312-expander-codes.md)                            |
+
