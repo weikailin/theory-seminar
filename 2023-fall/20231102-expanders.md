@@ -3,6 +3,7 @@ layout: page
 title: 3. Basic Knowledge of Expanders and their Applications
 nav_order: 3
 nav_exclude: false
+parent: 2023 Fall
 ---
 
 ### Date
