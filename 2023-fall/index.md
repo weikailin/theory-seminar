@@ -3,6 +3,7 @@ layout: default
 title: 2023 Fall
 nav_order: 100
 has_children: true
+has_toc: false
 ---
 
 This is an index to **past meetings.** The current meetings are [here](Readme.md).
@@ -13,7 +14,7 @@ Welcome to Theory Seminar
 
 **Location:** Rice Hall, 504
 
-![UVA Engineering](assets/images/uva-eng.png)
+![UVA Engineering](../assets/images/uva-eng.png)
 
 We are a group of researchers interested in theoretical computer science (TCS) at UVA.
 The goal of this seminar is to share both novel and classic ingenious ideas 
