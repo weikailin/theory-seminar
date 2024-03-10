@@ -5,8 +5,8 @@ nav_order: 1
 nav_exclude: false
 ---
 
-### Date
-Mar 12, 2024
+### Time
+9am, Tuesday, Mar 12, 2024
 
 ### Location
 Rice 414
