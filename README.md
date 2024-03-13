@@ -34,4 +34,5 @@ Schedule, Spring 2024
 |Date    |Speaker               |Title                                    |
 |--------|----------------------|-----------------------------------------|
 |Mar 12  |Yuting Li             |[Expander codes](20240312-expander-codes.md)                            |
+|Mar 26  |Yuting Li             |(more on expander codes)                            |
 |Apr 23  |Zirou Qiu             |TBD                            |
