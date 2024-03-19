@@ -35,4 +35,6 @@ Schedule, Spring 2024
 |--------|----------------------|-----------------------------------------|
 |Mar 12  |Yuting Li             |[Expander codes](20240312-expander-codes.md)                            |
 |Mar 26  |Yuting Li             |(more on expander codes)                            |
+|Apr 9   |Yanyi Liu             |TBD                            |
+|Apr 16  |Chen-Yu Wei           |TBD                            |
 |Apr 23  |Zirou Qiu             |TBD                            |
