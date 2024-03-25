@@ -34,7 +34,7 @@ Schedule, Spring 2024
 |Date    |Speaker               |Title                                    |
 |--------|----------------------|-----------------------------------------|
 |Mar 12  |Yuting Li             |[Expander codes](20240312-expander-codes.md)                            |
-|Mar 26  |Yuting Li             |(more on expander codes)                            |
+|Mar 26  |Yuting Li             |[Distance and Linear Time Decoder of Expander Codes](20240326-linear-time-expander-codes.md)             |
 |Apr 9   |Yanyi Liu             |TBD                            |
 |Apr 16  |Chen-Yu Wei           |TBD                            |
 |Apr 23  |Zirou Qiu             |TBD                            |
