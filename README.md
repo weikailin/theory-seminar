@@ -36,5 +36,5 @@ Schedule, Spring 2024
 |Mar 12  |Yuting Li             |[Expander codes](20240312-expander-codes.md)                            |
 |Mar 26  |Yuting Li             |[Distance and Linear Time Decoder of Expander Codes](20240326-linear-time-expander-codes.md)             |
 |Apr 9   |Yanyi Liu             |[A Direct PRF Construction from Kolmogorov Complexity](20240409-prf-from-kolm.md)                            |
-|Apr 16  |Chen-Yu Wei           |TBD                            |
+|Apr 16  |Chen-Yu Wei           |[The multiplicative weights update algorithm and its applications](20240416-multiplicative-weights.md)                            |
 |Apr 23  |Zirou Qiu             |TBD                            |
