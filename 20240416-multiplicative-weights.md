@@ -15,7 +15,7 @@ Rice 414
 Chen-Yu Wei
 
 ### Title:
-The multiplicative weights update algorithm and its applications
+The Multiplicative Weights Update Algorithm and its Applications
 
 ### Abstract:
 The multiplicative weights update (MWU) algorithm is a simple and classic algorithm that has found its applications in many areas, such as online decision making, optimization, and machine learning.  In this talk, I will present its original form in the "learning from experts" problem, and then show how it can be applied to solving two-player zero-sum games, linear programming, and boosting. The talk is mostly based on the survey paper by Arora et al. (2012). 
