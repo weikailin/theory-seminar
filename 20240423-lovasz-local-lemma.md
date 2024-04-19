@@ -5,14 +5,11 @@ nav_order: 5
 nav_exclude: false
 ---
 
-### Time
-9am, Tuesday, April 23, 2024
+### Time: 9-10:30 am, Tuesday, April 23, 2024
 
-### Location
-Rice 414
+### Location: Rice 414
 
-### Speaker
-Zirou Qiu
+### Speaker: Zirou Qiu
 
 ### Title:
 Lovász Local Lemma and its Applications in Randomized Algorithms
