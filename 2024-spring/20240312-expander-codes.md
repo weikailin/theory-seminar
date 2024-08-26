@@ -3,6 +3,7 @@ layout: page
 title: 1. Expander Codes
 nav_order: 1
 nav_exclude: false
+parent: 2024 Spring
 ---
 
 ### Time
