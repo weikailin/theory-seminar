@@ -10,9 +10,9 @@ seo:
 
 Welcome to Theory Seminar
 ----------------------------------------
-**Dates and Time:** Tuesdays, 9-11 am, biweekly (Spring 2024)
+**Dates and Time:** Mondays, 4:30-6:00pm, biweekly (Fall 2024)
 
-**Location:** Rice Hall, 414 
+**Location:** Rice Hall TBD 
 ![UVA Engineering](assets/images/uva-eng.png){:style="vertical-align: middle;"}
 
 We are a group of researchers interested in theoretical computer science (TCS) at UVA.
@@ -28,13 +28,17 @@ Please send us an email to:
 
 - Wei-Kai Lin, wklin (at) virginia (dot) edu
 
-Schedule, Spring 2024
+Schedule, Fall 2024
 ----------------------------------------
 
 |Date    |Speaker               |Title                                    |
 |--------|----------------------|-----------------------------------------|
-|Mar 12  |Yuting Li             |[Expander codes](20240312-expander-codes.md)                            |
-|Mar 26  |Yuting Li             |[Distance and Linear Time Decoder of Expander Codes](20240326-linear-time-expander-codes.md)             |
-|Apr 9   |Yanyi Liu             |[A Direct PRF Construction from Kolmogorov Complexity](20240409-prf-from-kolm.md)                         |
-|Apr 16  |Chen-Yu Wei           |[The Multiplicative Weights Update Algorithm and its Applications](20240416-multiplicative-weights.md)             |
-|Apr 23  |Zirou Qiu             |[Lovász Local Lemma and its Applications in Randomized Algorithms](20240423-lovasz-local-lemma.md)             |
+|Sep 2   |Everyone              |[Our favorite theorem](20240902-our-favorite.md)                            |
+|Sep 16  |TBD              |                            |
+|Sep 30  |TBD              |                            |
+|Oct 14  |TBD              |                            |
+|Oct 28  |TBD              |                            |
+|Nov 11  |TBD              |                            |
+|Nov 25  |TBD              |                            |
+|Dec 9   |Final, no meeting     |                            |
+
