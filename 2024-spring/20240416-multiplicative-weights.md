@@ -3,6 +3,7 @@ layout: page
 title: 4. Multiplicative Weights
 nav_order: 4
 nav_exclude: false
+parent: 2024 Spring
 ---
 
 ### Time

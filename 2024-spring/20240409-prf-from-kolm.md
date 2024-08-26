@@ -3,6 +3,7 @@ layout: page
 title: 3. A Direct PRF Construction from Kolmogorov Complexity
 nav_order: 3
 nav_exclude: false
+parent: 2024 Spring
 ---
 
 ### Time

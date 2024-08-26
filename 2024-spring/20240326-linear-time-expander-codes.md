@@ -3,6 +3,7 @@ layout: page
 title: 2. Distance and Linear Time Decoder of Expander Codes
 nav_order: 2
 nav_exclude: false
+parent: 2024 Spring
 ---
 
 ### Time

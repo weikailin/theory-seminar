@@ -3,6 +3,7 @@ layout: page
 title: 5. Lovász Local Lemma and its Applications in Randomized Algorithms
 nav_order: 5
 nav_exclude: false
+parent: 2024 Spring
 ---
 
 ### Time: 9-10:30 am, Tuesday, April 23, 2024

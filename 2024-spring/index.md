@@ -1,12 +1,12 @@
 ---
-layout: home
-title: UVA CS Theory Seminar
-nav_exclude: true
-permalink: /:path/
-seo:
-  type: Course
-  name: Theory Seminar, UVA CS
+layout: default
+title: 2024 Spring
+nav_order: 100
+has_children: true
+has_toc: false
 ---
+
+This is an index to **past meetings.** The current meetings are [here](Readme.md).
 
 Welcome to Theory Seminar
 ----------------------------------------
