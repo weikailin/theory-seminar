@@ -12,7 +12,7 @@ Welcome to Theory Seminar
 ----------------------------------------
 **Dates and Time:** Mondays, 4:30-6:00pm, biweekly (Fall 2024)
 
-**Location:** Rice Hall TBD 
+**Location:** Rice 109 
 ![UVA Engineering](assets/images/uva-eng.png){:style="vertical-align: middle;"}
 
 We are a group of researchers interested in theoretical computer science (TCS) at UVA.
