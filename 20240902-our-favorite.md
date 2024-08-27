@@ -9,7 +9,7 @@ nav_exclude: false
 4:30-6pm, Monday, Sep 2, 2024
 
 ### Location
-Rice TBD
+Rice 109
 
 ### Speaker
 Everyone
