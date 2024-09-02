@@ -29,5 +29,15 @@ I will also briefly chat about the format of meetings:
 - In-person and board talks are easier to keep people interested in
 - We need speakers, anyone is welcome!
 
-### Bio:
-N/A
+### Notes:
+
+It turns out that we touched a wide range of areas!
+- 6-coloring theorem
+- threshold graphs
+- one-way functions
+- convexity of ML
+- error-correcting codes
+- Myerson theorem
+- AKS sorting network
+
+<!-- Chen-Yu,Jinye,Shiyu,Chase,Zhuoer,Mathues,Wei-Kai -->
