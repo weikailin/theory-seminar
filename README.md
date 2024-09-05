@@ -39,6 +39,6 @@ Schedule, Fall 2024
 |Oct 14  |TBD              |                            |
 |Oct 28  |TBD              |                            |
 |Nov 11  |TBD              |                            |
-|Nov 25  |TBD              |                            |
+|Nov 25  |Matheus Ferreira      |TBD                            |
 |Dec 9   |Final, no meeting     |                            |
 
