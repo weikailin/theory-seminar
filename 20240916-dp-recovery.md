@@ -5,6 +5,8 @@ nav_order: 2
 nav_exclude: false
 ---
 
+### Title: Differentially private exact recovery for stochastic block models
+
 ### Time
 4:30-6pm, Monday, Sep 2, 2024
 
@@ -13,9 +15,6 @@ Rice 109
 
 ### Speaker
 Dung Nguyen
-
-### Title:
-Differentially private exact recovery for stochastic block models
 
 ### Abstract:
 The goal of community detection in graphs is to recover the underlying labels/attributes of nodes (e.g., political affiliation) based on their connectivity. Stochastic block models (SBMs) are widely studied network models for community detection algorithms. In the standard form of an SBM, the n vertices (or nodes) of a graph are divided into multiple pre-determined communities (or clusters). Connections between pairs of vertices are generated randomly and independently with pre-defined probabilities, depending on the communities to which the two endpoints belong.
