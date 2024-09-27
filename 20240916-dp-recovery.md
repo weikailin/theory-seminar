@@ -8,7 +8,7 @@ nav_exclude: false
 ### Title: Differentially private exact recovery for stochastic block models
 
 ### Time
-4:30-6pm, Monday, Sep 2, 2024
+4:30-6pm, Monday, Sep 16, 2024
 
 ### Location
 Rice 109

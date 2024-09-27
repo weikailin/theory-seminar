@@ -35,7 +35,7 @@ Schedule, Fall 2024
 |--------|----------------------|-----------------------------------------|
 |Sep 2   |Everyone              |[Our favorite theorem](20240902-our-favorite.md)                            |
 |Sep 16  |Dung Nguyen           |[Differentially private exact recovery for stochastic block models](20240916-dp-recovery.md)       |
-|Sep 30  |TBD              |                            |
+|Sep 30  |Alia Umrani           |[Anonymous Multi-receiver Certificateless Hybrid Signcryption for Broadcast Communication](20240930-signcryption.md)                            |
 |Oct 14  |No meeting            | Fall reading day                            |
 |Oct 28  |Haolin              |TBD                            |
 |Nov 11  |TBD              |                            |
