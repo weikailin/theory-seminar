@@ -38,7 +38,7 @@ Schedule, Fall 2024
 |Sep 30  |Alia Umrani           |[Anonymous Multi-receiver Certificateless Hybrid Signcryption for Broadcast Communication](20240930-signcryption.md)                            |
 |Oct 14  |No meeting            | Fall reading day                            |
 |Oct 28  |Haolin              |TBD                            |
-|Nov 11  |TBD              |                            |
+|Nov 11  |Jinye He              |TBD                            |
 |Nov 25  |Matheus Ferreira      |TBD                            |
 |Dec 9   |Final, no meeting     |                            |
 
