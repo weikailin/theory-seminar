@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Information-Theoretic Approaches for Efficient Exploration in Online Decision-Making
+title: 4. Information-Theoretic Approaches for Efficient Exploration in Online Decision-Making
 nav_order: 4
 nav_exclude: false
 ---
