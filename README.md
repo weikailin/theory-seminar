@@ -37,7 +37,7 @@ Schedule, Fall 2024
 |Sep 16  |Dung Nguyen           |[Differentially private exact recovery for stochastic block models](20240916-dp-recovery.md)       |
 |Sep 30  |Alia Umrani           |[Anonymous Multi-receiver Certificateless Hybrid Signcryption for Broadcast Communication](20240930-signcryption.md)                            |
 |Oct 14  |No meeting            | Fall reading day                            |
-|Oct 28  |Haolin              |TBD                            |
+|Oct 28  |Haolin              |[Information-Theoretic Approaches for Efficient Exploration in Online Decision-Making](20241028-online-decision.md)                            |
 |Nov 11  |Jinye He              |TBD                            |
 |Nov 25  |Matheus Ferreira      |TBD                            |
 |Dec 9   |Final, no meeting     |                            |
