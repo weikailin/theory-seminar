@@ -38,7 +38,7 @@ Schedule, Fall 2024
 |Sep 30  |Alia Umrani           |[Anonymous Multi-receiver Certificateless Hybrid Signcryption for Broadcast Communication](20240930-signcryption.md)                            |
 |Oct 14  |No meeting            | Fall reading day                            |
 |Oct 28  |Haolin              |[Information-Theoretic Approaches for Efficient Exploration in Online Decision-Making](20241028-online-decision.md)                            |
-|Nov 11  |Jinye He              |[Locally decodable codes with constant query complexity](const-query-ldc.md)                          |
+|Nov 11  |Jinye He              |[Locally decodable codes with constant query complexity](20241111-const-query-ldc.md)                          |
 |Nov 25  |Matheus Ferreira      |TBD                            |
 |Dec 9   |Final, no meeting     |                            |
 
