@@ -39,6 +39,6 @@ Schedule, Fall 2024
 |Oct 14  |No meeting            | Fall reading day                            |
 |Oct 28  |Haolin              |[Information-Theoretic Approaches for Efficient Exploration in Online Decision-Making](20241028-online-decision.md)                            |
 |Nov 11  |Jinye He              |[Locally decodable codes with constant query complexity](20241111-const-query-ldc.md)                          |
-|Nov 25  |Matheus Ferreira      |TBD                            |
+|Nov 25  |Matheus Ferreira      |[Credible, Truthful, and Two-Round (Optimal) Auctions via Cryptographic Commitments](20241125-matheus.md)                            |
 |Dec 9   |Final, no meeting     |                            |
 
