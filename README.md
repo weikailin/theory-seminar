@@ -33,4 +33,11 @@ Schedule, Spring 2025
 
 |Date    |Speaker               |Title                                    |
 |--------|----------------------|-----------------------------------------|
+|Jan 24  |          |[TBD](TBD)                            |
+|Feb 7   |          |[TBD](TBD)                            |
 |Feb 21  |Michele Fabi          |[TBD](TBD)                            |
+|Mar 7   |          |[TBD](TBD)                            |
+|Mar 21  |          |[TBD](TBD)                            |
+|Apr 4   |          |[TBD](TBD)                            |
+|Apr 18  |          |[TBD](TBD)                            |
+|May 2   |          |[TBD](TBD)                            |
