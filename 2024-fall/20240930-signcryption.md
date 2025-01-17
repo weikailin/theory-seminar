@@ -3,6 +3,7 @@ layout: page
 title: 3. Anonymous Multi-receiver Certificateless Hybrid Signcryption for Broadcast Communication
 nav_order: 3
 nav_exclude: false
+parent: 2024 Fall
 ---
 
 ### Title: Anonymous Multi-receiver Certificateless Hybrid Signcryption for Broadcast Communication

@@ -3,6 +3,7 @@ layout: page
 title: 2. Differentially private exact recovery for stochastic block models
 nav_order: 2
 nav_exclude: false
+parent: 2024 Fall
 ---
 
 ### Title: Differentially private exact recovery for stochastic block models

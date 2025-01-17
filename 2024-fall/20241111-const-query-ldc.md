@@ -3,6 +3,7 @@ layout: page
 title: 5. Locally decodable codes with constant query complexity
 nav_order: 5
 nav_exclude: false
+parent: 2024 Fall
 ---
 
 ### Time

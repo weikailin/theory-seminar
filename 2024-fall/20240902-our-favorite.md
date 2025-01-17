@@ -3,6 +3,7 @@ layout: page
 title: 1. Our Favorite Theorem
 nav_order: 1
 nav_exclude: false
+parent: 2024 Fall
 ---
 
 ### Time
