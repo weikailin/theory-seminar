@@ -91,6 +91,9 @@ callouts:
   wknote:
     color: purple
     title: 'WKNote'
+  highlight:
+    color: yellow
+    title: 'Highlight'
 
 # The output html is one-liner, tried this, no effect, must be just-the-docs template issue
 # gems:
