@@ -10,9 +10,9 @@ seo:
 
 Welcome to Theory Seminar
 ----------------------------------------
-**Dates and Time:** Mondays, 4:30-6:00pm, biweekly (Fall 2024)
+**Dates and Time:** Fridays, 12:15-1:45pm, biweekly (Spring 2025)
 
-**Location:** Rice 109 
+**Location:** TBD
 ![UVA Engineering](assets/images/uva-eng.png){:style="vertical-align: middle;"}
 
 We are a group of researchers interested in theoretical computer science (TCS) at UVA.
@@ -28,17 +28,9 @@ Please send us an email to:
 
 - Wei-Kai Lin, wklin (at) virginia (dot) edu
 
-Schedule, Fall 2024
+Schedule, Spring 2025
 ----------------------------------------
 
 |Date    |Speaker               |Title                                    |
 |--------|----------------------|-----------------------------------------|
-|Sep 2   |Everyone              |[Our favorite theorem](20240902-our-favorite.md)                            |
-|Sep 16  |Dung Nguyen           |[Differentially private exact recovery for stochastic block models](20240916-dp-recovery.md)       |
-|Sep 30  |Alia Umrani           |[Anonymous Multi-receiver Certificateless Hybrid Signcryption for Broadcast Communication](20240930-signcryption.md)                            |
-|Oct 14  |No meeting            | Fall reading day                            |
-|Oct 28  |Haolin              |[Information-Theoretic Approaches for Efficient Exploration in Online Decision-Making](20241028-online-decision.md)                            |
-|Nov 11  |Jinye He              |[Locally decodable codes with constant query complexity](20241111-const-query-ldc.md)                          |
-|Nov 25  |Matheus Ferreira      |TBD                            |
-|Dec 9   |Final, no meeting     |                            |
-
+|Feb 21  |Michele Fabi          |[TBD](TBD)                            |
