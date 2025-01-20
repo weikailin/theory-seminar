@@ -6,6 +6,7 @@ has_children: true
 has_toc: false
 ---
 
+{: .highlight}
 This is an index to **past meetings.** The current meetings are [here](Readme.md).
 
 Welcome to Theory Seminar
