@@ -7,7 +7,7 @@ has_toc: false
 ---
 
 
-This is an index to **past meetings.** The current meetings are [here](Readme.md).
+This is an index to **past meetings.** The current meetings are [here](README.md).
 
 Welcome to Theory Seminar
 ----------------------------------------
