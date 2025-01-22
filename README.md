@@ -33,11 +33,11 @@ Schedule, Spring 2025
 
 |Date    |Speaker               |Title                                    |
 |--------|----------------------|-----------------------------------------|
-|Jan 24  |          |[TBD](TBD)                            |
+|Jan 24  |No meeting          |                            |
 |Feb 7   |          |[TBD](TBD)                            |
 |Feb 21  |Michele Fabi          |[TBD](TBD)                            |
-|Feb 28  |Weiqiang Zheng        |[TBD](TBD)                            |
-|Mar 21  |          |[TBD](TBD)                            |
+|Mar 7   |Weiqiang Zheng        |[TBD](TBD)                            |
+|Mar 21  |Haolin Liu            |[TBD](TBD)                            |
 |Apr 4   |          |[TBD](TBD)                            |
 |Apr 18  |          |[TBD](TBD)                            |
 |May 2   |          |[TBD](TBD)                            |
