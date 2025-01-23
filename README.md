@@ -34,7 +34,7 @@ Schedule, Spring 2025
 |Date    |Speaker               |Title                                    |
 |--------|----------------------|-----------------------------------------|
 |Jan 24  |No meeting          |                            |
-|Feb 7   |          |[TBD](TBD)                            |
+|Feb 7   |Hadi Daneshmand       |[TBD](TBD)                            |
 |Feb 21  |Michele Fabi          |[TBD](TBD)                            |
 |Mar 7   |Weiqiang Zheng        |[TBD](TBD)                            |
 |Mar 21  |Haolin Liu            |[TBD](TBD)                            |
