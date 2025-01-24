@@ -8,7 +8,7 @@ has_toc: false
 
 
 {: .highlight}
-This is an index to **past meetings.** The current meetings are [here](README.md).
+This is an index to **past meetings.** The current meetings are [here](../README.md).
 
 Welcome to Theory Seminar
 ----------------------------------------
