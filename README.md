@@ -8,6 +8,11 @@ seo:
   name: Theory Seminar, UVA CS
 ---
 
+
+{: .highlight}
+Since Feb 2025, we moved our website to [https://sites.google.com/view/tcs-uva/theory-seminar](https://sites.google.com/view/tcs-uva/theory-seminar). This website is no longer updated.
+
+
 Welcome to Theory Seminar
 ----------------------------------------
 **Dates and Time:** Fridays, 12:15-1:45pm, biweekly (Spring 2025)
